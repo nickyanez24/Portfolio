@@ -1,1 +1,50 @@
-<h1>Spacecraft Dynamics</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacecraft Dynamics | Nickolas Yanez</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main>
+        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+
+        <h1>Spacecraft Dynamics</h1>
+        <p class="tagline">Orbital targeting, ground track generation, and perturbation modeling.</p>
+
+        <h2>Overview</h2>
+        <p>
+            This project focused on implementing the Skopinski-Johnson targeting algorithm to generate an orbit capable of passing over a specified ground target after a given number of revolutions.
+        </p>
+
+        <p>
+            The project combined orbital mechanics, coordinate transformations, numerical propagation, Earth rotation, and J2 perturbation modeling to validate the resulting ground track.
+        </p>
+
+        <h2>What I Worked On</h2>
+        <ul>
+            <li>Implemented the Skopinski-Johnson targeting algorithm in MATLAB.</li>
+            <li>Generated orbital elements from launch conditions, target location, and mission constraints.</li>
+            <li>Converted orbital elements into Earth-Centered Inertial position and velocity state vectors.</li>
+            <li>Propagated the orbit over multiple revolutions while accounting for J2 perturbations.</li>
+            <li>Converted propagated states into latitude and longitude ground tracks.</li>
+            <li>Validated the final orbit by comparing the ground track against the desired target location.</li>
+        </ul>
+
+        <h2>Technical Highlights</h2>
+        <ul>
+            <li>Connected analytical orbital targeting methods with numerical orbit propagation.</li>
+            <li>Included Earth rotation effects to map inertial spacecraft motion to Earth-fixed ground tracks.</li>
+            <li>Used J2 perturbation modeling to improve targeting fidelity over multiple revolutions.</li>
+            <li>Verified mission success through ground track visualization and target overflight analysis.</li>
+        </ul>
+
+        <h2>Tools Used</h2>
+        <p>
+            MATLAB, orbital mechanics, numerical simulation, coordinate transformations, J2 perturbation modeling, ground track analysis
+        </p>
+    </main>
+</body>
+</html>
