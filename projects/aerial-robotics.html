@@ -1,1 +1,87 @@
-<h1>Aerial Robotics</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial Robotics | Nickolas Yanez</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main>
+        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+
+        <h1>Aerial Robotics</h1>
+        <p class="tagline">Autonomous quadrotor simulation, perception, planning, and control.</p>
+
+        <h2>Overview</h2>
+        <p>
+            Aerial Robotics was a project-based course focused on autonomous quadrotor systems.
+            Throughout the semester, I worked with the major building blocks required for autonomous flight,
+            including dynamics, control, state estimation, computer vision, path planning, and trajectory generation.
+        </p>
+
+        <p>
+            The course connected theory from dynamics and controls with practical implementation in simulation,
+            robotics software, and autonomous navigation challenges.
+        </p>
+
+        <h2>Project Objectives</h2>
+        <ul>
+            <li>Develop a quadrotor simulation and control framework.</li>
+            <li>Model vehicle dynamics, aerodynamic drag, and motor behavior.</li>
+            <li>Integrate sensor models and state estimation for noisy measurements.</li>
+            <li>Implement computer vision and localization algorithms.</li>
+            <li>Develop path planning and trajectory generation methods for autonomous navigation.</li>
+            <li>Apply course concepts in a final autonomous competition.</li>
+        </ul>
+
+        <h2>What I Worked On</h2>
+        <ul>
+            <li>Built and validated a MATLAB quadrotor simulator using 6-DOF rigid body dynamics.</li>
+            <li>Implemented position, altitude, and attitude control algorithms.</li>
+            <li>Added aerodynamic drag and motor dynamics to improve simulation fidelity.</li>
+            <li>Simulated GNSS, IMU, and stereo-camera sensor measurements.</li>
+            <li>Integrated state estimation techniques for tracking under measurement noise.</li>
+            <li>Implemented computer vision localization using OpenCV and RANSAC.</li>
+            <li>Worked with graph-based path planning algorithms including DFS, Dijkstra, and A*.</li>
+        </ul>
+
+        <h2>Final Competition</h2>
+        <p>
+            The course culminated in a team-based final competition with two major challenges.
+            The first challenge required autonomous navigation through a timed obstacle course.
+            The second challenge focused on robust computer vision and required accurate 3D localization
+            of colored balloons in the presence of false detections.
+        </p>
+
+        <p>
+            Our team developed an autonomy architecture involving mission planning, global path planning,
+            local trajectory generation, and navigation logic. For the vision challenge, we incorporated
+            a RANSAC-based estimation approach into the balloon localization pipeline to reject outliers
+            and improve localization robustness.
+        </p>
+
+        <h2>Technical Highlights</h2>
+        <ul>
+            <li>Connected dynamics, controls, estimation, perception, and planning into a single autonomous system workflow.</li>
+            <li>Used RANSAC to improve localization performance when visual measurements contained false positives.</li>
+            <li>Applied path planning and trajectory generation concepts to a timed autonomous navigation problem.</li>
+            <li>Developed experience debugging robotics software across simulation, perception, and planning modules.</li>
+        </ul>
+
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li>Autonomous systems depend on the interaction between dynamics, estimation, perception, planning, and control.</li>
+            <li>Simulation assumptions strongly affect controller and estimator behavior.</li>
+            <li>Robust perception is critical when working with noisy or imperfect visual measurements.</li>
+            <li>Testing and debugging are just as important as the initial algorithm design.</li>
+        </ul>
+
+        <h2>Tools Used</h2>
+        <p>
+            MATLAB, C++, ROS, OpenCV, RANSAC, A*, Dijkstra, DFS, state estimation, quadrotor dynamics, feedback control
+        </p>
+    </main>
+</body>
+</html>
