@@ -192,24 +192,6 @@ a:hover {
     margin-bottom: 0;
 }
 
-.project-image {
-    width: 100%;
-    max-width: 900px;
-    display: block;
-    margin: 24px auto 8px auto;
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--border);
-}
-
-.image-caption {
-    color: var(--muted);
-    font-size: 0.92rem;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 28px;
-}
-
 .back-link {
     margin-bottom: 24px;
 }
@@ -220,6 +202,27 @@ a:hover {
 
 ul {
     padding-left: 22px;
+}
+
+/* Project page images */
+.project-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 26px auto 8px auto;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    object-fit: contain;
+}
+
+.image-caption {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    color: var(--muted);
+    font-size: 0.92rem;
+    text-align: center;
 }
 
 section,
@@ -257,5 +260,10 @@ section,
 
     h1 {
         font-size: 2.35rem;
+    }
+
+    .project-image {
+        max-width: 100%;
+        border-radius: 10px;
     }
 }
