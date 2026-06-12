@@ -5,10 +5,8 @@
     --space-dark: #111827;
     --muted: #666;
     --light-bg: #fafafa;
-    --card-bg: #ffffff;
-    --section-card-bg: #fffaf3;
+    --card-bg: #fffaf3;
     --border: #e0e0e0;
-    --soft-orange-border: rgba(191, 87, 0, 0.16);
 }
 
 * {
@@ -96,10 +94,6 @@ h2 {
     border-bottom: 2px solid var(--border);
 }
 
-.content-card h2 {
-    margin-top: 0;
-}
-
 .section-label {
     margin-top: 30px;
     color: var(--burnt-orange);
@@ -136,30 +130,6 @@ a:hover {
     opacity: 0.9;
 }
 
-/* Homepage beige section cards */
-.content-card {
-    background: var(--section-card-bg);
-    border: 1px solid var(--soft-orange-border);
-    border-radius: 18px;
-    padding: 30px;
-    margin-bottom: 32px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-}
-
-.project-category {
-    margin-top: 28px;
-}
-
-.project-category:first-of-type {
-    margin-top: 18px;
-}
-
-.experience-grid {
-    display: grid;
-    gap: 18px;
-}
-
-/* Tags */
 .tag-list {
     display: flex;
     flex-wrap: wrap;
@@ -167,14 +137,13 @@ a:hover {
 }
 
 .tag-list span {
-    background: white;
-    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border: 1px solid rgba(191, 87, 0, 0.16);
     border-radius: 999px;
     padding: 7px 12px;
     font-size: 0.95rem;
 }
 
-/* Project cards */
 .project-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -184,7 +153,7 @@ a:hover {
 .project,
 .experience {
     background: var(--card-bg);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(191, 87, 0, 0.16);
     border-left: 4px solid var(--burnt-orange);
     border-radius: 14px;
     padding: 20px;
@@ -283,7 +252,7 @@ ul {
 }
 
 .image-card {
-    background: var(--card-bg);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 14px;
@@ -304,7 +273,6 @@ ul {
     text-align: center;
 }
 
-/* Animation */
 section,
 .project,
 .experience {
@@ -322,7 +290,6 @@ section,
     }
 }
 
-/* Responsive layouts */
 @media (min-width: 750px) {
     .project-grid {
         grid-template-columns: 1fr 1fr;
@@ -347,11 +314,6 @@ section,
 
     h1 {
         font-size: 2.35rem;
-    }
-
-    .content-card {
-        padding: 22px;
-        border-radius: 14px;
     }
 
     .project-image {
