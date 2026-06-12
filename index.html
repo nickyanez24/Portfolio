@@ -29,14 +29,14 @@
             </div>
         </section>
 
-        <section>
+        <section class="content-card">
             <h2>About</h2>
             <p>
                 My work sits at the intersection of aerospace and robotics. I have experience with rocket hardware, autonomous systems, flight dynamics, controls, propulsion design, experimental testing, and simulation-based engineering.
             </p>
         </section>
 
-        <section>
+        <section class="content-card">
             <h2>Technical Interests</h2>
             <div class="tag-list">
                 <span>Robotics</span>
@@ -49,113 +49,121 @@
             </div>
         </section>
 
-        <section id="projects">
+        <section class="content-card" id="projects">
             <h2>Featured Projects</h2>
 
-            <h3 class="section-label">Club & Independent Engineering</h3>
-            <div class="project-grid">
-                <a class="project project-link" href="projects/actuating-fins.html">
-                    <h3>Actuating Fins</h3>
-                    <p>Servo-actuated fin control system for active rocket roll control, including torque analysis, servo selection, CAD, and prototyping.</p>
-                    <p class="project-tags">OpenRocket • CAD • Controls • 3D Printing</p>
-                </a>
+            <div class="project-category">
+                <h3 class="section-label">Club & Independent Engineering</h3>
 
-                <a class="project project-link" href="projects/air-brakes.html">
-                    <h3>Air Brakes System</h3>
-                    <p>Deployable aerodynamic braking system for active altitude control on a competition rocket using CFD, FEA, and prototype development.</p>
-                    <p class="project-tags">CFD • FEA • Rocketry • Flight Hardware</p>
-                </a>
+                <div class="project-grid">
+                    <a class="project project-link" href="projects/actuating-fins.html">
+                        <h3>Actuating Fins</h3>
+                        <p>Servo-actuated fin control system for active rocket roll control, including torque analysis, servo selection, CAD, and prototyping.</p>
+                        <p class="project-tags">OpenRocket • CAD • Controls • 3D Printing</p>
+                    </a>
 
-                <a class="project project-link" href="projects/flight-systems.html">
-                    <h3>Flight Systems Hardware</h3>
-                    <p>Composite fabrication, rocket assembly, recovery system integration, and flight hardware preparation.</p>
-                    <p class="project-tags">Composites • Assembly • Integration</p>
-                </a>
+                    <a class="project project-link" href="projects/air-brakes.html">
+                        <h3>Air Brakes System</h3>
+                        <p>Deployable aerodynamic braking system for active altitude control on a competition rocket using CFD, FEA, and prototype development.</p>
+                        <p class="project-tags">CFD • FEA • Rocketry • Flight Hardware</p>
+                    </a>
+
+                    <a class="project project-link" href="projects/flight-systems.html">
+                        <h3>Flight Systems Hardware</h3>
+                        <p>Composite fabrication, rocket assembly, recovery system integration, and flight hardware preparation.</p>
+                        <p class="project-tags">Composites • Assembly • Integration</p>
+                    </a>
+                </div>
             </div>
 
-            <h3 class="section-label">Course Projects</h3>
-            <div class="project-grid">
-                <a class="project project-link" href="projects/aerial-robotics.html">
-                    <h3>Aerial Robotics</h3>
-                    <p>Quadrotor simulation, state estimation, computer vision, path planning, and autonomous navigation.</p>
-                    <p class="project-tags">MATLAB • C++ • ROS • OpenCV</p>
-                </a>
+            <div class="project-category">
+                <h3 class="section-label">Course Projects</h3>
 
-                <a class="project project-link" href="projects/slv-design.html">
-                    <h3>Space Launch Vehicle Design</h3>
-                    <p>Launch vehicle propulsion architecture, engine sizing, thrust calculations, and systems-level vehicle design.</p>
-                    <p class="project-tags">Propulsion • Systems • Vehicle Sizing</p>
-                </a>
+                <div class="project-grid">
+                    <a class="project project-link" href="projects/aerial-robotics.html">
+                        <h3>Aerial Robotics</h3>
+                        <p>Quadrotor simulation, state estimation, computer vision, path planning, and autonomous navigation.</p>
+                        <p class="project-tags">MATLAB • C++ • ROS • OpenCV</p>
+                    </a>
 
-                <a class="project project-link" href="projects/spacecraft-dynamics.html">
-                    <h3>Spacecraft Dynamics</h3>
-                    <p>Orbital targeting and ground track generation using Skopinski-Johnson targeting, Earth rotation, and J2 perturbations.</p>
-                    <p class="project-tags">MATLAB • Astrodynamics • J2</p>
-                </a>
+                    <a class="project project-link" href="projects/slv-design.html">
+                        <h3>Space Launch Vehicle Design</h3>
+                        <p>Launch vehicle propulsion architecture, engine sizing, thrust calculations, and systems-level vehicle design.</p>
+                        <p class="project-tags">Propulsion • Systems • Vehicle Sizing</p>
+                    </a>
 
-                <a class="project project-link" href="projects/feedback-control.html">
-                    <h3>Aircraft Feedback Control</h3>
-                    <p>Aircraft altitude stabilization using pitch control, vertical velocity feedback, gain tuning, and X-Plane simulation.</p>
-                    <p class="project-tags">Controls • X-Plane • Simulation</p>
-                </a>
+                    <a class="project project-link" href="projects/spacecraft-dynamics.html">
+                        <h3>Spacecraft Dynamics</h3>
+                        <p>Orbital targeting and ground track generation using Skopinski-Johnson targeting, Earth rotation, and J2 perturbations.</p>
+                        <p class="project-tags">MATLAB • Astrodynamics • J2</p>
+                    </a>
 
-                <a class="project project-link" href="projects/robotic-leg.html">
-                    <h3>Robotic Leg</h3>
-                    <p>Robotic leg design, actuator integration, kinematic modeling, simulation, and PD control.</p>
-                    <p class="project-tags">Python • PyBullet • Kinematics</p>
-                </a>
+                    <a class="project project-link" href="projects/feedback-control.html">
+                        <h3>Aircraft Feedback Control</h3>
+                        <p>Aircraft altitude stabilization using pitch control, vertical velocity feedback, gain tuning, and X-Plane simulation.</p>
+                        <p class="project-tags">Controls • X-Plane • Simulation</p>
+                    </a>
 
-                <a class="project project-link" href="projects/impact-measurement.html">
-                    <h3>Instrumented Impact Measurement</h3>
-                    <p>Circuit design, sensor integration, DAQ testing, and impact analysis of packaging materials.</p>
-                    <p class="project-tags">LabVIEW • DAQ • Sensors</p>
-                </a>
+                    <a class="project project-link" href="projects/robotic-leg.html">
+                        <h3>Robotic Leg</h3>
+                        <p>Robotic leg design, actuator integration, kinematic modeling, simulation, and PD control.</p>
+                        <p class="project-tags">Python • PyBullet • Kinematics</p>
+                    </a>
 
-                <a class="project project-link" href="projects/vortex-generators.html">
-                    <h3>Vortex Generator Optimization</h3>
-                    <p>Wind tunnel testing and flow visualization to study vortex generator placement and drag reduction.</p>
-                    <p class="project-tags">Wind Tunnel • Aerodynamics • Testing</p>
-                </a>
+                    <a class="project project-link" href="projects/impact-measurement.html">
+                        <h3>Instrumented Impact Measurement</h3>
+                        <p>Circuit design, sensor integration, DAQ testing, and impact analysis of packaging materials.</p>
+                        <p class="project-tags">LabVIEW • DAQ • Sensors</p>
+                    </a>
 
-                <a class="project project-link" href="projects/python-projects.html">
-                    <h3>Intro to Python Projects</h3>
-                    <p>Foundational programming projects involving data processing, visualization, object-oriented programming, and game logic.</p>
-                    <p class="project-tags">Python • Data • Visualization</p>
-                </a>
+                    <a class="project project-link" href="projects/vortex-generators.html">
+                        <h3>Vortex Generator Optimization</h3>
+                        <p>Wind tunnel testing and flow visualization to study vortex generator placement and drag reduction.</p>
+                        <p class="project-tags">Wind Tunnel • Aerodynamics • Testing</p>
+                    </a>
+
+                    <a class="project project-link" href="projects/python-projects.html">
+                        <h3>Intro to Python Projects</h3>
+                        <p>Foundational programming projects involving data processing, visualization, object-oriented programming, and game logic.</p>
+                        <p class="project-tags">Python • Data • Visualization</p>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section id="experience">
+        <section class="content-card" id="experience">
             <h2>Experience</h2>
 
-            <div class="experience">
-                <h3>Longhorn Rocketry Association</h3>
-                <p>
-                    Flight systems hardware member and advanced research team lead working on high-powered rocket manufacturing, integration, air brakes, and actuated control surfaces.
-                </p>
-            </div>
+            <div class="experience-grid">
+                <div class="experience">
+                    <h3>Longhorn Rocketry Association</h3>
+                    <p>
+                        Flight systems hardware member and advanced research team lead working on high-powered rocket manufacturing, integration, air brakes, and actuated control surfaces.
+                    </p>
+                </div>
 
-            <div class="experience">
-                <h3>Maintenance Assistant</h3>
-                <p>
-                    Performed hands-on maintenance, repairs, inspections, groundskeeping, and tool-based work in a hospital facilities environment.
-                </p>
-            </div>
+                <div class="experience">
+                    <h3>Maintenance Assistant</h3>
+                    <p>
+                        Performed hands-on maintenance, repairs, inspections, groundskeeping, and tool-based work in a hospital facilities environment.
+                    </p>
+                </div>
 
-            <div class="experience">
-                <h3>Dining Hall Associate</h3>
-                <p>
-                    Worked in a fast-paced service environment requiring reliability, teamwork, communication, and attention to detail.
-                </p>
+                <div class="experience">
+                    <h3>Dining Hall Associate</h3>
+                    <p>
+                        Worked in a fast-paced service environment requiring reliability, teamwork, communication, and attention to detail.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section id="resume">
+        <section class="content-card" id="resume">
             <h2>Resume</h2>
             <p>Resume coming soon.</p>
         </section>
 
-        <section id="contact">
+        <section class="content-card" id="contact">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:nickyanez24@utexas.edu">nickyanez24@utexas.edu</a></p>
         </section>
