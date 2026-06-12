@@ -217,6 +217,17 @@ ul {
     object-fit: contain;
 }
 
+.image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.image-card {
+    text-align: center;
+}
+
 .image-caption {
     max-width: 900px;
     margin: 0 auto 30px auto;
