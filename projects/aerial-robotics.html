@@ -9,43 +9,262 @@
 
 <body>
     <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">AUTONOMOUS SYSTEMS</p>
-        <h1>Aerial Robotics</h1>
-        <p class="project-subtitle">Autonomous quadrotor simulation, perception, planning, and control.</p>
-    </section>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">AUTONOMOUS SYSTEMS</p>
+            <h1>Aerial Robotics Autonomy Stack</h1>
+            <p class="project-subtitle">
+                Simulated quadrotor autonomy system combining dynamics, controls, estimation, path planning, trajectory generation, computer vision, and robust 3D localization.
+            </p>
+        </section>
 
-    <h2>Overview</h2>
-        <p>
-            Aerial Robotics was a project-based course focused on autonomous quadrotor systems. The course connected dynamics, controls, state estimation, computer vision, and path planning through simulation and software implementation.
-        </p>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project developed a simulated aerial robotics autonomy stack for autonomous quadrotor flight. Over the semester, the system grew from a baseline MATLAB dynamics simulator into a larger autonomy workflow involving feedback control, high-fidelity sensor simulation, state estimation, graph-based planning, smooth trajectory generation, computer vision, and final competition integration.
+            </p>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Built and validated a MATLAB quadrotor simulator using 6-DOF rigid body dynamics.</li>
-            <li>Implemented position, altitude, and attitude control algorithms.</li>
-            <li>Simulated GNSS, IMU, and stereo-camera sensor measurements.</li>
-            <li>Implemented computer vision localization using OpenCV and RANSAC.</li>
-            <li>Worked with graph-based path planning algorithms including DFS, Dijkstra, and A*.</li>
-        </ul>
+            <p>
+                The final tournament combined autonomous navigation with a computer vision detection challenge. Our team developed a planning architecture for obstacle-course traversal and implemented a robust vision pipeline that used RANSAC to reduce the effect of false balloon detections in an adversarial image environment.
+            </p>
+        </section>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Integrated dynamics, controls, estimation, perception, and planning into an autonomous flight workflow.</li>
-            <li>Used RANSAC to improve localization performance when visual measurements contained false positives.</li>
-            <li>Applied path planning and trajectory generation concepts to a timed autonomous navigation problem.</li>
-        </ul>
+        <section>
+            <h2>Final Competition Challenge</h2>
+            <p>
+                The final competition required an autonomous quadrotor system to complete two major tasks: navigate through an obstacle course and perform a computer vision detection test in a challenging environment. The autonomy side required planning feasible paths through obstacles, generating trackable trajectories, and coordinating the vehicle through multiple mission objectives. The vision side required detecting balloon targets and estimating their 3D locations while rejecting false measurements.
+            </p>
 
-        <h2>Final Competition</h2>
-        <p>
-            The final project combined autonomous navigation and robust computer vision. Our team developed a mission-planning architecture and implemented a RANSAC-based localization pipeline to improve balloon detection and reject false measurements.
-        </p>
+            <p>
+                Rather than treating these as disconnected pieces, our team approached the tournament as a full autonomy architecture. The system was organized around mission planning, global planning, local planning, and a monitoring/orchestration concept that could support replanning if the environment changed.
+            </p>
 
-        <h2>Tools Used</h2>
-        <p>
-            MATLAB, C++, ROS, OpenCV, RANSAC, A*, Dijkstra, DFS, state estimation, quadrotor dynamics, feedback control
-        </p>
+            <div class="project-callout">
+                <h3>Project Framing</h3>
+                <p>
+                    The most important outcome of this project was not one individual algorithm. It was the integration of simulation, controls, estimation, planning, and perception into a single autonomous quadrotor workflow.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>System Architecture</h2>
+            <p>
+                The autonomy stack can be viewed as a pipeline from mission-level objectives to vehicle-level control. The mission planner selected the order of objectives, the global planner generated a path through the map, the local planner converted path segments into smooth polynomial trajectories, and the controller tracked the resulting reference trajectory using the simulated quadrotor model.
+            </p>
+
+            <div class="project-callout">
+                <h3>Autonomy Pipeline</h3>
+                <p>
+                    Mission objectives → global path planning → local trajectory generation → state estimation → feedback control → perception updates → final competition execution
+                </p>
+            </div>
+
+            <div class="single-image">
+                <div class="project-callout">
+                    <h3>Image Placeholder: System Architecture or Final Tournament View</h3>
+                    <p>
+                        Add a clean architecture diagram, final tournament screenshot, obstacle-course map, or RViz-style visualization here if available later.
+                    </p>
+                </div>
+                <p class="image-caption">
+                    Recommended visual: a high-level view of the final autonomy workflow or final competition environment.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Simulation & Control</h2>
+            <p>
+                The project began with a MATLAB quadrotor simulator based on Newton-Euler rigid body dynamics. The simulator propagated position, velocity, attitude, and body rates while modeling rotor thrust and torque inputs. After validating the baseline dynamics implementation, the simulator was refined to include aerodynamic drag and first-order motor dynamics, making the vehicle response more realistic.
+            </p>
+
+            <p>
+                I then implemented closed-loop control using a two-layer structure: a trajectory controller that commanded total thrust and desired body-axis orientation, and an attitude controller that commanded body torques. This allowed the quadrotor to track reference trajectories such as circular flight paths while maintaining the intended yaw behavior.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: Circular Trajectory Tracking</h3>
+                        <p>
+                            Add a MATLAB plot showing the quadrotor tracking a circular path in the horizontal plane.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: horizontal trajectory tracking with projected body-axis direction from the control labs.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: Altitude or Motor Response</h3>
+                        <p>
+                            Add a plot showing altitude tracking, motor step response, or high-fidelity vs basic simulator behavior.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: a plot that shows the effect of motor dynamics, drag, or closed-loop altitude tracking.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>State Estimation</h2>
+            <p>
+                After the control system was working with true-state feedback, the project was extended to simulate realistic onboard sensing. The sensor suite included GNSS measurements, camera measurements, and IMU accelerometer and gyro measurements. A UKF was then used to estimate the vehicle state, including position, velocity, attitude error, and IMU biases.
+            </p>
+
+            <p>
+                This step made the simulation more representative of an actual autonomous vehicle, where the controller cannot directly use the true simulated state. Instead, the controller had to rely on the estimated state produced by the sensor fusion pipeline.
+            </p>
+
+            <div class="single-image">
+                <div class="project-callout">
+                    <h3>Image Placeholder: Estimation-Based Tracking</h3>
+                    <p>
+                        Add a Lab 3 plot showing estimation-on trajectory tracking, yaw error, altitude response, or camera-on versus camera-off performance.
+                    </p>
+                </div>
+                <p class="image-caption">
+                    Recommended visual: tracking performance with estimation enabled to show that the UKF-supported controller remained stable and accurate.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Planning & Trajectory Generation</h2>
+            <p>
+                The planning portion connected discrete graph search with continuous trajectory generation. I implemented and compared DFS, Dijkstra, and A* in C++, using occupancy grids to study path cost, nodes explored, and runtime. DFS could find valid paths but did not guarantee optimality, while Dijkstra and A* provided lower-cost paths by accounting for cumulative path cost and heuristic guidance.
+            </p>
+
+            <p>
+                Since a quadrotor cannot directly track a list of discrete grid nodes, the path planning output was passed into a polynomial trajectory generator. The polynomial solver converted waypoints into smooth position, velocity, and acceleration histories that could be tracked by the MATLAB quadrotor controller. This created a full-stack planning workflow from obstacle map to trackable flight command.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: A* or Dijkstra Path</h3>
+                        <p>
+                            Add a graph-search result showing a planned path through an occupancy grid.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: A* path planning result showing obstacle avoidance and goal-directed search.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: Polynomial Trajectory</h3>
+                        <p>
+                            Add a plot showing the smooth trajectory generated from discrete waypoints.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: polynomial trajectory output showing how discrete path nodes became a smooth trackable reference.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Computer Vision & 3D Localization</h2>
+            <p>
+                The perception portion estimated the 3D location of target objects from multiple 2D camera measurements with known camera poses. The structure estimation method used a weighted least-squares formulation to solve for the unknown feature location and estimate uncertainty.
+            </p>
+
+            <p>
+                I also worked with an OpenCV-based balloon detection pipeline. Images were filtered in HSV color space, cleaned using morphological operations, and processed with contour detection to estimate balloon centers in image coordinates. These detected 2D centers were then passed into the 3D structure estimation pipeline.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: Balloon Detection</h3>
+                        <p>
+                            Add a red or blue balloon detection image showing the image-processing output.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: OpenCV balloon detection result showing how image-plane targets were extracted.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <div class="project-callout">
+                        <h3>Image Placeholder: 3D Localization Error</h3>
+                        <p>
+                            Add a feature-location error plot or table from the 3D structure estimation lab.
+                        </p>
+                    </div>
+                    <p class="image-caption">
+                        Recommended visual: component-wise 3D localization error or spacing study result.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Robust Vision with RANSAC</h2>
+            <p>
+                For the final competition, our team improved the original weighted least-squares structure computation by adding RANSAC. This made the final 3D balloon estimate less sensitive to false detections by identifying a consistent support set of measurements before computing the final target location.
+            </p>
+
+            <p>
+                This was especially important because the vision test included an adversarial environment where some detections could pass through the earlier image-processing filters but still correspond to false balloon measurements. RANSAC helped separate the reliable measurements from the outliers before estimating the final 3D position.
+            </p>
+
+            <div class="single-image">
+                <div class="project-callout">
+                    <h3>Image Placeholder: RANSAC Vision Result</h3>
+                    <p>
+                        Add one of the final report images showing the difficult vision case, false detections, or RANSAC-supported result.
+                    </p>
+                </div>
+                <p class="image-caption">
+                    Recommended visual: final tournament vision example showing why robust estimation was needed.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Results & Validation</h2>
+            <p>
+                The full project demonstrated the major components of a simulated quadrotor autonomy system. The simulator and controller were validated through trajectory tracking, the estimator was tested with noisy sensor measurements, the planner generated paths through occupancy grids, the polynomial solver converted those paths into smooth trajectories, and the vision pipeline estimated target locations from camera images.
+            </p>
+
+            <p>
+                In the final tournament, these pieces came together in a competition-style workflow. The autonomy system handled mission planning and trajectory generation, while the vision system used robust estimation to improve performance in the presence of false detections.
+            </p>
+
+            <div class="project-callout">
+                <h3>Key Result</h3>
+                <p>
+                    Built a semester-long quadrotor autonomy pipeline that progressed from rigid-body simulation to final competition integration, connecting control, estimation, planning, trajectory generation, computer vision, and robust 3D localization.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                MATLAB, C++, ROS, RViz, OpenCV, RANSAC, A*, Dijkstra, DFS, UKF state estimation, quadrotor dynamics, feedback control, polynomial trajectory generation, computer vision, numerical simulation
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me understand how different autonomy modules connect in a larger robotic system. A controller depends on a reliable simulator, the simulator becomes more realistic when sensing and estimation are included, a planner must produce trajectories that the controller can actually track, and a perception system must be robust enough to handle imperfect measurements.
+            </p>
+
+            <p>
+                The final competition made the project feel closer to a real autonomous systems problem because success depended on integration, not just individual algorithms. The most valuable lesson was learning how to think about robotics as a full pipeline, where dynamics, software, planning, estimation, and perception all affect one another.
+            </p>
+        </section>
     </main>
 </body>
 </html>
