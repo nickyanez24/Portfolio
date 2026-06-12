@@ -15,6 +15,7 @@
     <h1>Spacecraft Dynamics</h1>
     <p class="project-subtitle">Orbital targeting, ground track generation, and perturbation modeling.</p>
 </section>
+        <h2>Overview</h2>
         <p>
             This project focused on implementing the Skopinski-Johnson targeting algorithm to generate an orbit capable of passing over a specified ground target after a given number of revolutions.
         </p>
@@ -22,6 +23,14 @@
         <p>
             The project combined orbital mechanics, coordinate transformations, numerical propagation, Earth rotation, and J2 perturbation modeling to validate the resulting ground track.
         </p>
+        <img
+            src="images/spacecraft_dynamics/groundtrack_full.png"
+            alt="Satellite ground track showing burnout point, final point, and target pass"
+            class="project-image">
+
+    <p class="image-caption">
+        Full ground track generated from the targeted orbital solution.
+    </p>
 
         <h2>What I Worked On</h2>
         <ul>
@@ -32,6 +41,14 @@
             <li>Converted propagated states into latitude and longitude ground tracks.</li>
             <li>Validated the final orbit by comparing the ground track against the desired target location.</li>
         </ul>
+        <img
+            src="images/spacecraft_dynamics/groundtrack_zoom.png"
+            alt="Zoomed satellite ground track near target location"
+            class="project-image">
+
+        <p class="image-caption">
+        Zoomed view of the target region showing the final ground track point near the desired location.
+        </p>
 
         <h2>Technical Highlights</h2>
         <ul>
@@ -40,6 +57,14 @@
             <li>Used J2 perturbation modeling to improve targeting fidelity over multiple revolutions.</li>
             <li>Verified mission success through ground track visualization and target overflight analysis.</li>
         </ul>
+        <img
+            src="images/spacecraft_dynamics/elevation_vs_time.png"
+            alt="Elevation angle versus time plot used to validate target overflight"
+            class="project-image">
+
+        <p class="image-caption">
+        Elevation-angle validation showing the target pass near the final overflight time.
+        </p>
 
         <h2>Tools Used</h2>
         <p>
