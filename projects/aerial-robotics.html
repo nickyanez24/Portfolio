@@ -14,179 +14,206 @@
             <p class="eyebrow">AUTONOMOUS SYSTEMS</p>
             <h1>Aerial Robotics Competition System</h1>
             <p class="project-subtitle">
-                Autonomous quadrotor navigation and robust computer vision system for a final aerial robotics tournament.
+                A semester-long quadrotor autonomy project that built up from simulation and controls to a final ROS-based tournament system.
             </p>
         </section>
 
         <section>
             <h2>Overview</h2>
             <p>
-                This project was the final integration effort for a semester-long aerial robotics course focused on autonomous quadrotor systems. The final tournament was split into two major challenges: an autonomous navigation task and a separate computer vision task. The navigation side required the simulated quadrotor to plan through an obstacle course, interact with target balloons, and land. The vision side required detecting real balloon targets in images that also contained false balloon-like objects.
+                Aerial Robotics was one of the most complete robotics projects I worked on because it was not just one assignment. The class slowly built up the pieces of a quadrotor autonomy stack: dynamics, control, sensor simulation, state estimation, path planning, trajectory generation, computer vision, and 3D localization.
             </p>
 
             <p>
-                Our team placed <strong>4th overall in the class</strong>. My main contribution was on the vision side, where I adapted the earlier balloon localization pipeline to be more robust to false positives by implementing and tuning RANSAC-based outlier rejection before the final 3D localization step.
+                The final tournament was where all of that work actually mattered. Our team had to run an autonomous navigation system in ROS and also complete a separate computer vision challenge with false balloon-like objects in the images. We placed <strong>4th overall in the class</strong>.
             </p>
 
             <div class="project-callout">
-                <h3>Project Summary</h3>
+                <h3>Big Picture</h3>
                 <p>
-                    Final tournament system combining autonomous navigation, A* path planning, trajectory pruning, simulated quadrotor execution, computer vision, RANSAC outlier rejection, and 3D balloon localization.
+                    The main thing I took away from this project is that autonomy is not just one algorithm. Planning, controls, estimation, and perception all have to work together, and the final tournament made that really obvious.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>Final Tournament Demonstration</h2>
+            <h2>How the Class Built Up to the Final Tournament</h2>
             <p>
-                The strongest demonstration of this project is the final ROS simulation video. The video shows the navigation side of the tournament running as an integrated system: the quadrotor follows a planned path, prunes unnecessary path segments, interacts with target balloons, and completes the mission with an autonomous landing.
+                The reason this project is worth showing is because the final system did not come out of nowhere. Each lab added another layer of the autonomy stack, and by the end we had enough tools to build a real tournament solution instead of just isolated demos.
             </p>
 
-            <div class="single-image">
-                <video class="project-video" controls muted playsinline>
-                    <source src="images/aerial_robotics/ros_tournament_sim.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <p class="image-caption">
-                    Final ROS simulation showing A* path planning, path pruning, target balloon interactions, and autonomous landing during the navigation portion of the tournament.
-                </p>
-            </div>
-
-            <p>
-                This video does not show every technical building block individually, but it is the best representation of the final integrated system. The supporting sections below explain the autonomy and vision components that made the tournament solution work.
-            </p>
-        </section>
-
-        <section>
-            <h2>Autonomous Navigation System</h2>
-            <p>
-                The navigation portion of the tournament used a layered autonomy structure. At a high level, the system planned the mission objective, generated a global path through the environment, selected useful local path segments, converted those segments into feasible trajectories, and passed those commands to the simulated quadrotor controller.
-            </p>
-
-            <p>
-                A major challenge was balancing path quality, computational efficiency, and trajectory feasibility. The system could not simply follow every grid node from the planner because dense waypoint sequences made the polynomial trajectory solver less effective. Path pruning helped reduce unnecessary waypoints, but overly aggressive pruning could make trajectories less safe near obstacles. This created a real engineering tradeoff between speed, smoothness, and obstacle clearance.
-            </p>
-
-            <div class="project-callout">
-                <h3>Navigation Pipeline</h3>
-                <p>
-                    Mission objective → A* global path → path pruning → local trajectory generation → trajectory validation → quadrotor execution → target interaction → landing
-                </p>
-            </div>
-
-            <div class="single-image">
-                <div class="media-placeholder">
-                    <h3>Optional Image Placeholder: Lab 4 Full-Stack Planning</h3>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Quadrotor Dynamics</h3>
                     <p>
-                        Recommended file: <code>full_stack_planning.png</code>
+                        Built a MATLAB quadrotor simulator using Newton-Euler rigid body dynamics, rotation matrices, rotor thrust, and motor torque models.
                     </p>
-                    <p>
-                        Use Lab 4 Figure 9 here if you want one supporting lab plot. It shows the reference path versus the simulated quadrotor trajectory after A* waypoints were converted into a smooth polynomial trajectory.
-                    </p>
+                    <p class="project-tags">Lab 1 • Dynamics • MATLAB</p>
                 </div>
 
+                <div class="project">
+                    <h3>Control & Higher-Fidelity Simulation</h3>
+                    <p>
+                        Added aerodynamic drag, first-order motor dynamics, and a two-layer controller for trajectory tracking and attitude control.
+                    </p>
+                    <p class="project-tags">Lab 2 • Controls • Motor Dynamics</p>
+                </div>
+
+                <div class="project">
+                    <h3>State Estimation</h3>
+                    <p>
+                        Simulated GNSS, camera, and IMU measurements, then used a UKF so the controller could run off estimated state instead of perfect truth data.
+                    </p>
+                    <p class="project-tags">Lab 3 • UKF • Sensor Fusion</p>
+                </div>
+
+                <div class="project">
+                    <h3>Planning & Trajectories</h3>
+                    <p>
+                        Implemented DFS, Dijkstra, and A* in C++, then used polynomial trajectory generation to turn discrete paths into smooth commands.
+                    </p>
+                    <p class="project-tags">Lab 4 • A* • C++ • Trajectories</p>
+                </div>
+
+                <div class="project">
+                    <h3>Computer Vision</h3>
+                    <p>
+                        Used OpenCV to detect colored balloons and estimate 3D target locations from multiple camera measurements and known camera poses.
+                    </p>
+                    <p class="project-tags">Lab 5 • OpenCV • 3D Localization</p>
+                </div>
+
+                <div class="project">
+                    <h3>Final Integration</h3>
+                    <p>
+                        Brought the pieces together for a final tournament with autonomous navigation, target interaction, landing, and robust vision testing.
+                    </p>
+                    <p class="project-tags">Final Tournament • ROS • RANSAC</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Final Tournament Challenge</h2>
+            <p>
+                The final tournament had two main parts. The first was the autonomous navigation side, where the quadrotor had to plan through the environment, pop target balloons, and land. The second was the vision test, where the goal was to identify real balloon targets even when the images included false balloon-like objects.
+            </p>
+
+            <p>
+                I like this project because it made the difference between “an algorithm works” and “the whole system works” really clear. A planner can find a path, but that path still has to be turned into something the quad can actually fly. A detector can find colored blobs, but bad detections can still ruin the final 3D estimate if the estimator is not robust.
+            </p>
+        </section>
+
+        <section>
+            <h2>Autonomous Navigation Demo</h2>
+            <p>
+                This video shows the navigation side of the final tournament running in ROS. It shows the A* path, the pruning behavior, the quadrotor moving through the mission, popping target balloons, and landing at the end. This is the best visual summary of the integrated navigation system.
+            </p>
+
+            <div class="video-frame portrait-video">
+                <video class="project-video" controls muted playsinline>
+                    <source src="images/aerial_robotics/ros_tournament_sim_web.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <p class="image-caption">
+                Final ROS simulation showing A* path planning, path pruning, target balloon interactions, and autonomous landing during the navigation portion of the tournament.
+            </p>
+        </section>
+
+        <section>
+            <h2>Autonomy Architecture</h2>
+            <p>
+                Our final navigation approach was organized around separate planning layers. The mission planner handled the overall target order, the global planner generated a path through the environment, and the local planner worked on the active trajectory that would be passed to the autonomy protocol.
+            </p>
+
+            <p>
+                This structure was more than what the simplest version of the tournament needed, but it made the system easier to reason about. It also gave us a cleaner way to think about replanning, pruning, and handling changes in the environment.
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/aerial_robotics/autonomy_architecture.png"
+                    alt="Autonomy architecture diagram showing monitor trajectories, mission planning, global planning, local planning, and student autonomy protocol"
+                    class="project-image">
+
                 <p class="image-caption">
-                    Optional supporting visual: full-stack planning result showing path planning, trajectory generation, and simulated tracking before the final tournament integration.
+                    Final autonomy architecture showing how mission planning, global planning, local planning, monitoring, and the student autonomy protocol connected during the tournament.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>Vision Test & RANSAC Detection System</h2>
+            <h2>Vision Test & False Balloons</h2>
             <p>
-                The vision test was a separate portion of the tournament. It did not rely on the path planning system. Instead, the goal was to detect balloon targets from image data and estimate their 3D locations using camera measurements and known camera poses.
+                The vision test was separate from the navigation system. It was not about flying the path. It was about taking image measurements, detecting the target balloons, and estimating their 3D locations. The hard part was that the images included false balloon-like objects that could pass the early color filtering.
             </p>
 
             <p>
-                The baseline localization method worked well when the image detections were clean, but the tournament images included false balloon-like objects that could pass the initial color filtering step. These false positives created outlier measurements, which could skew the final 3D estimate if all detections were treated as valid.
-            </p>
-
-            <p>
-                To address this, I implemented RANSAC-based robust estimation on top of the earlier weighted least-squares structure computation. The RANSAC logic selected candidate measurement subsets, checked which detections were geometrically consistent with the candidate solution, rejected outliers, and recomputed the final 3D balloon estimate using the best support set.
+                This is where RANSAC became useful. The original pipeline could estimate a 3D location from detections, but if false detections made it into the measurement set, the final estimate could get pulled away from the real balloon. RANSAC helped by looking for a consistent set of measurements and rejecting outliers before the final 3D estimate was computed.
             </p>
 
             <div class="image-row">
                 <div class="image-card">
-                    <div class="media-placeholder">
-                        <h3>Image Placeholder: Difficult Red Detection</h3>
-                        <p>
-                            Recommended file: <code>difficult_red_detection.png</code>
-                        </p>
-                        <p>
-                            Use the final report image labeled “Example difficult red detection.”
-                        </p>
-                    </div>
+                    <img
+                        src="images/aerial_robotics/difficult_red_detection.png"
+                        alt="Difficult red balloon detection image with false positive detections"
+                        class="project-image">
 
                     <p class="image-caption">
-                        Difficult red-balloon detection case where false balloon-like objects passed the early color filtering stage.
+                        Difficult red-balloon detection case. The detector found the real target, but also picked up false balloon-like objects that could hurt localization.
                     </p>
                 </div>
 
                 <div class="image-card">
-                    <div class="media-placeholder">
-                        <h3>Image Placeholder: Difficult Blue Detection</h3>
-                        <p>
-                            Recommended file: <code>difficult_blue_detection.png</code>
-                        </p>
-                        <p>
-                            Use the final report image labeled “Example difficult blue detection.”
-                        </p>
-                    </div>
+                    <img
+                        src="images/aerial_robotics/difficult_blue_detection.png"
+                        alt="Difficult blue balloon detection image with false positive detections"
+                        class="project-image">
 
                     <p class="image-caption">
-                        Difficult blue-balloon detection case used to motivate robust outlier rejection before 3D localization.
+                        Difficult blue-balloon detection case. These false positives were the reason robust outlier rejection mattered.
                     </p>
                 </div>
             </div>
 
             <div class="project-callout">
-                <h3>Vision Result</h3>
+                <h3>Why RANSAC Mattered</h3>
                 <p>
-                    RANSAC significantly improved localization on the tournament-train image set. For the blue balloon case, the reported localization error dropped from roughly meter-scale error without RANSAC to centimeter-scale error with RANSAC. The red balloon case also improved after outlier rejection.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Technical Foundation</h2>
-            <p>
-                The final tournament system was built on several technical pieces developed earlier in the course. The project began with a MATLAB quadrotor simulator using Newton-Euler rigid-body dynamics and rotor thrust/torque models. The simulator was later refined with aerodynamic drag, first-order motor dynamics, and a two-layer controller for trajectory and attitude tracking.
-            </p>
-
-            <p>
-                The autonomy stack was then expanded with simulated GNSS, camera, and IMU measurements, along with UKF-based state estimation. Planning and trajectory generation were developed using DFS, Dijkstra, A*, and polynomial trajectory generation. The perception pipeline was built from OpenCV balloon detection and weighted least-squares 3D feature localization before being upgraded with RANSAC for the final tournament vision test.
-            </p>
-
-            <div class="project-callout">
-                <h3>Build-Up Skills</h3>
-                <p>
-                    Quadrotor dynamics → feedback control → sensor simulation → UKF state estimation → graph search → polynomial trajectories → OpenCV detection → 3D localization → RANSAC robust estimation
+                    The detector was not the whole problem. Even if the color filtering found the balloon, it could also find extra objects that looked close enough to pass the early checks. RANSAC made the final localization step less sensitive to those bad measurements.
                 </p>
             </div>
         </section>
 
         <section>
             <h2>What I Worked On</h2>
+            <p>
+                My strongest individual contribution was on the vision side of the final tournament. I worked on adapting the balloon localization pipeline so it could handle false positives better, especially in the difficult red and blue detection cases.
+            </p>
+
             <ul>
-                <li>Contributed to the final tournament system for autonomous quadrotor navigation and vision-based target localization.</li>
-                <li>Adapted the balloon localization pipeline from the earlier vision lab to handle false-positive detections.</li>
-                <li>Implemented RANSAC-based robust estimation logic for the structure computation pipeline.</li>
-                <li>Tuned and debugged the vision test solution to improve localization performance in difficult image cases.</li>
-                <li>Built supporting experience across simulation, control, state estimation, path planning, trajectory generation, and computer vision throughout the course.</li>
+                <li>Implemented and tuned RANSAC-based outlier rejection for the 3D structure computation pipeline.</li>
+                <li>Worked with the OpenCV balloon detection output and helped make the final localization more robust to false detections.</li>
+                <li>Built experience throughout the course with quadrotor simulation, controls, state estimation, planning, trajectory generation, and computer vision.</li>
+                <li>Contributed to the final integrated tournament system that placed 4th overall in the class.</li>
             </ul>
         </section>
 
         <section>
             <h2>Results & Validation</h2>
             <p>
-                The final system demonstrated both autonomous navigation and robust perception. On the navigation side, the ROS simulation showed the quadrotor executing the planned mission by following a path, pruning unnecessary segments, interacting with target balloons, and landing. On the vision side, the RANSAC-based approach reduced sensitivity to false detections and improved 3D localization performance in difficult tournament images.
+                The final result was a system that demonstrated both autonomous navigation and robust perception. The ROS simulation showed the navigation system executing the mission, while the vision test showed why robust estimation was needed when the detector saw false targets.
+            </p>
+
+            <p>
+                Our team placed <strong>4th overall in the class</strong>. For me, the most important result was that the final project connected the full stack: the same class that started with dynamics equations ended with a tournament where planning, controls, estimation, and vision all had to matter at the same time.
             </p>
 
             <div class="project-callout">
                 <h3>Key Result</h3>
                 <p>
-                    Our team placed <strong>4th overall in the class</strong> in the final aerial robotics tournament. My strongest individual contribution was improving the vision test solution by implementing RANSAC-based outlier rejection for robust balloon localization.
+                    Built up a quadrotor autonomy stack across the semester and applied it in a final ROS-based tournament system. Our team placed <strong>4th overall</strong>, and my main contribution was improving the vision pipeline with RANSAC-based outlier rejection for false-balloon cases.
                 </p>
             </div>
         </section>
@@ -201,11 +228,11 @@
         <section>
             <h2>Engineering Takeaways</h2>
             <p>
-                This project showed me that autonomous systems are not just a collection of individual algorithms. The hard part is making planning, control, estimation, and perception work together under realistic constraints. The final tournament made this especially clear because the navigation system had to be fast and feasible, while the vision system had to be robust to bad measurements.
+                This project helped me understand why robotics gets complicated fast. It is easy to talk about planning, control, estimation, or vision separately, but the real challenge is making those pieces work together. A path has to be flyable. A trajectory has to be trackable. A detection has to be reliable enough to localize. If one part is weak, the whole system feels it.
             </p>
 
             <p>
-                The most valuable lesson was learning how to think in terms of system integration. A good path is not useful if it cannot be converted into a trackable trajectory, and a detected object is not useful if false positives corrupt the final 3D estimate. This project helped me understand autonomy as a full engineering pipeline rather than a set of isolated class topics.
+                The final tournament made the class feel much more real. It was not just about getting a lab plot to look right. It was about building enough of the stack that the quadrotor could complete a mission and the vision system could handle messy images. That is what made this one of the projects I learned the most from.
             </p>
         </section>
     </main>
