@@ -296,6 +296,15 @@ ul {
     background: #000;
 }
 
+.landscape-video {
+    max-width: 850px;
+}
+
+.landscape-video .project-video {
+    width: 100%;
+    max-height: none;
+}
+
 .media-placeholder {
     background:
         radial-gradient(circle at top left, rgba(191, 87, 0, 0.10), transparent 35%),
