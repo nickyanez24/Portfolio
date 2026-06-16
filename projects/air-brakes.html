@@ -9,40 +9,195 @@
 
 <body>
     <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">FLIGHT HARDWARE</p>
-        <h1>Air Brakes System</h1>
-        <p class="project-subtitle">Active altitude control using deployable aerodynamic braking surfaces.</p>
-    </section>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">FLIGHT HARDWARE</p>
+            <h1>Air Brakes System</h1>
+            <p class="project-subtitle">
+                Servo-actuated aerodynamic braking system for active rocket altitude control.
+            </p>
+        </section>
 
-    <h2>Overview</h2>
-        <p>
-            As part of Longhorn Rocketry's Advanced Research team, I contributed to the development of a deployable air brake system designed to actively control rocket altitude. The goal of the project was to reduce apogee and improve altitude accuracy by increasing aerodynamic drag during ascent.
-        </p>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                As part of Longhorn Rocketry's Advanced Research team, I worked on a deployable air brake system designed to help control rocket apogee. The goal was to increase drag during ascent so the rocket could reduce overshoot and get closer to its target altitude.
+            </p>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Participated in the design and development of a servo-actuated air brake system.</li>
-            <li>Evaluated multiple deployment geometries and flap configurations.</li>
-            <li>Performed aerodynamic analysis to estimate drag increases at various deployment levels.</li>
-            <li>Conducted CFD studies to compare drag performance.</li>
-            <li>Performed structural analysis and design validation through FEA.</li>
-            <li>Supported prototype development and manufacturing planning.</li>
-        </ul>
+            <p>
+                This project was a good mix of aerospace analysis and real hardware. The air brakes had to create enough drag to matter, fit inside the rocket body, survive flight loads, and deploy reliably using a servo-driven mechanism.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Designed for active altitude targeting on a competition rocket with a target apogee of 10,000 feet.</li>
-            <li>Analyzed drag characteristics at multiple deployment positions.</li>
-            <li>Used CFD to evaluate aerodynamic performance before manufacturing.</li>
-            <li>Applied FEA to verify structural integrity under expected flight loads.</li>
-        </ul>
+            <div class="project-callout">
+                <h3>Engineering Goal</h3>
+                <p>
+                    The rocket was targeting the <strong>10,000 ft COTS category</strong>, while the vehicle design was projected to reach around <strong>12,000 ft</strong>. The air brake system was designed to reduce apogee by increasing drag during ascent and help close that altitude gap.
+                </p>
+            </div>
+        </section>
 
-        <h2>Tools Used</h2>
-        <p>
-            CFD, FEA, OpenRocket, CAD, aerodynamic analysis, structural analysis, rocket systems design
-        </p>
+        <section>
+            <h2>Design Requirements</h2>
+            <p>
+                The air brake system had tight packaging and performance constraints. It needed to fit inside a 6 inch rocket body, stay within a limited vertical height, remain lightweight, and still provide enough deployment authority for active altitude control.
+            </p>
+
+            <div class="project-callout">
+                <h3>Key Constraints</h3>
+                <p>
+                    Design targets included a <strong>6 in. rocket body outer diameter</strong>, a <strong>4 in. maximum system height</strong>, a <strong>6 lb weight allowance</strong>, and a goal of reducing apogee by at least <strong>2,500 ft</strong> under maximum deployment.
+                </p>
+            </div>
+
+            <p>
+                Those constraints made the design more than just an aerodynamic problem. A larger deployed surface could create more drag, but it also increased structural loading, packaging difficulty, and mechanical complexity. The final design had to balance drag authority, actuation, manufacturability, and strength.
+            </p>
+        </section>
+
+        <section>
+            <h2>Mechanism Design</h2>
+            <p>
+                The team evaluated several actuation concepts and moved toward a cam-slot style deployment mechanism. This design was attractive because it was low-profile, mechanically simple, and easier to package inside the rocket body compared to more complicated linkage systems.
+            </p>
+
+            <p>
+                The early prototype helped prove out the basic motion. It showed that the flaps could deploy from a compact circular assembly and gave the team a physical way to evaluate fit, mechanical play, and servo-driven motion before moving into a more finalized machined version.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/air_brakes/petg_prototype.png"
+                        alt="PETG air brake prototype with servo and cam-slot deployment mechanism"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Early PETG prototype used to test the cam-slot deployment mechanism, flap motion, and assembly fit before moving toward the machined hardware version.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/air_brakes/airbrake_assembly.jpg"
+                        alt="Machined air brake assembly with servo and electronics"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Machined prototype assembly with servo actuation and electronics used for hardware testing.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Aerodynamic Analysis</h2>
+            <p>
+                I worked on estimating how air brake deployment changed the rocket's drag characteristics across the expected flight regime. The point of this analysis was to connect the geometry of the deployed brake surfaces to the actual flight effect we cared about: reducing apogee by increasing aerodynamic drag.
+            </p>
+
+            <p>
+                The drag coefficient trend helped show how drag changed with Mach number and gave us a way to reason about how much braking authority the system could provide during ascent.
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/air_brakes/drag_coefficient_vs_mach.png"
+                    alt="Average drag coefficient versus Mach number for the air brake configuration"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Average drag coefficient trend across the tested Mach range, used to estimate how air brake deployment affects aerodynamic drag during flight.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Structural Validation</h2>
+            <p>
+                After estimating the aerodynamic loading, the deployed brake surface needed to be checked structurally. I used FEA to evaluate stress and deformation in the flap geometry under loading. This helped verify that the design had enough strength and stiffness before moving further into manufacturing and hardware testing.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/air_brakes/ansys_stress.png"
+                        alt="ANSYS von Mises stress result for the deployed air brake flap"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Static structural stress result used to evaluate whether the deployed flap geometry could withstand aerodynamic loading.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/air_brakes/ansys_deformation.png"
+                        alt="ANSYS directional deformation result for the deployed air brake flap"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Directional deformation result used to check flap stiffness and identify how the deployed surface deflects under load.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Actuation Test</h2>
+            <p>
+                The actuation test verified that the servo and mechanical mechanism could physically deploy the air brakes. This mattered because the analysis only tells part of the story. The system also had to move cleanly as hardware, fit inside the assembly, and deploy without binding.
+            </p>
+
+            <div class="video-frame landscape-video">
+                <video class="project-video" controls muted playsinline>
+                    <source src="images/air_brakes/airbrake_vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <p class="image-caption">
+                Servo actuation test demonstrating the air brake deployment mechanism.
+            </p>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Contributed to the development of a servo-actuated air brake system for active altitude control.</li>
+                <li>Helped evaluate deployment geometry and flap configurations for drag authority and packaging.</li>
+                <li>Performed aerodynamic analysis to estimate drag increases across different Mach numbers.</li>
+                <li>Used FEA to check stress and deformation in the deployed brake surfaces.</li>
+                <li>Supported prototype development, manufacturing planning, and hardware testing.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Highlights</h2>
+            <ul>
+                <li>Connected aerodynamic drag analysis to a real altitude-control objective.</li>
+                <li>Used structural simulation to validate flap strength and stiffness before hardware testing.</li>
+                <li>Worked through the tradeoff between drag authority, packaging, actuation, and structural loading.</li>
+                <li>Helped move the design from an early PETG prototype toward a machined servo-actuated assembly.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                ANSYS, CFD, FEA, OpenRocket, CAD, servo actuation, aerodynamic analysis, structural analysis, rocket systems design, hardware prototyping
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me see how much system-level thinking goes into flight hardware. It was not enough to design a flap that created drag. The design also had to survive the load, fit inside the rocket, actuate with a servo, and integrate with the rest of the vehicle.
+            </p>
+
+            <p>
+                The biggest takeaway was learning how to connect analysis to hardware decisions. The drag analysis helped show whether the air brakes would matter in flight, the FEA helped check whether the structure made sense, and the prototype showed what still had to work mechanically in the real assembly.
+            </p>
+        </section>
     </main>
 </body>
 </html>
