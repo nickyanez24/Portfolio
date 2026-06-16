@@ -273,14 +273,23 @@ ul {
     text-align: center;
 }
 
+.video-frame {
+    max-width: 950px;
+    margin: 26px auto 8px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.portrait-video {
+    max-width: 360px;
+}
+
 .project-video {
     display: block;
     width: 100%;
-    max-width: 950px;
     height: auto;
-    aspect-ratio: 16 / 9;
+    max-height: 640px;
     object-fit: contain;
-    margin: 0 auto;
     border-radius: 14px;
     border: 1px solid var(--border);
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
