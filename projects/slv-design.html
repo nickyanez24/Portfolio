@@ -9,38 +9,459 @@
 
 <body>
     <main>
-    <section class="project-hero">
-    <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-    <p class="eyebrow">PROPULSION DESIGN</p>
-    <h1>Space Launch Vehicle Design</h1>
-    <p class="project-subtitle">Conceptual launch vehicle development with a focus on propulsion system sizing and architecture.</p>
-</section>
-        <p>
-            This project was completed as part of Space Launch Vehicle Design and Analysis. The objective was to develop a launch vehicle capable of delivering 250,000 pounds of payload to low Earth orbit while satisfying mission, schedule, and budget requirements through a formal Preliminary Design Review (PDR) and Critical Design Review (CDR) process.
-        </p>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">PROPULSION DESIGN</p>
+            <h1>Space Launch Vehicle Design</h1>
+            <p class="project-subtitle">
+                Conceptual heavy-lift launch vehicle design focused on propulsion architecture, vehicle sizing, engine layout, and system-level trade studies.
+            </p>
+        </section>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Served as the propulsion engineer for the launch vehicle design team.</li>
-            <li>Selected propulsion architecture, propellants, and engine cycle.</li>
-            <li>Performed engine sizing and thrust calculations.</li>
-            <li>Determined engine count and stage-level propulsion requirements.</li>
-            <li>Conducted vehicle sizing studies using first-order launch vehicle approximations.</li>
-            <li>Supported vehicle performance trades and design reviews.</li>
-        </ul>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project was completed in Space Launch Vehicle Design and Analysis. Our team developed a conceptual heavy-lift launch vehicle through a formal Preliminary Design Review and Critical Design Review process. The mission requirement was to deliver a 250,000 lb payload to a 100 nmi by 100 nmi low Earth orbit at 28.5 degrees inclination while meeting man-rating, schedule, budget, and development constraints.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Selected a LOX/Methane propulsion system using an oxygen-rich staged combustion cycle.</li>
-            <li>Sized propulsion systems to achieve a target launch thrust-to-weight ratio of 1.5.</li>
-            <li>Developed stage-level thrust requirements based on vehicle gross liftoff weight.</li>
-            <li>Contributed to propulsion architecture decisions including cooling methods, injector design, and nozzle sizing.</li>
-        </ul>
+            <p>
+                I served as the propulsion engineer for the team. My work centered on the propulsion architecture, but those decisions directly affected the full vehicle design. Propellant choice, engine cycle, engine count, thrust level, nozzle sizing, mixture ratio, Isp assumptions, and TVC layout all fed into stage sizing, vehicle diameter, GLOW, tank sizing assumptions, and overall configuration.
+            </p>
 
-        <h2>Tools Used</h2>
-        <p>
-            MATLAB, launch vehicle design, propulsion analysis, systems engineering, engineering trade studies
-        </p>
+            <div class="project-callout">
+                <h3>Mission Requirement</h3>
+                <p>
+                    Design a non-reusable heavy-lift launch vehicle capable of delivering <strong>250,000 lb</strong> to LEO, with a <strong>22 ft diameter by 75 ft</strong> payload envelope, man-rating considerations, a <strong>$5B</strong> development budget, and a roughly <strong>5-year</strong> development timeline.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Design Role & Vehicle Impact</h2>
+            <p>
+                Although my formal role was propulsion engineer, propulsion was one of the earliest architecture decisions and carried through the rest of the vehicle. A change in propellant or engine cycle would change Isp, density, mass ratio, tank volume, engine count, nozzle size, and ultimately the diameter and layout of the launch vehicle.
+            </p>
+
+            <p>
+                Because of that, my work was not isolated to just “engine selection.” I helped define the assumptions that the rest of the design depended on, including the LOX/methane architecture, oxygen-rich staged combustion cycle, engine count, nozzle packaging, and thrust vector control approach.
+            </p>
+        </section>
+
+        <section>
+            <h2>Mission & System Requirements</h2>
+            <p>
+                The vehicle was sized around a heavy-lift mission to low Earth orbit. The top-level requirements created a tight systems problem: the vehicle needed very high payload capability while still being man-rated, non-reusable, and developed within a defined cost and schedule envelope.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Payload & Orbit</h3>
+                    <p>
+                        250,000 lb payload to a 100 nmi by 100 nmi LEO orbit at 28.5 degrees inclination.
+                    </p>
+                    <p class="project-tags">Performance Requirement</p>
+                </div>
+
+                <div class="project">
+                    <h3>Payload Envelope</h3>
+                    <p>
+                        Payload volume requirement of 22 ft diameter by 75 ft length.
+                    </p>
+                    <p class="project-tags">Sizing Constraint</p>
+                </div>
+
+                <div class="project">
+                    <h3>Program Constraints</h3>
+                    <p>
+                        $5B development budget, roughly 5-year timeline, and 5 to 8 launches before operational missions.
+                    </p>
+                    <p class="project-tags">Schedule & Cost</p>
+                </div>
+
+                <div class="project">
+                    <h3>Vehicle Assumption</h3>
+                    <p>
+                        Two-stage, non-reusable, man-rated heavy-lift launch vehicle.
+                    </p>
+                    <p class="project-tags">Architecture Constraint</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Architecture Trade Studies</h2>
+            <p>
+                Even though we were leaning toward a SpaceX-style LOX/methane architecture from the beginning, the design still had to be justified against other options. The team compared multiple launch vehicle and propulsion configurations instead of simply assuming the baseline was correct.
+            </p>
+
+            <p>
+                The main vehicle configurations considered were a two-stage vehicle, a two-stage vehicle with solid boosters, a two-stage vehicle with liquid boosters, and a three-stage vehicle. The trade criteria included certification complexity, schedule impact, cost per pound, and mass ratio performance.
+            </p>
+
+            <div class="project-callout">
+                <h3>Configuration Trade Criteria</h3>
+                <p>
+                    The main trade study considered <strong>certification complexity</strong>, <strong>schedule impact</strong>, <strong>cost per pound</strong>, and <strong>mass ratio performance</strong>. This helped connect the architecture decision to more than just raw propulsion performance.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Propellant Trade Study</h2>
+            <p>
+                The propulsion trade compared LOX/RP-1, LOX/LH2, and LOX/methane. LOX/LH2 had the highest Isp, but its low density, handling complexity, and development risk made it a poor fit for the vehicle. LOX/RP-1 had strong density and cost advantages, but lower performance and weaker alignment with the assumed company expertise.
+            </p>
+
+            <p>
+                LOX/methane was selected because it gave the best balance of performance, density, operability, cost, and development alignment. This was important because the selected propellant affected not only the engine, but also tank sizing, vehicle geometry, mass ratio, and stage design.
+            </p>
+
+            <div class="image-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>LOX/RP-1</th>
+                            <th>LOX/LH2</th>
+                            <th>LOX/Methane</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stage 1 Isp</td>
+                            <td>311 s</td>
+                            <td>450 s</td>
+                            <td>337 s</td>
+                        </tr>
+                        <tr>
+                            <td>Stage 2 Isp</td>
+                            <td>338 s</td>
+                            <td>450 s</td>
+                            <td>371 s</td>
+                        </tr>
+                        <tr>
+                            <td>Propellant Cost</td>
+                            <td>$0.35/lb</td>
+                            <td>$0.85/lb</td>
+                            <td>$0.50/lb</td>
+                        </tr>
+                        <tr>
+                            <td>Density</td>
+                            <td>~56 lb/ft³</td>
+                            <td>~9 lb/ft³</td>
+                            <td>~28 lb/ft³</td>
+                        </tr>
+                        <tr>
+                            <td>Cryogenic Handling</td>
+                            <td>Moderate</td>
+                            <td>Extreme</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>Expertise Alignment</td>
+                            <td>Low</td>
+                            <td>Low</td>
+                            <td>High</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="image-caption">
+                Propellant trade comparing performance, density, cost, handling complexity, and development alignment for the two-stage launch vehicle.
+            </p>
+        </section>
+
+        <section>
+            <h2>Selected Propulsion Architecture</h2>
+            <p>
+                The selected architecture used LOX/methane on both stages with an oxygen-rich staged combustion cycle. The decision was not just about copying an existing modern launch vehicle trend. It was selected because it provided strong performance without the density and handling penalties of LH2, while still supporting a compact and reusable engine design logic across both stages.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Propellant</h3>
+                    <p>
+                        LOX/methane selected for both stages to balance Isp, density, cost, operability, and development risk.
+                    </p>
+                    <p class="project-tags">LOX / CH₄</p>
+                </div>
+
+                <div class="project">
+                    <h3>Engine Cycle</h3>
+                    <p>
+                        Oxygen-rich staged combustion selected for high performance and compatibility with a large methane launch vehicle.
+                    </p>
+                    <p class="project-tags">ORSC</p>
+                </div>
+
+                <div class="project">
+                    <h3>Vehicle Architecture</h3>
+                    <p>
+                        Two-stage expendable architecture selected over booster-assisted and three-stage concepts.
+                    </p>
+                    <p class="project-tags">Two-Stage to LEO</p>
+                </div>
+
+                <div class="project">
+                    <h3>Design Logic</h3>
+                    <p>
+                        Common engine family across both stages, with different nozzle expansion choices for booster and vacuum operation.
+                    </p>
+                    <p class="project-tags">Engine Family</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mass Ratio & Vehicle Sizing</h2>
+            <p>
+                The selected propulsion architecture fed directly into the mass ratio and vehicle sizing process. Using the Tsiolkovsky rocket equation, the two-stage LOX/methane baseline used a Stage 1 ΔV of <strong>12,760 ft/s</strong> and a Stage 2 ΔV of <strong>19,140 ft/s</strong>.
+            </p>
+
+            <p>
+                With the selected Isp assumptions, the LOX/methane baseline produced a Stage 1 mass ratio of about <strong>3.25</strong> and a Stage 2 mass ratio of about <strong>4.96</strong>. Those values directly affected propellant mass, stage sizing, tank volume, and the final overall vehicle configuration.
+            </p>
+
+            <div class="image-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Isp</th>
+                            <th>ΔV</th>
+                            <th>Mass Ratio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stage 1</td>
+                            <td>337 s</td>
+                            <td>12,760 ft/s</td>
+                            <td>3.25</td>
+                        </tr>
+                        <tr>
+                            <td>Stage 2</td>
+                            <td>371 s</td>
+                            <td>19,140 ft/s</td>
+                            <td>4.96</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="image-caption">
+                LOX/methane mass ratio assumptions used to connect propulsion selection to stage sizing and overall vehicle geometry.
+            </p>
+        </section>
+
+        <section>
+            <h2>Engine Sizing & Nozzle Decisions</h2>
+            <p>
+                I worked through the engine sizing and nozzle packaging decisions for the vehicle. The design used a high chamber pressure methane engine with a common throat sizing basis, while allowing the booster and upper stage to use different nozzle expansions.
+            </p>
+
+            <p>
+                The booster nozzle was constrained by engine packaging inside the first-stage diameter. The upper stage had more room to prioritize vacuum efficiency, so it used a larger nozzle expansion ratio. This is a good example of how a propulsion choice turned into a vehicle layout constraint.
+            </p>
+
+            <div class="project-callout">
+                <h3>Engine Sizing Basis</h3>
+                <p>
+                    The propulsion concept used a chamber pressure of <strong>3600 psia</strong>, mixture ratio of <strong>O/F = 3.40</strong>, and an approximately <strong>11 in</strong> throat diameter. The booster nozzle was capped around <strong>51.2 in</strong> exit diameter for packaging, while the upper-stage nozzle used a larger vacuum expansion.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Stage 1 Engine Layout</h2>
+            <p>
+                The first stage used a clustered engine layout sized around the booster diameter and nozzle spacing constraints. This layout was important because the propulsion bay had to fit the required number of engines while leaving enough spacing for nozzle clearance, TVC motion, structural interfaces, and integration.
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/space_launch_vehicle/stage1_engine_layout.png"
+                    alt="Stage 1 engine layout showing clustered engines inside a 29.5 ft booster diameter"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Stage 1 engine packaging layout showing the 29.5 ft booster diameter and clustered engine arrangement used to size the propulsion bay and evaluate nozzle spacing.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Stage 2 Engine Layout</h2>
+            <p>
+                The second stage used a smaller clustered layout with a central fixed engine and outer engines arranged around it. The upper-stage layout had different packaging priorities than the booster because vacuum performance and nozzle expansion mattered more, while the stage diameter and engine count were much smaller.
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/space_launch_vehicle/stage2_engine_layout.png"
+                    alt="Stage 2 engine layout showing upper-stage engine arrangement and nozzle packaging"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Stage 2 engine layout showing the upper-stage engine arrangement and nozzle packaging within the stage diameter.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Thrust Vector Control Architecture</h2>
+            <p>
+                The engine layouts also tied into the thrust vector control strategy. For the booster, not every engine needed to gimbal. The design used a large clustered engine arrangement where only a subset of engines provided TVC authority, reducing complexity compared to gimbaling the full cluster.
+            </p>
+
+            <p>
+                The Stage 1 TVC concept used the middle ring of engines for control authority while the remaining engines stayed fixed for base thrust. This approach helped balance control authority, mechanical complexity, actuator demands, and engine-to-engine interference risk.
+            </p>
+
+            <div class="image-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Total Engines</th>
+                            <th>Gimbaling Engines</th>
+                            <th>Gimbal Capability</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stage 1</td>
+                            <td>28</td>
+                            <td>8 middle-ring engines</td>
+                            <td>±8.3°</td>
+                            <td>Pitch, yaw, and roll authority</td>
+                        </tr>
+                        <tr>
+                            <td>Stage 2</td>
+                            <td>5</td>
+                            <td>4 outer-ring engines</td>
+                            <td>±6.7°</td>
+                            <td>Upper-stage attitude control</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="image-caption">
+                TVC architecture summary showing how the engine layout supported vehicle control without requiring every engine to gimbal.
+            </p>
+        </section>
+
+        <section>
+            <h2>Engine Design Choices</h2>
+            <p>
+                The engine concept included regenerative cooling through the chamber and nozzle, with film cooling in the highest heat-flux regions. Coaxial swirl injectors were selected to support LOX/methane mixing and combustion stability.
+            </p>
+
+            <p>
+                I kept this as a design explanation instead of using a generic internet injector image because the important part for this portfolio is the reasoning behind the choices, not a random diagram from another engine.
+            </p>
+
+            <div class="project-callout">
+                <h3>Thermal & Injector Approach</h3>
+                <p>
+                    The engine concept used <strong>regenerative cooling</strong> through the chamber and nozzle, <strong>film cooling</strong> in high heat-flux regions, and <strong>coaxial swirl injectors</strong> to support methane-oxygen mixing and stable combustion.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pump & Gimbal Integration</h2>
+            <p>
+                A key integration issue for clustered engines is how much hardware has to rotate with the chamber. The turbopumps were treated as fixed-frame components above the gimbal plane, with flexible high-pressure connections feeding the gimbaling chamber.
+            </p>
+
+            <p>
+                This reduced the mass that had to be moved by the TVC actuators, helped with packaging inside the cluster, and reduced interference risk between neighboring engines. It was one of the design choices that connected propulsion hardware to controls and mechanical integration.
+            </p>
+
+            <div class="project-callout">
+                <h3>Integration Logic</h3>
+                <p>
+                    Fixed-frame turbopumps with flexible high-pressure connections allowed the chamber/nozzle assembly to gimbal while reducing rotating mass, simplifying packaging, and limiting engine-to-engine interference in the clustered layout.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pressurization & Tank Interface</h2>
+            <p>
+                The propulsion architecture also affected preliminary tank pressure assumptions. The design used gaseous oxygen and gaseous methane as pressurants, with pressure levels feeding into MEOP, proof pressure, and burst pressure assumptions for the tanks.
+            </p>
+
+            <p>
+                This was important because tank pressure is not just a propulsion detail. It becomes a structures and mass properties input, which is another example of how propulsion decisions carried into the broader vehicle design.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>LOX Tank Pressure</h3>
+                    <p>
+                        Preliminary operating pressure of about 79.7 psia.
+                    </p>
+                    <p class="project-tags">GOX Pressurization</p>
+                </div>
+
+                <div class="project">
+                    <h3>Methane Tank Pressure</h3>
+                    <p>
+                        Preliminary operating pressure of about 59.5 psia.
+                    </p>
+                    <p class="project-tags">GCH₄ Pressurization</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Served as the propulsion engineer for the launch vehicle design team.</li>
+                <li>Helped perform early propulsion architecture trades that affected the full vehicle configuration and sizing.</li>
+                <li>Compared LOX/RP-1, LOX/LH2, and LOX/methane propulsion options using performance, density, cost, handling, and development-risk criteria.</li>
+                <li>Selected a LOX/methane oxygen-rich staged combustion architecture for both stages.</li>
+                <li>Performed engine sizing and nozzle rationale using chamber pressure, mixture ratio, throat sizing, packaging limits, and expansion ratio trades.</li>
+                <li>Helped determine stage-level engine count, thrust requirements, and engine packaging layouts.</li>
+                <li>Developed the TVC architecture using partial engine gimbaling instead of gimbaling the full engine cluster.</li>
+                <li>Considered engine cooling, injector design, pump/gimbal integration, and tank pressure assumptions as part of the propulsion system architecture.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Highlights</h2>
+            <ul>
+                <li>Selected a <strong>LOX/methane ORSC</strong> propulsion architecture for both stages.</li>
+                <li>Used a chamber pressure of <strong>3600 psia</strong> and mixture ratio of <strong>O/F = 3.40</strong> as the engine sizing basis.</li>
+                <li>Connected propulsion selection to mass ratio, tank sizing, vehicle diameter, engine count, and overall stage layout.</li>
+                <li>Used a <strong>28-engine</strong> Stage 1 cluster and a <strong>5-engine</strong> Stage 2 layout.</li>
+                <li>Designed a TVC approach using selected gimbaling engines instead of gimbaling the entire cluster.</li>
+                <li>Balanced thrust, performance, packaging, development complexity, and vehicle integration instead of optimizing only for Isp.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                MATLAB, launch vehicle design, propulsion analysis, engine sizing, nozzle sizing, mass ratio analysis, thrust vector control, pressure budgeting, systems engineering, engineering trade studies, PDR/CDR technical review process
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me understand how much propulsion drives the rest of a launch vehicle. A propellant choice is not just a performance number. It changes density, tank size, mass ratio, engine count, nozzle packaging, stage geometry, and control architecture.
+            </p>
+
+            <p>
+                The biggest takeaway was learning how to defend propulsion architecture decisions in a design review format. We had a preferred direction early on, but we still had to compare alternatives and show why the selected architecture made sense for the actual mission, vehicle, schedule, and development constraints.
+            </p>
+        </section>
     </main>
 </body>
 </html>
