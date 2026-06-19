@@ -39,7 +39,7 @@
         <section>
             <h2>Control Problem</h2>
             <p>
-                A pitch disturbance affects more than pitch angle. It also changes vertical velocity, which then changes altitude over time. A controller that only corrects pitch can make the attitude response look better while still allowing the aircraft to drift vertically.
+                A pitch disturbance affects more than pitch angle. It changes vertical velocity, which then changes altitude over time. A controller that only corrects pitch can make the attitude response look better while still allowing the aircraft to drift vertically.
             </p>
 
             <p>
@@ -55,7 +55,7 @@
 
             <div class="video-frame landscape-video">
                 <video class="project-video" controls muted playsinline>
-                    <source src="images/feedback-control/baseline_demo.mp4" type="video/mp4">
+                    <source src="images/feedback_control/baseline_demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -67,7 +67,7 @@
             <div class="image-row">
                 <div class="image-card">
                     <img
-                        src="images/feedback-control/baseline_pitch.png"
+                        src="images/feedback_control/baseline_pitch.png"
                         alt="Baseline aircraft pitch response after a pitch impulse"
                         class="project-image">
 
@@ -78,7 +78,7 @@
 
                 <div class="image-card">
                     <img
-                        src="images/feedback-control/baseline_alt.png"
+                        src="images/feedback_control/baseline_alt.png"
                         alt="Baseline aircraft altitude response showing continued altitude drift"
                         class="project-image">
 
@@ -144,6 +144,17 @@
                 The final gains were <strong>Kp = 0.35</strong>, <strong>Kd = 0.18</strong>, and <strong>Kv = 0.0018</strong>. The design also used filtered feedback signals and elevator command saturation so the controller would behave more realistically in simulation.
             </p>
 
+            <div class="single-image diagram-image">
+                <img
+                    src="images/feedback_control/control_diagram.png"
+                    alt="Block diagram for the Skyhawk Stabilizer feedback controller"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Final feedback control architecture showing pitch proportional control, pitch-rate damping, vertical velocity feedback, and elevator input to the aircraft dynamics.
+                </p>
+            </div>
+
             <div class="image-card">
                 <table>
                     <thead>
@@ -186,7 +197,7 @@
 
             <div class="video-frame landscape-video">
                 <video class="project-video" controls muted playsinline>
-                    <source src="images/feedback-control/control_demo.mp4" type="video/mp4">
+                    <source src="images/feedback_control/control_demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -209,7 +220,7 @@
             <div class="image-row">
                 <div class="image-card">
                     <img
-                        src="images/feedback-control/control_pitch.png"
+                        src="images/feedback_control/control_pitch.png"
                         alt="Controlled aircraft pitch response after pitch impulse"
                         class="project-image">
 
@@ -220,7 +231,7 @@
 
                 <div class="image-card">
                     <img
-                        src="images/feedback-control/control_alt.png"
+                        src="images/feedback_control/control_alt.png"
                         alt="Controlled aircraft altitude response after pitch impulse"
                         class="project-image">
 
