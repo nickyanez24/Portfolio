@@ -9,41 +9,270 @@
 
 <body>
     <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">CONTROL SYSTEMS</p>
-        <h1>Aircraft Feedback Control</h1>
-        <p class="project-subtitle">Controller design, gain tuning, and flight simulation for aircraft stabilization.</p>
-    </section>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">CONTROL SYSTEMS</p>
+            <h1>Aircraft Feedback Control</h1>
+            <p class="project-subtitle">
+                “Skyhawk Stabilizer” feedback controller for pitch recovery and altitude regulation in X-Plane.
+            </p>
+        </section>
 
-    <h2>Overview</h2>
-        <p>
-            This project focused on developing a feedback controller capable of recovering an aircraft from pitch disturbances while minimizing altitude drift. Multiple control architectures were evaluated and tested using the X-Plane flight simulator.
-        </p>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project was completed for Feedback Control Systems with one other student. The goal was to design and implement a feedback controller that could recover a Cessna-style aircraft from a pitch disturbance in X-Plane while reducing long-term altitude drift.
+            </p>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Evaluated baseline aircraft response following pitch disturbances.</li>
-            <li>Developed and tested direct altitude control strategies.</li>
-            <li>Implemented PD pitch control and evaluated system performance.</li>
-            <li>Investigated integral control and its impact on stability.</li>
-            <li>Designed a final architecture incorporating vertical velocity feedback.</li>
-            <li>Tuned controller gains through iterative flight testing.</li>
-            <li>Conducted repeated takeoff, flight, disturbance, and landing tests in X-Plane.</li>
-        </ul>
+            <p>
+                The aircraft did not naturally return to steady flight after a pitch impulse. Without control, the pitch response deviated significantly and the altitude continued to drift. We tested multiple control strategies before selecting a final architecture that combined pitch PD control with vertical velocity feedback.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Compared multiple controller architectures before selecting a final design.</li>
-            <li>Implemented PD control, signal filtering, and actuator saturation limits.</li>
-            <li>Used vertical velocity feedback to improve altitude regulation.</li>
-            <li>Validated controller performance through simulation-based flight testing.</li>
-        </ul>
+            <div class="project-callout">
+                <h3>Engineering Goal</h3>
+                <p>
+                    Design a controller that uses elevator input to recover from a pitch impulse, regulate vertical motion, and bring the aircraft back toward stable flight.
+                </p>
+            </div>
+        </section>
 
-        <h2>Tools Used</h2>
-        <p>
-            MATLAB, feedback control systems, PD control, X-Plane, aircraft dynamics, simulation, gain tuning
-        </p>
+        <section>
+            <h2>Control Problem</h2>
+            <p>
+                A pitch disturbance affects more than pitch angle. It also changes vertical velocity, which then changes altitude over time. A controller that only corrects pitch can make the attitude response look better while still allowing the aircraft to drift vertically.
+            </p>
+
+            <p>
+                That made the project a real feedback design problem. The controller needed to reject the disturbance quickly, but not so aggressively that it caused oscillation, overcorrection, or unrealistic elevator commands.
+            </p>
+        </section>
+
+        <section>
+            <h2>Baseline Flight Behavior</h2>
+            <p>
+                The baseline case showed why a controller was needed. After the pitch impulse, the aircraft response was not naturally stable. The pitch reached a much larger peak response, and the altitude continued drifting instead of returning cleanly toward steady flight.
+            </p>
+
+            <div class="video-frame landscape-video">
+                <video class="project-video" controls muted playsinline>
+                    <source src="images/feedback-control/baseline_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <p class="image-caption">
+                Baseline X-Plane flight behavior before the final controller, showing the aircraft response after a pitch disturbance.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/feedback-control/baseline_pitch.png"
+                        alt="Baseline aircraft pitch response after a pitch impulse"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Baseline pitch response after the impulse, with a peak response of about 16.93 degrees.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/feedback-control/baseline_alt.png"
+                        alt="Baseline aircraft altitude response showing continued altitude drift"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Baseline altitude response showing continued drift after the pitch disturbance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Design Process</h2>
+            <p>
+                We did not jump straight to the final controller. We tested several strategies and used the failures to guide the final design. Direct altitude control was slow and difficult to tune. Pitch-only PD control improved pitch recovery, but altitude still drifted. Integral control was added to reduce steady-state error, but it caused instability and overcorrection.
+            </p>
+
+            <p>
+                The final design used pitch PD control plus vertical velocity feedback. That gave the controller a way to respond to altitude trends earlier, instead of only reacting after the aircraft had already drifted away.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Direct Altitude Control</h3>
+                    <p>
+                        Tried using altitude error to drive elevator input, but the response was slow, inconsistent, and difficult to tune.
+                    </p>
+                    <p class="project-tags">Rejected Strategy</p>
+                </div>
+
+                <div class="project">
+                    <h3>Pitch-Only PD Control</h3>
+                    <p>
+                        Improved pitch stabilization after the impulse, but altitude still drifted over time.
+                    </p>
+                    <p class="project-tags">Partial Success</p>
+                </div>
+
+                <div class="project">
+                    <h3>Integral Control</h3>
+                    <p>
+                        Attempted to remove steady-state error, but the response became overly aggressive and unstable.
+                    </p>
+                    <p class="project-tags">Rejected Strategy</p>
+                </div>
+
+                <div class="project">
+                    <h3>Vertical Velocity Feedback</h3>
+                    <p>
+                        Improved altitude behavior by reducing long-term drift and responding to vertical motion directly.
+                    </p>
+                    <p class="project-tags">Final Design Feature</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Final Control Architecture</h2>
+            <p>
+                The final controller used pitch feedback, pitch-rate feedback, and vertical velocity feedback. The controller was implemented in Python to interface with X-Plane, while MATLAB was used to process flight data and generate the pitch and altitude response plots.
+            </p>
+
+            <p>
+                The final gains were <strong>Kp = 0.35</strong>, <strong>Kd = 0.18</strong>, and <strong>Kv = 0.0018</strong>. The design also used filtered feedback signals and elevator command saturation so the controller would behave more realistically in simulation.
+            </p>
+
+            <div class="image-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Controller Term</th>
+                            <th>Gain</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pitch proportional feedback</td>
+                            <td>Kp = 0.35</td>
+                            <td>Corrects pitch error after the disturbance.</td>
+                        </tr>
+                        <tr>
+                            <td>Pitch-rate derivative feedback</td>
+                            <td>Kd = 0.18</td>
+                            <td>Reduces aggressive motion and improves damping.</td>
+                        </tr>
+                        <tr>
+                            <td>Vertical velocity feedback</td>
+                            <td>Kv = 0.0018</td>
+                            <td>Reduces long-term altitude drift by responding to vertical motion.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="image-caption">
+                Final controller gain summary for the pitch PD and vertical velocity feedback architecture.
+            </p>
+        </section>
+
+        <section>
+            <h2>Controlled Flight Test</h2>
+            <p>
+                The controlled flight test showed the final controller responding to the pitch disturbance and bringing the aircraft back toward a more stable condition. This video is useful because it shows the controller working in the actual X-Plane simulation environment, not just in a plot.
+            </p>
+
+            <div class="video-frame landscape-video">
+                <video class="project-video" controls muted playsinline>
+                    <source src="images/feedback-control/control_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <p class="image-caption">
+                Controlled X-Plane flight behavior after implementing the pitch PD and vertical velocity feedback controller.
+            </p>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+            <p>
+                The final controller improved the aircraft response compared to the baseline. The controlled pitch response recovered more cleanly after the impulse, and the altitude response showed reduced long-term drift compared to the uncontrolled case.
+            </p>
+
+            <p>
+                The final design was not chosen because it worked in one isolated test. It came from comparing multiple controller architectures and selecting the one that best balanced pitch recovery, altitude regulation, smoothness, and stability.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/feedback-control/control_pitch.png"
+                        alt="Controlled aircraft pitch response after pitch impulse"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Controlled pitch response showing recovery after the impulse and convergence toward the settling band.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/feedback-control/control_alt.png"
+                        alt="Controlled aircraft altitude response after pitch impulse"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Controlled altitude response showing reduced drift after adding vertical velocity feedback.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Worked with one teammate to design and test an aircraft feedback controller in X-Plane.</li>
+                <li>Implemented the controller logic in Python for X-Plane simulation testing.</li>
+                <li>Used MATLAB to process flight data and generate pitch and altitude response plots.</li>
+                <li>Evaluated baseline aircraft response following pitch disturbances.</li>
+                <li>Compared direct altitude control, pitch-only PD control, integral control, and vertical velocity feedback.</li>
+                <li>Tuned the final gains for pitch feedback, pitch-rate feedback, and vertical velocity feedback.</li>
+                <li>Applied signal filtering and elevator command saturation to improve stability and realism.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Highlights</h2>
+            <ul>
+                <li>Final controller used <strong>Kp = 0.35</strong>, <strong>Kd = 0.18</strong>, and <strong>Kv = 0.0018</strong>.</li>
+                <li>Used elevator input to regulate pitch and vertical motion after a disturbance.</li>
+                <li>Rejected direct altitude control because the response was slow and inconsistent.</li>
+                <li>Rejected integral control because it caused overcorrection and instability.</li>
+                <li>Used vertical velocity feedback to reduce long-term altitude drift.</li>
+                <li>Validated the controller through X-Plane simulation and MATLAB response plot comparisons.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                Python, MATLAB, X-Plane, feedback control systems, PD control, vertical velocity feedback, elevator control, signal filtering, actuator saturation, simulation-based gain tuning
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me understand why controller architecture matters just as much as gain tuning. Directly controlling altitude seemed intuitive, but it did not produce a clean response. Pitch-only control improved attitude behavior, but it did not fully solve altitude drift. Adding integral control made the response worse by overcorrecting.
+            </p>
+
+            <p>
+                The biggest takeaway was learning how pitch, vertical velocity, and altitude interact dynamically. The final controller worked better because it responded to vertical motion directly while still stabilizing pitch, which made the aircraft response smoother and more stable in simulation.
+            </p>
+        </section>
     </main>
 </body>
 </html>
