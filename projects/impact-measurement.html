@@ -82,7 +82,7 @@
         </section>
 
         <section>
-            <h2>Instrumentation & Data Acquisition</h2>
+            <h2>Instrumentation & Test Setup</h2>
             <p>
                 The measurement system used a piezoelectric accelerometer mounted to the hockey puck. This type of sensor was a good fit because the impact event was short, fast, and high acceleration. The sensor converted the impact acceleration into a voltage signal that could be captured through the DAQ system.
             </p>
@@ -91,28 +91,15 @@
                 A photodiode was used as the trigger so the data acquisition system recorded the impact event at the right time. LabVIEW collected the signal at a 10 kHz sampling rate, which was fast enough to capture the sharp acceleration spike during impact.
             </p>
 
-            <div class="image-row">
-                <div class="image-card">
-                    <img
-                        src="images/impact_measurement/circuit_labview_setup.png"
-                        alt="Circuit board and LabVIEW setup for impact measurement data acquisition"
-                        class="project-image">
+            <div class="single-image diagram-image">
+                <img
+                    src="images/impact_measurement/setup.png"
+                    alt="Drop test setup with packaging material and instrumented box"
+                    class="project-image">
 
-                    <p class="image-caption">
-                        Circuit and LabVIEW setup used to collect piezoelectric accelerometer and photodiode trigger data.
-                    </p>
-                </div>
-
-                <div class="image-card">
-                    <img
-                        src="images/impact_measurement/drop_test_setup.png"
-                        alt="Drop test setup with packaging material and instrumented box"
-                        class="project-image">
-
-                    <p class="image-caption">
-                        Drop-test setup used to compare packaging materials under the same box size, payload, and drop height.
-                    </p>
-                </div>
+                <p class="image-caption">
+                    Drop-test setup used to compare packaging materials under the same box size, payload, and drop height.
+                </p>
             </div>
         </section>
 
@@ -180,7 +167,7 @@
 
             <div class="single-image">
                 <img
-                    src="images/impact_measurement/acceleration_full.png"
+                    src="images/impact_measurement/acceleration_plot.png"
                     alt="Acceleration versus time for different packaging materials over the full measurement window"
                     class="project-image">
 
@@ -191,7 +178,7 @@
 
             <div class="single-image">
                 <img
-                    src="images/impact_measurement/acceleration_zoom.png"
+                    src="images/impact_measurement/zoomed.png"
                     alt="Zoomed acceleration versus time near impact peak for different packaging materials"
                     class="project-image">
 
@@ -211,15 +198,28 @@
                 Bubble wrap reduced the peak acceleration compared to the control, but not as much as shredded paper. Packing peanuts also reduced the impact, but stayed closer to the control case than the other packaging materials. In our setup, shredded paper provided the gentlest deceleration and the lowest peak force on the puck.
             </p>
 
-            <div class="single-image diagram-image">
-                <img
-                    src="images/impact_measurement/control_vs_paper.png"
-                    alt="Comparison of control and shredded paper acceleration time histories"
-                    class="project-image">
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/impact_measurement/control_drop.png"
+                        alt="Control acceleration response during drop test"
+                        class="project-image">
 
-                <p class="image-caption">
-                    Representative comparison showing how shredded paper reduced the peak acceleration and broadened the impact pulse compared to the control case.
-                </p>
+                    <p class="image-caption">
+                        Control drop response showing the deepest and narrowest acceleration spike.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/impact_measurement/paper_drop.png"
+                        alt="Shredded paper acceleration response during drop test"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Shredded paper response showing a lower peak acceleration and broader impact pulse.
+                    </p>
+                </div>
             </div>
 
             <div class="project-callout">
