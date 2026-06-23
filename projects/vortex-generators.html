@@ -25,7 +25,7 @@
             </p>
 
             <p>
-                Our team tested multiple vortex generator locations in a low-speed wind tunnel using both qualitative flow visualization and quantitative drag measurements. The final result showed that placement mattered more than just adding vortex generators. The ideal rear-mid placement reduced drag by about <strong>3% on average</strong> compared to the no-VG control, while poor placements could increase drag. :contentReference[oaicite:0]{index=0}
+                Our team tested multiple vortex generator locations in a low-speed wind tunnel using both qualitative flow visualization and quantitative drag measurements. The final result showed that placement mattered more than just adding vortex generators. The ideal rear-mid placement reduced drag by about <strong>3% on average</strong> compared to the no-VG control, while poor placements could increase drag.
             </p>
 
             <div class="project-callout">
@@ -88,7 +88,7 @@
             </p>
 
             <p>
-                Drag force was measured with the pistol-grip setup over a 5 second period at a 100 Hz sampling rate. We tested five tunnel speeds corresponding to Reynolds numbers of approximately <strong>1.6 × 10⁵</strong>, <strong>3.28 × 10⁵</strong>, <strong>4.13 × 10⁵</strong>, <strong>4.95 × 10⁵</strong>, and <strong>6.58 × 10⁵</strong>. :contentReference[oaicite:1]{index=1}
+                Drag force was measured with the pistol-grip setup over a 5 second period at a 100 Hz sampling rate. We tested five tunnel speeds corresponding to Reynolds numbers of approximately <strong>1.6 × 10⁵</strong>, <strong>3.28 × 10⁵</strong>, <strong>4.13 × 10⁵</strong>, <strong>4.95 × 10⁵</strong>, and <strong>6.58 × 10⁵</strong>.
             </p>
 
             <div class="single-image diagram-image">
@@ -161,18 +161,70 @@
         </section>
 
         <section>
+            <h2>Data Reduction & Scaling</h2>
+            <p>
+                The raw force measurement from the wind tunnel was not enough by itself because drag force changes with tunnel speed. To compare the different vortex generator configurations fairly, the measured drag force was non-dimensionalized into coefficient of drag using dynamic pressure and model reference area.
+            </p>
+
+            <div class="project-callout">
+                <h3>Drag Coefficient Calculation</h3>
+                <p>
+                    CD was calculated from measured drag force, freestream dynamic pressure, and the model cross-sectional area. This made it possible to compare the control and vortex-generator cases across multiple Reynolds numbers instead of only comparing raw force values.
+                </p>
+            </div>
+
+            <p>
+                We also evaluated power loss from drag by combining the drag force with freestream velocity. This connected the wind tunnel measurements back to the vehicle performance question: whether a small aerodynamic modification could reduce the effective power lost to drag.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Reynolds Number</h3>
+                    <p>
+                        Used to compare flow behavior across tunnel speeds and account for scale effects between the model and full vehicle.
+                    </p>
+                    <p class="project-tags">Flow Similarity</p>
+                </div>
+
+                <div class="project">
+                    <h3>Coefficient of Drag</h3>
+                    <p>
+                        Calculated from measured drag force, dynamic pressure, and reference area to compare configurations.
+                    </p>
+                    <p class="project-tags">Force Normalization</p>
+                </div>
+
+                <div class="project">
+                    <h3>Power Loss</h3>
+                    <p>
+                        Estimated from drag force and freestream velocity to connect aerodynamic drag to vehicle performance.
+                    </p>
+                    <p class="project-tags">Performance Impact</p>
+                </div>
+
+                <div class="project">
+                    <h3>Uncertainty</h3>
+                    <p>
+                        Error bars were included in the drag plot to show variation across measured force data and tunnel conditions.
+                    </p>
+                    <p class="project-tags">Experimental Error</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2>Drag Results</h2>
             <p>
-                The drag coefficient results showed that the ideal rear-mid placement consistently produced the lowest drag trend across the Reynolds number sweep. The front-mounted vortex generators increased drag, which made sense because they energized the boundary layer too early and increased losses before producing useful wake reduction.
+                The drag coefficient results showed that the ideal rear-mid placement consistently produced the lowest drag trend across the Reynolds number sweep. This placement likely worked best because it introduced vortices late enough to influence the separated flow region without adding unnecessary losses over the entire front half of the body.
             </p>
 
             <p>
-                This was the main engineering result of the lab: vortex generators are not automatically beneficial. Their placement has to match the flow behavior of the body. In our test, the rear-mid ideal location was the only configuration that produced a meaningful drag reduction. :contentReference[oaicite:2]{index=2}
+                In contrast, the front-mounted vortex generators increased drag. This made sense because they energized the boundary layer too early, increasing skin-friction effects before producing useful wake reduction. The main result was that vortex generators are not automatically beneficial. Their placement has to match the flow behavior of the body.
             </p>
 
             <div class="single-image">
                 <img
-                    src="images/vortex_generators/cd_vs_Re.png"
+                    src="images/vortex_generators/cd_vs_re.png"
                     alt="Coefficient of drag versus Reynolds number for vortex generator placement cases"
                     class="project-image">
 
