@@ -3,46 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrumented Impact Measurement | Nickolas Yanez</title>
+    <title>Instrumented Drop Test | Nickolas Yanez</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-   <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">EXPERIMENTAL TESTING</p>
-        <h1>Imapct Measurement</h1>
-        <p class="project-subtitle">Sensor integration, circuitry design, and experimental impact testing.</p>
-    </section>
+    <main>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">EXPERIMENTAL TESTING</p>
+            <h1>Instrumented Drop Test</h1>
+            <p class="project-subtitle">
+                Piezoelectric impact sensing, LabVIEW data acquisition, and packaging material comparison.
+            </p>
+        </section>
 
-    <h2>Overview</h2>
-        <p>
-            This project was completed as part of Electromechanical Systems and focused on evaluating how different packaging materials influence impact loading during drop events. Using an instrumented payload, our team collected and analyzed experimental data to compare packaging performance.
-        </p>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project was completed as part of Electromechanical Systems with two other students. The goal was to compare how different packaging materials affect the impact load experienced by a rigid payload during a controlled drop test.
+            </p>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Designed and assembled circuitry for sensor integration.</li>
-            <li>Integrated a piezoelectric accelerometer and photodiode with a DAQ system.</li>
-            <li>Developed the experimental drop-test setup.</li>
-            <li>Configured LabVIEW data acquisition workflows.</li>
-            <li>Processed and analyzed acceleration data from impact events.</li>
-            <li>Compared packaging materials including shredded paper, packing peanuts, and bubble wrap.</li>
-        </ul>
+            <p>
+                We modeled a simple shipping problem: if a box is dropped from a fixed height, which packaging material best reduces the shock transmitted to the object inside? To answer that, we instrumented a hockey puck payload with a piezoelectric accelerometer, triggered the measurement with a photodiode, collected data through LabVIEW, and compared acceleration responses for different packaging materials.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Collected transient impact measurements at high sampling rates.</li>
-            <li>Converted raw sensor voltages into acceleration data using calibration relationships.</li>
-            <li>Used experimental testing to compare cushioning effectiveness.</li>
-            <li>Demonstrated that shredded paper provided the greatest reduction in peak acceleration.</li>
-        </ul>
+            <div class="project-callout">
+                <h3>Engineering Goal</h3>
+                <p>
+                    Build an instrumented drop-test setup and use measured acceleration data to compare the cushioning effectiveness of shredded paper, packing peanuts, and bubble wrap.
+                </p>
+            </div>
+        </section>
 
-        <h2>Tools Used</h2>
-        <p>
-            LabVIEW, DAQ systems, circuitry design, breadboarding, piezoelectric accelerometers, photodiodes, signal processing, experimental testing
-        </p>
+        <section>
+            <h2>Experimental Objective</h2>
+            <p>
+                The experiment focused on peak impact acceleration. A sharper acceleration spike means the payload stops over a shorter time, which creates a larger shock load. A better packaging material should reduce the peak acceleration and spread the impact over a longer time.
+            </p>
+
+            <p>
+                We compared four conditions: a control case with no packaging material under the puck, shredded paper, packing peanuts, and bubble wrap. The box size, drop height, payload, and volume of cushioning material were kept consistent so the comparison focused on material behavior rather than geometry changes.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Payload</h3>
+                    <p>
+                        Hockey puck used as a rigid product analog, with a mass of 170.097 grams.
+                    </p>
+                    <p class="project-tags">Rigid Payload</p>
+                </div>
+
+                <div class="project">
+                    <h3>Drop Height</h3>
+                    <p>
+                        Box dropped from a fixed height of 0.381 m to keep impact energy consistent.
+                    </p>
+                    <p class="project-tags">Controlled Drop</p>
+                </div>
+
+                <div class="project">
+                    <h3>Test Conditions</h3>
+                    <p>
+                        Control, shredded paper, packing peanuts, and bubble wrap were tested.
+                    </p>
+                    <p class="project-tags">Material Comparison</p>
+                </div>
+
+                <div class="project">
+                    <h3>Repeatability</h3>
+                    <p>
+                        Each condition was tested over multiple trials to reduce random uncertainty.
+                    </p>
+                    <p class="project-tags">10 Trials</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Instrumentation & Data Acquisition</h2>
+            <p>
+                The measurement system used a piezoelectric accelerometer mounted to the hockey puck. This type of sensor was a good fit because the impact event was short, fast, and high acceleration. The sensor converted the impact acceleration into a voltage signal that could be captured through the DAQ system.
+            </p>
+
+            <p>
+                A photodiode was used as the trigger so the data acquisition system recorded the impact event at the right time. LabVIEW collected the signal at a 10 kHz sampling rate, which was fast enough to capture the sharp acceleration spike during impact.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/impact_measurement/circuit_labview_setup.png"
+                        alt="Circuit board and LabVIEW setup for impact measurement data acquisition"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Circuit and LabVIEW setup used to collect piezoelectric accelerometer and photodiode trigger data.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/impact_measurement/drop_test_setup.png"
+                        alt="Drop test setup with packaging material and instrumented box"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Drop-test setup used to compare packaging materials under the same box size, payload, and drop height.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Data Processing</h2>
+            <p>
+                The raw piezoelectric accelerometer signal was recorded as voltage, so the data had to be converted into acceleration before comparing packaging materials. First, a baseline voltage was calculated from the zero-input signal and subtracted from the measurements to remove sensor bias.
+            </p>
+
+            <p>
+                After baseline correction, the voltage signal was converted to acceleration using the accelerometer sensitivity of <strong>1.02 mV/(m/s²)</strong>. This gave an acceleration time history for each drop. From there, the main comparison was based on peak acceleration and pulse width.
+            </p>
+
+            <div class="project-callout">
+                <h3>Voltage-to-Acceleration Conversion</h3>
+                <p>
+                    The acceleration signal was computed by subtracting the baseline voltage from the measured voltage, scaling by 1000 to convert volts to millivolts, and dividing by the accelerometer sensitivity.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Baseline Correction</h3>
+                    <p>
+                        Removed the zero-input voltage offset so the impact acceleration was measured relative to the sensor baseline.
+                    </p>
+                    <p class="project-tags">Bias Removal</p>
+                </div>
+
+                <div class="project">
+                    <h3>Sensor Scaling</h3>
+                    <p>
+                        Converted corrected voltage to acceleration using the piezoelectric accelerometer sensitivity.
+                    </p>
+                    <p class="project-tags">Signal Conversion</p>
+                </div>
+
+                <div class="project">
+                    <h3>Peak Detection</h3>
+                    <p>
+                        Compared the deepest acceleration spike for each packaging condition.
+                    </p>
+                    <p class="project-tags">Impact Severity</p>
+                </div>
+
+                <div class="project">
+                    <h3>Pulse Shape</h3>
+                    <p>
+                        Used pulse width to understand how each material spread the impact over time.
+                    </p>
+                    <p class="project-tags">Energy Dissipation</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Acceleration Results</h2>
+            <p>
+                The full acceleration plot showed that each drop created a sharp negative acceleration spike near the impact event. The control case had the deepest and narrowest spike, meaning the puck experienced the largest peak deceleration over the shortest stopping time.
+            </p>
+
+            <p>
+                Adding packaging material reduced the magnitude of the spike and broadened the impact pulse. This showed that the cushioning materials brought the puck to rest more gradually, reducing the peak shock transmitted to the payload.
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/impact_measurement/acceleration_full.png"
+                    alt="Acceleration versus time for different packaging materials over the full measurement window"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Full acceleration time histories for the control case and packaging material cases.
+                </p>
+            </div>
+
+            <div class="single-image">
+                <img
+                    src="images/impact_measurement/acceleration_zoom.png"
+                    alt="Zoomed acceleration versus time near impact peak for different packaging materials"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Zoomed impact region showing the change in peak acceleration and pulse width across packaging materials.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Material Comparison</h2>
+            <p>
+                The control case produced the most severe impact, with a peak acceleration around <strong>-580 m/s²</strong>. Shredded paper produced the lowest peak acceleration, around <strong>-220 m/s²</strong>, and had a broader pulse shape, which means the impact was spread over a longer time.
+            </p>
+
+            <p>
+                Bubble wrap reduced the peak acceleration compared to the control, but not as much as shredded paper. Packing peanuts also reduced the impact, but stayed closer to the control case than the other packaging materials. In our setup, shredded paper provided the gentlest deceleration and the lowest peak force on the puck.
+            </p>
+
+            <div class="single-image diagram-image">
+                <img
+                    src="images/impact_measurement/control_vs_paper.png"
+                    alt="Comparison of control and shredded paper acceleration time histories"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Representative comparison showing how shredded paper reduced the peak acceleration and broadened the impact pulse compared to the control case.
+                </p>
+            </div>
+
+            <div class="project-callout">
+                <h3>Key Result</h3>
+                <p>
+                    Shredded paper provided the greatest reduction in peak acceleration, reducing the impact from roughly <strong>-580 m/s²</strong> in the control case to about <strong>-220 m/s²</strong>.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Worked with a three-person team to design and run the instrumented drop-test experiment.</li>
+                <li>Designed and assembled the circuitry needed for sensor integration.</li>
+                <li>Integrated the piezoelectric accelerometer and photodiode trigger with the DAQ system.</li>
+                <li>Configured LabVIEW data acquisition for high-rate impact measurement.</li>
+                <li>Helped run controlled drop tests for the control, shredded paper, packing peanuts, and bubble wrap conditions.</li>
+                <li>Processed voltage data into acceleration time histories using baseline correction and sensor sensitivity.</li>
+                <li>Compared peak acceleration and pulse shape to determine which packaging material reduced impact severity the most.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Highlights</h2>
+            <ul>
+                <li>Used a piezoelectric accelerometer to capture short-duration, high-g impact events.</li>
+                <li>Used a photodiode trigger to synchronize data collection with the drop event.</li>
+                <li>Collected impact data through LabVIEW at a 10 kHz sampling rate.</li>
+                <li>Converted raw voltage data into acceleration using sensor sensitivity and baseline correction.</li>
+                <li>Compared multiple packaging materials under the same drop height, box size, and payload configuration.</li>
+                <li>Showed that shredded paper reduced peak acceleration the most in the tested setup.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                LabVIEW, DAQ system, NI-9215, piezoelectric accelerometer, photodiode trigger, breadboarding, circuitry, signal processing, drop testing, impact measurement, experimental data analysis
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me understand how much care goes into experimental measurement. The sensor, circuit, trigger, sampling rate, baseline correction, and data conversion all affected whether the final acceleration plots were meaningful.
+            </p>
+
+            <p>
+                The biggest takeaway was learning how to connect instrumentation to a real design question. The experiment was not just about collecting a signal. It was about using that signal to compare materials, understand impact severity, and make an engineering conclusion from measured data.
+            </p>
+        </section>
     </main>
 </body>
 </html>
