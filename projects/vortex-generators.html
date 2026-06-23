@@ -9,38 +9,227 @@
 
 <body>
     <main>
-    <section class="project-hero">
-    <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-    <p class="eyebrow">AERODYNAMICS</p>
-    <h1>Vortex Generator Optimization</h1>
-    <p class="project-subtitle">Wind tunnel testing and flow visualization for drag reduction</p>
-</section>
-        <p>
-            This project investigated how vortex generator placement affects aerodynamic drag on a NASCAR-style vehicle. Multiple configurations were tested in a wind tunnel using both flow visualization and quantitative drag measurements.
-        </p>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">AERODYNAMICS</p>
+            <h1>Vortex Generator Optimization</h1>
+            <p class="project-subtitle">
+                Wind tunnel testing, flow visualization, and drag analysis for vortex generator placement on a stock-car model.
+            </p>
+        </section>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Researched vortex generator applications from aerodynamic literature.</li>
-            <li>Selected and adapted vortex generator geometries for testing.</li>
-            <li>Conducted wind tunnel testing across multiple Reynolds numbers.</li>
-            <li>Performed flow visualization using smoke and surface tufts.</li>
-            <li>Measured drag forces and calculated drag coefficients.</li>
-            <li>Compared multiple placement configurations against a baseline vehicle.</li>
-        </ul>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project investigated how vortex generator placement affects aerodynamic drag on a NASCAR-style stock-car model. The goal was to determine whether small, non-intrusive aerodynamic devices could reduce drag by changing boundary layer behavior and delaying flow separation.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Combined qualitative flow visualization with quantitative drag measurements.</li>
-            <li>Analyzed boundary layer behavior and flow separation.</li>
-            <li>Demonstrated that proper vortex generator placement reduced drag by approximately 3%.</li>
-            <li>Showed that poor placement could increase drag despite using the same device.</li>
-        </ul>
+            <p>
+                Our team tested multiple vortex generator locations in a low-speed wind tunnel using both qualitative flow visualization and quantitative drag measurements. The final result showed that placement mattered more than just adding vortex generators. The ideal rear-mid placement reduced drag by about <strong>3% on average</strong> compared to the no-VG control, while poor placements could increase drag. :contentReference[oaicite:0]{index=0}
+            </p>
 
-        <h2>Tools Used</h2>
-        <p>
-            Wind tunnel testing, flow visualization, aerodynamics, drag analysis, Reynolds number scaling, experimental testing
-        </p>
+            <div class="project-callout">
+                <h3>Engineering Goal</h3>
+                <p>
+                    Test whether vortex generators could reduce drag on a bluff-body vehicle model by controlling flow separation and reducing wake effects.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experimental Objective</h2>
+            <p>
+                Vortex generators are used to energize the boundary layer by intentionally introducing small vortices into the flow. This can help attached flow stay on the body longer, but it can also increase drag if the generators are placed poorly or energize the flow too early.
+            </p>
+
+            <p>
+                Because of that tradeoff, the experiment focused on placement. We compared a no-VG control case against vortex generators placed at the front, middle, rear, and an ideal rear-mid location selected from flow visualization observations.
+            </p>
+
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Flow Visualization</h3>
+                    <p>
+                        Used smoke trails and surface tufts to observe separation behavior, wake size, and flow attachment.
+                    </p>
+                    <p class="project-tags">Smoke • Tufts</p>
+                </div>
+
+                <div class="project">
+                    <h3>Drag Measurement</h3>
+                    <p>
+                        Used the wind tunnel force measurement setup to record drag force and calculate drag coefficient.
+                    </p>
+                    <p class="project-tags">Force Data • CD</p>
+                </div>
+
+                <div class="project">
+                    <h3>Placement Study</h3>
+                    <p>
+                        Compared no VG, front VG, middle VG, rear VG, and ideal rear-mid VG configurations.
+                    </p>
+                    <p class="project-tags">Configuration Testing</p>
+                </div>
+
+                <div class="project">
+                    <h3>Reynolds Sweep</h3>
+                    <p>
+                        Tested across five Reynolds numbers to compare drag trends over a range of tunnel speeds.
+                    </p>
+                    <p class="project-tags">Re Scaling</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wind Tunnel Setup</h2>
+            <p>
+                The experiment used a roughly <strong>1/12-scale</strong> stock-car model mounted in an open-circuit wind tunnel. The model was 3D printed with a pistol-grip mounting slot and surface tufts were attached to help visualize the flow over the body.
+            </p>
+
+            <p>
+                Drag force was measured with the pistol-grip setup over a 5 second period at a 100 Hz sampling rate. We tested five tunnel speeds corresponding to Reynolds numbers of approximately <strong>1.6 × 10⁵</strong>, <strong>3.28 × 10⁵</strong>, <strong>4.13 × 10⁵</strong>, <strong>4.95 × 10⁵</strong>, and <strong>6.58 × 10⁵</strong>. :contentReference[oaicite:1]{index=1}
+            </p>
+
+            <div class="single-image diagram-image">
+                <img
+                    src="images/vortex_generators/experimental_setup.png"
+                    alt="Wind tunnel setup with 3D printed stock-car model, tufts, vortex generators, and coordinate axes"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Wind tunnel setup with the 3D-printed stock-car model mounted on the pistol grip, surface tufts for flow visualization, and vortex generator test locations.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Vortex Generator Geometry</h2>
+            <p>
+                The vortex generators used a small triangular geometry based on an idealized design from aerodynamic literature. The test piece consisted of a strip of six vortex-generator pairs that could be placed at different locations on the model.
+            </p>
+
+            <p>
+                Keeping the geometry consistent allowed the experiment to focus on the effect of placement rather than changing the size or shape of the vortex generators between trials.
+            </p>
+
+            <div class="single-image diagram-image">
+                <img
+                    src="images/vortex_generators/vortex_geometry.png"
+                    alt="Vortex generator geometry shown with penny for scale"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Vortex generator geometry used for testing, shown with a penny for scale reference.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Flow Visualization</h2>
+            <p>
+                Flow visualization helped us see why the vortex generator location mattered. The control case showed the baseline flow behavior without vortex generators, while the ideal rear-mid placement produced more controlled flow behavior near the rear of the model.
+            </p>
+
+            <p>
+                The goal was not just to create turbulence anywhere on the car. The useful case was the one where the vortices helped control separation and reduce the wake without adding unnecessary drag earlier along the body.
+            </p>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img
+                        src="images/vortex_generators/control_tunnel.png"
+                        alt="Control wind tunnel test with no vortex generators"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Control case with no vortex generators, used as the baseline flow visualization condition.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="images/vortex_generators/ideal_tunnel.png"
+                        alt="Ideal rear-mid vortex generator placement in the wind tunnel"
+                        class="project-image">
+
+                    <p class="image-caption">
+                        Ideal/rear-mid vortex generator placement showing more controlled flow behavior near the rear of the model.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Drag Results</h2>
+            <p>
+                The drag coefficient results showed that the ideal rear-mid placement consistently produced the lowest drag trend across the Reynolds number sweep. The front-mounted vortex generators increased drag, which made sense because they energized the boundary layer too early and increased losses before producing useful wake reduction.
+            </p>
+
+            <p>
+                This was the main engineering result of the lab: vortex generators are not automatically beneficial. Their placement has to match the flow behavior of the body. In our test, the rear-mid ideal location was the only configuration that produced a meaningful drag reduction. :contentReference[oaicite:2]{index=2}
+            </p>
+
+            <div class="single-image">
+                <img
+                    src="images/vortex_generators/cd_vs_Re.png"
+                    alt="Coefficient of drag versus Reynolds number for vortex generator placement cases"
+                    class="project-image">
+
+                <p class="image-caption">
+                    Coefficient of drag versus Reynolds number for the control and vortex generator placement cases. The ideal/rear-mid placement produced the lowest CD trend.
+                </p>
+            </div>
+
+            <div class="project-callout">
+                <h3>Key Result</h3>
+                <p>
+                    The ideal rear-mid vortex generator placement reduced drag by approximately <strong>3%</strong> on average compared to the no-VG control, while front placement increased drag.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Worked with a four-person team to design and run a vortex generator placement experiment.</li>
+                <li>Researched vortex generator applications and adapted the geometry for wind tunnel testing.</li>
+                <li>Helped prepare the 3D-printed stock-car model with surface tufts and vortex generator test locations.</li>
+                <li>Conducted wind tunnel testing across multiple Reynolds numbers.</li>
+                <li>Used smoke and surface tufts to compare flow separation and wake behavior across configurations.</li>
+                <li>Measured drag force and calculated drag coefficient trends for each vortex generator placement.</li>
+                <li>Compared quantitative drag data with qualitative flow visualization to identify the best placement.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Highlights</h2>
+            <ul>
+                <li>Tested no-VG, front VG, middle VG, rear VG, and ideal rear-mid VG configurations.</li>
+                <li>Used Reynolds number scaling to compare aerodynamic behavior across multiple wind tunnel speeds.</li>
+                <li>Calculated coefficient of drag from measured drag force, dynamic pressure, and model reference area.</li>
+                <li>Evaluated power-loss effects using drag force and freestream velocity.</li>
+                <li>Showed that vortex generator placement can either reduce or increase drag depending on flow behavior.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                Low-speed wind tunnel, 3D-printed model testing, vortex generators, smoke visualization, surface tufts, pistol-grip force measurement, Reynolds number scaling, drag analysis, coefficient of drag calculations, experimental aerodynamics
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                This project helped me understand why aerodynamic devices cannot be judged in isolation. The same vortex generator geometry helped in one location and hurt in another. The useful result came from matching the device placement to the actual flow behavior over the model.
+            </p>
+
+            <p>
+                The biggest takeaway was learning how to combine qualitative and quantitative testing. The smoke and tufts helped explain what the flow was doing, while the drag coefficient data showed whether those visual changes actually improved performance.
+            </p>
+        </section>
     </main>
 </body>
 </html>
