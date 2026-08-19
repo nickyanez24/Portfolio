@@ -3,47 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actuating Fins | Nickolas Yanez</title>
+    <title>Active Rocket Roll Control | Nickolas Yañez</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<body class="actuating-fins-page">
     <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">ROCKET CONTROLS</p>
-        <h1>Actuating Fin Tabs</h1>
-        <p class="project-subtitle">Active roll control for high-powered rockets using servo-actuated aerodynamic surfaces.</p>
-    </section>
+        <section class="project-hero project-hero-featured">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">Rocket Controls</p>
+            <h1>Active Rocket Roll Control</h1>
+            <p class="project-subtitle">Designing and building a subscale rocket to demonstrate active roll control using servo-actuated canards.</p>
 
-    <h2>Overview</h2>
-        <p>
-            As part of Longhorn Rocketry's Advanced Research team, I led the early development of an active fin control system designed to provide roll control during flight. The long-term goal of the project is to develop technologies that could eventually evolve into fully actuated fins capable of both roll and pitch control on future competition rockets.
-        </p>
+            <div class="project-status" aria-label="Project status">
+                <span class="status-label">Ongoing Project</span>
+                <span class="status-detail">Current stage: First full-vehicle CAD iteration</span>
+            </div>
+        </section>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Defined system requirements and overall project direction.</li>
-            <li>Developed OpenRocket vehicle models for aerodynamic analysis.</li>
-            <li>Performed sizing studies for fin tabs and control surfaces.</li>
-            <li>Researched and downselected candidate servo actuators.</li>
-            <li>Calculated expected aerodynamic moments and required actuator torque.</li>
-            <li>Created CAD models of fin concepts and actuator integration schemes.</li>
-            <li>Manufactured prototype fin designs using additive manufacturing.</li>
-        </ul>
+        <div class="project-story">
+            <section class="story-section story-intro">
+                <p class="story-kicker">What I'm trying to build</p>
+                <h2>A focused flight-control demonstrator</h2>
+                <p class="story-lead">
+                    Right now, the goal is intentionally narrow: build a subscale rocket that can demonstrate active roll control using four servo-actuated canards. This is not an attempt to jump straight into full three-axis control. I want to work through one control problem all the way from vehicle architecture and aerodynamic control authority to actuator sizing, mechanical packaging, avionics integration, manufacturing, bench testing, and eventually flight testing.
+                </p>
+            </section>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Estimated aerodynamic loading using maximum flight velocities predicted in OpenRocket.</li>
-            <li>Performed torque calculations to determine minimum actuator requirements.</li>
-            <li>Balanced control authority against manufacturing constraints and fin thickness limitations.</li>
-            <li>Developed prototype hardware for future testing and controls integration.</li>
-        </ul>
+            <section class="story-section">
+                <p class="story-kicker">Design progression</p>
+                <h2>How this project got here</h2>
+                <div class="story-prose">
+                    <p>
+                        The project did not start with the current canard layout. The original concept used servo-actuated tabs built into the rocket's main fins. During that phase, I worked through OpenRocket vehicle models, aerodynamic loading and actuator torque calculations, servo selection, fin geometry, CAD, additive manufacturing, and physical fin prototypes.
+                    </p>
+                    <p>
+                        That architecture raised a practical question that was still unresolved when the project changed direction: how do we remove and reuse a servo after it has been embedded inside an assembled fin? We discussed casing and access concepts that could make the actuator serviceable, but we did not take one of them through a final design. The fin-tab work was still useful—it made actuator packaging and serviceability real design concerns instead of details to solve later.
+                    </p>
+                    <p>
+                        From there, the project evolved toward actuating the full control surface and eventually toward a dedicated canard-based vehicle. I do not view that as the first concept failing. The scope and architecture changed as we learned more about what would have to fit together mechanically and what kind of vehicle would let us demonstrate the control problem clearly.
+                    </p>
+                </div>
 
-        <h2>Tools Used</h2>
-        <p>
-            OpenRocket, SolidWorks, CAD, 3D Printing, MATLAB, actuator sizing, aerospace controls, engineering analysis
-        </p>
+                <aside class="project-callout project-callout-personal">
+                    <h3>An early lesson in overbuilding</h3>
+                    <p>
+                        One early fin prototype was 3D printed with an internal lattice, and I let epoxy seep into that structure as a reinforcement experiment. I mainly wanted to see how the manufacturing approach would turn out physically. The result was extremely rigid, but it was also ridiculously heavy—basically a brick. Putting that much mass low on the rocket would have shifted the vehicle's center of gravity significantly downward.
+                    </p>
+                    <p>
+                        The fin was never load tested, aerodynamically tested, or flown. It was a manufacturing prototype, but it made the trade between stiffness, mass, manufacturability, and vehicle-level effects very tangible.
+                    </p>
+                </aside>
+
+                <!-- Replace this placeholder with the real prototype photo when it is available. -->
+                <figure class="engineering-media-placeholder">
+                    <div class="placeholder-frame" role="img" aria-label="Placeholder for a photo of the early epoxy-reinforced 3D-printed fin prototype">
+                        <span>Image placeholder</span>
+                        <strong>Early epoxy-reinforced fin prototype</strong>
+                        <small>Add the physical prototype photo here</small>
+                    </div>
+                    <figcaption>Early 3D-printed actuated-fin prototype showing the internal lattice and epoxy reinforcement experiment. This iteration was manufactured to evaluate the concept physically but was never load tested or flown.</figcaption>
+                </figure>
+            </section>
+
+            <section class="story-section split-section">
+                <div>
+                    <p class="story-kicker">Project scope</p>
+                    <h2>Why a dedicated demonstrator</h2>
+                </div>
+                <div class="story-prose">
+                    <p>
+                        The current vehicle is scoped around proving one thing well: active roll control. Trying to address roll, pitch, and yaw at once—or placing experimental hardware directly onto a larger competition vehicle—would make it harder to tell what is working and what needs to change.
+                    </p>
+                    <p>
+                        A smaller demonstrator keeps the control problem isolated, gives me room to iterate the hardware faster, and should make the eventual flight-test results easier to learn from before the system grows into something more complicated.
+                    </p>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <p class="story-kicker">System layout</p>
+                <h2>Current architecture</h2>
+                <p class="story-lead">
+                    The current concept is a subscale rocket with four forward-mounted, servo-actuated canards and four stationary aft fins. Active control is focused on roll, with onboard sensing and control electronics planned for closed-loop operation. Recovery and avionics also have to fit into the vehicle as parts of the same architecture, not as separate additions at the end.
+                </p>
+
+                <div class="architecture-grid" aria-label="Current vehicle architecture">
+                    <div><span>01</span><strong>Forward control</strong><p>Four servo-actuated canards</p></div>
+                    <div><span>02</span><strong>Aft stability</strong><p>Four stationary fins</p></div>
+                    <div><span>03</span><strong>Control objective</strong><p>Active roll control</p></div>
+                    <div><span>04</span><strong>Integrated systems</strong><p>Planned sensing, control, avionics, and recovery</p></div>
+                </div>
+
+                <div class="story-prose">
+                    <p>
+                        I originally considered using two canards because that would reduce the hardware count and mechanical complexity. I selected four instead because they give the vehicle a more symmetric control layout and a better way to deal with aerodynamic moments when it sees an off-axis angle of attack. That decision is architectural at this stage; I am not claiming quantitative control authority before the analysis and testing support it.
+                    </p>
+                    <p>
+                        Packaging has also changed the vehicle itself. An earlier airframe concept was about 2.6 inches in diameter. Once I started placing the actual servos in CAD, it became clear that fitting the mechanism inside that diameter would be a problem. The vehicle layout had to be resized and reworked as the hardware became less abstract.
+                    </p>
+                </div>
+            </section>
+
+            <section class="story-section cad-section">
+                <div class="cad-copy">
+                    <p class="story-kicker">Current CAD</p>
+                    <h2>The first complete vehicle-level model</h2>
+                    <p>
+                        Right now I'm working through the first full CAD iteration. The nose, airframe, four forward canards, four stationary aft fins, and overall external vehicle architecture are modeled. The canard attachment hardware and internal canard bay are not complete yet; I am waiting on some dimensions before I can finish those components.
+                    </p>
+                    <p>
+                        The next mechanical work is centered on those interfaces and the internal packaging. Having the full vehicle in CAD now gives me a way to find integration problems while the design is still easy to change.
+                    </p>
+                </div>
+
+                <!-- Replace this placeholder with the real full-vehicle CAD screenshot when it is available. -->
+                <figure class="engineering-media-placeholder cad-placeholder">
+                    <div class="placeholder-frame" role="img" aria-label="Placeholder for the current full-vehicle CAD screenshot">
+                        <span>Image placeholder</span>
+                        <strong>Current full-vehicle CAD</strong>
+                        <small>Add the CAD assembly screenshot here</small>
+                    </div>
+                    <figcaption>First full-vehicle CAD iteration. The external vehicle architecture is modeled; canard attachment hardware and internal packaging are still in development.</figcaption>
+                </figure>
+            </section>
+
+            <section class="story-section">
+                <p class="story-kicker">Tradeoffs and integration</p>
+                <h2>Engineering decisions so far</h2>
+                <div class="decision-grid">
+                    <article class="decision-card">
+                        <h3>Four canards vs. two</h3>
+                        <p>Two canards would reduce the part count, but four create a symmetric control architecture and give the system a better way to respond to moments that appear with off-axis angle of attack.</p>
+                    </article>
+                    <article class="decision-card">
+                        <h3>Vehicle packaging</h3>
+                        <p>The earlier 2.6-inch concept stopped looking practical once the real servo envelope entered CAD. Instead of forcing the mechanism into that layout, I reworked the vehicle around the hardware it actually needs to carry.</p>
+                    </article>
+                    <article class="decision-card">
+                        <h3>A dedicated roll demonstrator</h3>
+                        <p>Restricting the first objective to roll control reduces the number of interacting problems and creates a clearer path toward hardware iteration, bench work, and an eventual flight test.</p>
+                    </article>
+                    <article class="decision-card">
+                        <h3>Serviceability matters</h3>
+                        <p>The embedded-servo fin concept showed how quickly actuator access and reuse can become part of the mechanism design. The current packaging work keeps those practical integration questions visible.</p>
+                    </article>
+                    <article class="decision-card">
+                        <h3>Full-vehicle CAD early</h3>
+                        <p>Modeling the entire rocket before every mechanism is finalized exposes conflicts among the control hardware, avionics, recovery, and airframe while moving things around is still cheap.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <p class="story-kicker">Project status</p>
+                <h2>Where the project is right now</h2>
+                <div class="progress-grid">
+                    <article class="progress-column progress-complete">
+                        <p class="progress-label">Done so far</p>
+                        <ul>
+                            <li>Defined the roll-control objective and project scope</li>
+                            <li>Established the initial vehicle architecture</li>
+                            <li>Worked through the two-vs.-four-canard trade</li>
+                            <li>Completed servo downselection and actuator sizing work</li>
+                            <li>Developed vehicle-level OpenRocket models</li>
+                            <li>Built the first full external vehicle CAD assembly</li>
+                        </ul>
+                    </article>
+                    <article class="progress-column progress-current">
+                        <p class="progress-label">Working on now</p>
+                        <ul>
+                            <li>First detailed mechanical CAD iteration</li>
+                            <li>Canard attachment and interface</li>
+                            <li>Canard bay and internal packaging</li>
+                            <li>Overall mechanical integration</li>
+                        </ul>
+                    </article>
+                    <article class="progress-column progress-planned">
+                        <p class="progress-label">Planned next</p>
+                        <ul>
+                            <li>Manufacture the mechanical hardware</li>
+                            <li>Bench-test canard actuation</li>
+                            <li>Integrate sensing and control electronics</li>
+                            <li>Validate IMU roll-rate measurement</li>
+                            <li>Run closed-loop bench testing</li>
+                            <li>Complete system-level testing</li>
+                            <li>Conduct an eventual subscale flight test</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="story-section split-section learning-section">
+                <div>
+                    <p class="story-kicker">Systems thinking</p>
+                    <h2>What I'm learning</h2>
+                </div>
+                <div class="story-prose">
+                    <p>
+                        The biggest lesson so far is that a locally good solution can still create a vehicle-level problem. A very stiff fin can add unacceptable mass. A compact actuator concept can make the servo impossible to service. A vehicle diameter that works in OpenRocket can stop working once real hardware enters CAD.
+                    </p>
+                    <p>
+                        I am also seeing how useful it is to reduce scope without losing the real engineering problem. Active roll control still requires the mechanical, aerodynamic, controls, avionics, and recovery decisions to work together, but the dedicated demonstrator gives me a practical way to work through those interfaces one iteration at a time.
+                    </p>
+                </div>
+            </section>
+
+            <section class="story-section tools-section">
+                <p class="story-kicker">Tools and methods</p>
+                <h2>What I'm using</h2>
+                <div class="tag-list">
+                    <span>SolidWorks</span>
+                    <span>OpenRocket</span>
+                    <span>MATLAB</span>
+                    <span>3D Printing</span>
+                    <span>Actuator Sizing</span>
+                    <span>Aerodynamic Analysis</span>
+                    <span>Systems Integration</span>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 </html>
