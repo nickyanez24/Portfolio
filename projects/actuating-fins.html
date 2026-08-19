@@ -18,30 +18,23 @@
         </section>
 
         <section class="project-copy">
-            <h2>What I'm building</h2>
+            <h2>What the project is</h2>
             <p>
-                The goal is to build a subscale rocket that can actively control roll using four servo-actuated canards. I'm intentionally keeping the first version to roll control instead of trying to solve roll, pitch, and yaw all at once. Even with that narrower goal, I still have to work through the full chain: vehicle layout, actuator sizing, mechanical packaging, avionics and controls integration, bench testing, and eventually flight testing.
+                I'm building a subscale rocket that can actively control its roll using four servo-actuated canards. For now, the project is intentionally limited to roll instead of trying to solve roll, pitch, and yaw at the same time. The vehicle is still in development, and I'm currently working through the first full-vehicle CAD iteration.
             </p>
         </section>
 
         <section class="project-copy">
-            <h2>How the project got here</h2>
+            <h2>Where it started</h2>
             <p>
-                This project originally started with servo-actuated tabs built into the rocket's main fins. I worked on the OpenRocket vehicle model, servo sizing, aerodynamic loading and torque calculations, fin geometry, CAD, 3D printing, and a few physical prototypes.
+                The project originally used servo-actuated tabs built into the rocket's main fins. I worked on the OpenRocket vehicle model, aerodynamic loading and torque calculations, servo sizing, fin geometry, CAD, 3D printing, and several physical prototypes. That work gave us an initial picture of the loads the actuator would need to handle and what it would take to package the mechanism inside a fin.
             </p>
             <p>
-                One practical issue we had not finished solving was serviceability. The servo sat inside the fin, so we needed a way to remove and reuse it after the fin was assembled. We discussed a removable casing or access feature, but the project changed direction before we developed that idea into a final design. The work later moved toward fully actuated surfaces and then toward the current canard-based demonstrator.
+                One practical issue we had not finished solving was serviceability. The servo was embedded inside the fin, so after assembly we would still need a way to remove it and reuse it. We discussed a removable casing or some type of access feature, but the project changed direction before we developed that into a final design.
             </p>
-
-            <div class="project-callout">
-                <h3>An early lesson in overbuilding</h3>
-                <p>
-                    One prototype fin was printed with an internal lattice, and I let epoxy seep into the structure to see how that manufacturing approach would turn out. It became extremely rigid and also extremely heavy—basically a brick. That much mass low on the rocket would have shifted the vehicle's center of gravity significantly downward.
-                </p>
-                <p>
-                    It was never load tested, aerodynamically tested, or flown. I only manufactured it to evaluate the idea physically, but it was a useful reminder that making one part stiffer can create a much bigger problem for the vehicle.
-                </p>
-            </div>
+            <p>
+                One of the early fins was printed with an internal lattice, and I let epoxy seep into the structure to see how the manufactured part would turn out. It became extremely rigid, but it was also extremely heavy—basically a brick. That much mass near the bottom of the rocket would have shifted the vehicle's center of gravity significantly downward. The prototype was never load tested, aerodynamically tested, or flown. I only manufactured it to see how the concept behaved physically.
+            </p>
 
             <!-- Replace this placeholder with the real prototype photo when it is available. -->
             <figure class="single-image project-placeholder">
@@ -54,18 +47,38 @@
         </section>
 
         <section class="project-copy">
+            <h2>How the architecture changed</h2>
+            <p>
+                After the fin-tab work, the project moved toward fully actuated surfaces and then toward the current canard-based vehicle. There was not one test or calculation that suddenly ruled out the original idea. The design changed as the project scope became clearer and questions like actuator access, packaging, and vehicle integration became harder to treat as details for later.
+            </p>
+            <p>
+                The current rocket is meant to prove one control problem well before the project expands into anything more complicated. Keeping the first vehicle focused on roll gives us a more manageable path through the hardware, controls, bench testing, and eventual flight test than trying to build a full three-axis system immediately.
+            </p>
+            <p>
+                I initially considered using two canards because fewer servos meant less hardware and simpler packaging. I moved to four because the symmetric layout gives the controller more options for countering aerodynamic moments when the rocket is not perfectly aligned with the flow. How much control authority that gives the vehicle still needs to be worked out through analysis and testing.
+            </p>
+        </section>
+
+        <section class="project-copy">
             <h2>Current design</h2>
             <p>
-                The current vehicle is a subscale rocket with four forward servo-actuated canards and four stationary aft fins. The active control is focused on roll. Onboard sensing and control hardware are planned, and the avionics and recovery hardware still have to fit inside the same overall vehicle layout.
+                The current vehicle has four forward servo-actuated canards and four stationary aft fins. The canards are only being used for roll control. Onboard sensing and control hardware are planned for closed-loop operation, and the avionics and recovery hardware have to fit into the same vehicle rather than being treated as separate systems at the end.
             </p>
             <p>
-                I originally looked at using two canards because fewer servos obviously makes the hardware easier. I moved to four because the symmetric layout gives the controller more useful authority when the rocket experiences an off-axis angle of attack.
+                Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
             </p>
             <p>
-                Packaging also changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter. Once I put the actual servos into CAD, fitting everything inside that airframe stopped looking practical, so I reworked the vehicle around the hardware it actually needs to carry.
+                That is one reason I'm modeling the full vehicle this early. The CAD is not just a drawing of a finished idea; it is where conflicts among the canard mechanism, airframe, avionics, and recovery layout start becoming visible.
+            </p>
+        </section>
+
+        <section class="project-copy">
+            <h2>Current CAD and where the project stands</h2>
+            <p>
+                The first complete external vehicle model is now built. The nose, airframe, four forward canards, and four aft fins are all in the assembly, so the overall architecture is finally starting to look like a real vehicle instead of a collection of separate mechanisms.
             </p>
             <p>
-                The first full-vehicle CAD model is complete at the external-architecture level. The nose, airframe, four forward canards, and four aft fins are modeled. The canard attachments and internal bay are not finished yet; I'm waiting on some dimensions before I can finalize those parts.
+                The detailed mechanical integration is still underway. The canard attachment hardware and internal canard bay are not finished, and I'm waiting on some dimensions before I can finalize those pieces. That interface and the internal packaging are the main CAD work right now.
             </p>
 
             <!-- Replace this placeholder with the real full-vehicle CAD screenshot when it is available. -->
@@ -79,41 +92,12 @@
         </section>
 
         <section class="project-copy">
-            <h2>Where I'm at now</h2>
-            <p>The overall vehicle layout is in place, and I'm now working through the mechanical details that connect the canards to the rest of the rocket.</p>
-
-            <h3>Completed so far</h3>
-            <ul>
-                <li>Defined the project scope and roll-control objective</li>
-                <li>Established the initial vehicle architecture</li>
-                <li>Worked through the two-vs.-four-canard decision</li>
-                <li>Completed servo downselection and sizing work</li>
-                <li>Developed the OpenRocket vehicle model</li>
-                <li>Built the first full external vehicle CAD assembly</li>
-            </ul>
-
-            <h3>Currently working on</h3>
-            <ul>
-                <li>Canard attachment and interface</li>
-                <li>Canard bay and internal packaging</li>
-                <li>Detailed mechanical CAD</li>
-                <li>Overall vehicle integration</li>
-            </ul>
-        </section>
-
-        <section class="project-copy">
-            <h2>What comes next</h2>
-            <ul>
-                <li>Manufacture the mechanical hardware</li>
-                <li>Bench-test the canard actuation</li>
-                <li>Integrate the sensing and control electronics</li>
-                <li>Validate IMU roll-rate measurement</li>
-                <li>Run closed-loop bench testing</li>
-                <li>Complete system-level testing</li>
-                <li>Conduct an eventual subscale flight test</li>
-            </ul>
+            <h2>What happens next</h2>
             <p>
-                So far, the biggest lesson has been how quickly packaging becomes real once the actual hardware enters CAD. A mechanical idea can work well by itself and still create a vehicle-level problem. Keeping the scope to roll control makes the project more testable, and modeling the full rocket early is helping me find integration problems before I start manufacturing parts.
+                The next step is to finish the canard attachment, internal bay, and overall mechanical layout so the hardware can be manufactured. From there, I plan to prove the canard actuation on the bench before integrating the sensing and control electronics. That includes validating the IMU roll-rate measurement and working toward closed-loop bench testing.
+            </p>
+            <p>
+                Once the mechanical and controls work can operate together, the project can move into system-level testing and eventually a subscale flight. It is still an active project, and I'll keep updating this page as the design becomes hardware and the testing starts producing real results.
             </p>
 
             <div class="tag-list project-tools">
