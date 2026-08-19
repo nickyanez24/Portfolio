@@ -3,47 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actuating Fins | Nickolas Yanez</title>
+    <title>Active Rocket Roll Control | Nickolas Yañez</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <main>
-    <section class="project-hero">
-        <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-        <p class="eyebrow">ROCKET CONTROLS</p>
-        <h1>Actuating Fin Tabs</h1>
-        <p class="project-subtitle">Active roll control for high-powered rockets using servo-actuated aerodynamic surfaces.</p>
-    </section>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <h1>Active Rocket Roll Control</h1>
+            <p class="project-status-simple"><strong>Ongoing Project</strong><br>Current stage: First full-vehicle CAD iteration</p>
+        </section>
 
-    <h2>Overview</h2>
-        <p>
-            As part of Longhorn Rocketry's Advanced Research team, I led the early development of an active fin control system designed to provide roll control during flight. The long-term goal of the project is to develop technologies that could eventually evolve into fully actuated fins capable of both roll and pitch control on future competition rockets.
-        </p>
+        <section class="project-copy">
+            <h2>What the project is</h2>
+            <p>
+                I'm building a subscale rocket that can actively control its roll using four servo-actuated canards. For now, the project is intentionally limited to roll instead of trying to solve roll, pitch, and yaw at the same time. The vehicle is still in development, and I'm currently working through the first full-vehicle CAD iteration.
+            </p>
+        </section>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Defined system requirements and overall project direction.</li>
-            <li>Developed OpenRocket vehicle models for aerodynamic analysis.</li>
-            <li>Performed sizing studies for fin tabs and control surfaces.</li>
-            <li>Researched and downselected candidate servo actuators.</li>
-            <li>Calculated expected aerodynamic moments and required actuator torque.</li>
-            <li>Created CAD models of fin concepts and actuator integration schemes.</li>
-            <li>Manufactured prototype fin designs using additive manufacturing.</li>
-        </ul>
+        <section class="project-copy">
+            <h2>Where it started</h2>
+            <p>
+                The project originally used servo-actuated tabs built into the rocket's main fins. I worked on the OpenRocket vehicle model, aerodynamic loading and torque calculations, servo sizing, fin geometry, CAD, 3D printing, and several physical prototypes. That work gave us an initial picture of the loads the actuator would need to handle and what it would take to package the mechanism inside a fin.
+            </p>
+            <p>
+                One practical issue we had not finished solving was serviceability. The servo was embedded inside the fin, so after assembly we would still need a way to remove it and reuse it. We discussed a removable casing or some type of access feature, but the project changed direction before we developed that into a final design.
+            </p>
+            <p>
+                One of the early fins was printed with an internal lattice, and I let epoxy seep into the structure to see how the manufactured part would turn out. It became extremely rigid, but it was also extremely heavy—basically a brick. That much mass near the bottom of the rocket would have shifted the vehicle's center of gravity significantly downward. The prototype was never load tested, aerodynamically tested, or flown. I only manufactured it to see how the concept behaved physically.
+            </p>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Estimated aerodynamic loading using maximum flight velocities predicted in OpenRocket.</li>
-            <li>Performed torque calculations to determine minimum actuator requirements.</li>
-            <li>Balanced control authority against manufacturing constraints and fin thickness limitations.</li>
-            <li>Developed prototype hardware for future testing and controls integration.</li>
-        </ul>
+            <!-- Replace this placeholder with the real prototype photo when it is available. -->
+            <figure class="single-image project-placeholder">
+                <div class="media-placeholder">
+                    <h3>Early epoxy-reinforced fin prototype</h3>
+                    <p>Photo placeholder — add the physical prototype image here.</p>
+                </div>
+                <figcaption class="image-caption">Early 3D-printed actuated-fin prototype showing the internal lattice and epoxy reinforcement experiment. This iteration was manufactured to evaluate the concept physically but was never load tested or flown.</figcaption>
+            </figure>
+        </section>
 
-        <h2>Tools Used</h2>
-        <p>
-            OpenRocket, SolidWorks, CAD, 3D Printing, MATLAB, actuator sizing, aerospace controls, engineering analysis
-        </p>
+        <section class="project-copy">
+            <h2>How the architecture changed</h2>
+            <p>
+                From there, the project moved toward fully actuated surfaces and eventually the current canard-based vehicle. As the design developed, actuator access, packaging, and integration started driving more of the architecture.
+            </p>
+            <p>
+                For the current vehicle, we narrowed the goal to roll control. That keeps the first flight system manageable while still forcing us to work through the mechanical hardware, sensing, controls, and integration needed to actually close the loop.
+            </p>
+            <p>
+                I initially considered using two canards because fewer servos meant less hardware and simpler packaging. I moved to four because the symmetric layout gives the controller more options for countering aerodynamic moments when the rocket is not perfectly aligned with the flow. How much control authority that gives the vehicle still needs to be worked out through analysis and testing.
+            </p>
+        </section>
+
+        <section class="project-copy">
+            <h2>Current design</h2>
+            <p>
+                The current vehicle has four forward servo-actuated canards and four stationary aft fins. The canards are only being used for roll control. Onboard sensing and control hardware are planned for closed-loop operation, and the avionics and recovery hardware have to fit into the same vehicle rather than being treated as separate systems at the end.
+            </p>
+            <p>
+                Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
+            </p>
+            <p>
+                That is one reason I'm modeling the full vehicle this early. The CAD is not just a drawing of a finished idea; it is where conflicts among the canard mechanism, airframe, avionics, and recovery layout start becoming visible.
+            </p>
+        </section>
+
+        <section class="project-copy">
+            <h2>Current CAD and where the project stands</h2>
+            <p>
+                The first complete external vehicle model is now built. The nose, airframe, four forward canards, and four aft fins are all in the assembly, so the overall architecture is finally starting to look like a real vehicle instead of a collection of separate mechanisms.
+            </p>
+            <p>
+                The detailed mechanical integration is still underway. The canard attachment hardware and internal canard bay are not finished, and I'm waiting on some dimensions before I can finalize those pieces. That interface and the internal packaging are the main CAD work right now.
+            </p>
+
+            <!-- Replace this placeholder with the real full-vehicle CAD screenshot when it is available. -->
+            <figure class="single-image project-placeholder">
+                <div class="media-placeholder">
+                    <h3>Current full-vehicle CAD</h3>
+                    <p>Image placeholder — add the CAD assembly screenshot here.</p>
+                </div>
+                <figcaption class="image-caption">First full-vehicle CAD iteration. The external vehicle architecture is modeled; canard attachment hardware and internal packaging are still in development.</figcaption>
+            </figure>
+        </section>
+
+        <section class="project-copy">
+            <h2>What happens next</h2>
+            <p>
+                The next step is to finish the canard attachment, internal bay, and overall mechanical layout so the hardware can be manufactured. From there, I plan to prove the canard actuation on the bench before integrating the sensing and control electronics. That includes validating the IMU roll-rate measurement and working toward closed-loop bench testing.
+            </p>
+            <p>
+                Once the mechanical and controls work can operate together, the project can move into system-level testing and eventually a subscale flight. It is still an active project, and I'll keep updating this page as the design becomes hardware and the testing starts producing real results.
+            </p>
+
+            <div class="tag-list project-tools">
+                <span>SolidWorks</span>
+                <span>OpenRocket</span>
+                <span>MATLAB</span>
+                <span>3D Printing</span>
+                <span>Actuator Sizing</span>
+                <span>Aerodynamic Analysis</span>
+            </div>
+        </section>
     </main>
 </body>
 </html>

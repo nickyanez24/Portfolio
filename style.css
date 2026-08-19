@@ -243,6 +243,37 @@ ul {
     margin-bottom: 0;
 }
 
+/* Active roll-control project status and readable story width */
+.project-status-simple {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 10px 14px;
+    color: #e8e8e8;
+    background: rgba(255, 255, 255, 0.07);
+    border-left: 3px solid var(--burnt-orange);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+}
+
+.project-status-simple strong {
+    color: var(--orange-light);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.project-copy {
+    max-width: 900px;
+}
+
+.project-copy h3 {
+    margin-top: 28px;
+}
+
+.project-placeholder,
+.project-tools {
+    margin-top: 28px;
+}
+
 /* Project page images */
 .project-image {
     display: block;
