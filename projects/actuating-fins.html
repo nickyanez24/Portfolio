@@ -25,13 +25,10 @@
         <section class="project-copy">
             <h2>Where it started</h2>
             <p>
-                The project originally used servo-actuated tabs built into the rocket's main fins. I worked on the OpenRocket vehicle model, aerodynamic loading and torque calculations, servo sizing, fin geometry, CAD, 3D printing, and several physical prototypes. That work gave us an initial picture of the loads the actuator would need to handle and what it would take to package the mechanism inside a fin.
+                The project started with servo-actuated tabs built into the main fins. I worked through the OpenRocket model, servo sizing and loading estimates, CAD, 3D printing, and a few physical prototypes. That was enough to expose a practical problem: the servo was buried inside the fin, and we still needed a good way to remove and reuse it. We discussed an access or casing idea, but never developed it into a finished design.
             </p>
             <p>
-                One practical issue we had not finished solving was serviceability. The servo was embedded inside the fin, so after assembly we would still need a way to remove it and reuse it. We discussed a removable casing or some type of access feature, but the project changed direction before we developed that into a final design.
-            </p>
-            <p>
-                One of the early fins was printed with an internal lattice, and I let epoxy seep into the structure to see how the manufactured part would turn out. It became extremely rigid, but it was also extremely heavy—basically a brick. That much mass near the bottom of the rocket would have shifted the vehicle's center of gravity significantly downward. The prototype was never load tested, aerodynamically tested, or flown. I only manufactured it to see how the concept behaved physically.
+                One prototype had a printed internal lattice that I filled with epoxy just to see how the part would turn out. It was extremely rigid and basically a brick. The mass would have shifted the vehicle CG downward, and the part was never load tested, aerodynamically tested, or flown.
             </p>
 
             <figure class="single-image">
@@ -43,20 +40,20 @@
         <section class="project-copy">
             <h2>How the architecture changed</h2>
             <p>
-                From there, the project moved toward fully actuated surfaces and eventually the current canard-based vehicle. As the design developed, actuator access, packaging, and integration started driving more of the architecture.
+                After working through the old fin-based direction, I pushed the project toward a dedicated canard-based roll-control vehicle. Moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability, and it gave me a separate vehicle for working through the mechanical and controls problems.
             </p>
             <p>
-                For the current vehicle, we narrowed the goal to roll control. That keeps the first flight system manageable while still forcing us to work through the mechanical hardware, sensing, controls, and integration needed to actually close the loop.
+                I wanted the first version to stay small and focus only on roll. The goal is to prove the active-roll-control setup on a subscale rocket before trying to scale it to a larger vehicle. That gives me a faster and cheaper way to iterate without carrying as much system complexity into every change.
             </p>
             <p>
-                I initially considered using two canards because fewer servos meant less hardware and simpler packaging. I moved to four because the symmetric layout gives the controller more options for countering aerodynamic moments when the rocket is not perfectly aligned with the flow. How much control authority that gives the vehicle still needs to be worked out through analysis and testing.
+                I first considered two canards because fewer servos meant simpler hardware. I moved to four because the symmetric layout gives the controller more options when the rocket is not perfectly aligned with the flow. I still need to calculate how much roll authority the canards actually provide.
             </p>
         </section>
 
         <section class="project-copy">
             <h2>Current design</h2>
             <p>
-                The current vehicle has four forward servo-actuated canards and four stationary aft fins. The canards are only being used for roll control. Onboard sensing and control hardware are planned for closed-loop operation, and the avionics and recovery hardware have to fit into the same vehicle rather than being treated as separate systems at the end.
+                The current vehicle has four forward servo-actuated canards, four stationary aft fins, and active control in roll only. The baseline uses an F67-6 motor. The rocket is 3.1 inches in diameter, 28.85 inches long, about 36.3 ounces loaded, and sits at about 1.38 calibers of static stability. OpenRocket predicts a maximum velocity of about 195 ft/s.
             </p>
             <p>
                 Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
@@ -84,125 +81,122 @@
         <section class="project-copy">
             <h2>Checking the servo</h2>
             <p>
-                The current servo is the Corona DS-239MG, and we had already ordered the servos before I did this calculation. The original choice was based mostly on the direction of the design, the available packaging space, the advertised torque, and the fact that it seemed like it should be enough for a small subscale rocket. Once the OpenRocket model and canard geometry were far enough along, I finally had enough real numbers to go back and check that choice.
+                We already had the Corona DS-239MG servos. At first, the advertised torque looked like plenty for a vehicle this size. Once I had the OpenRocket maximum velocity and the actual canard geometry, I finally had enough numbers to check whether that assumption was reasonable.
             </p>
             <p>
-                The question was simple: at the highest aerodynamic loading predicted for this vehicle, does the servo still have enough torque to hold and move the canard? This is only a first-order screening calculation. It is not CFD, a measured hinge moment, or final servo validation. I just wanted to know whether the servo was obviously undersized before continuing with it.
+                This did not select the servo, and it is not a final aerodynamic model. I was checking one thing: whether the servo looked obviously undersized at the highest loading from the current vehicle simulation.
             </p>
 
             <figure class="single-image analysis-wide-image">
                 <img class="project-image" src="images/actuating_fins/Screenshot%202026-08-22%20162919.png" alt="OpenRocket baseline for the active roll control vehicle showing geometry, stability, apogee, and maximum velocity">
-                <figcaption class="image-caption">Current OpenRocket baseline used for the actuator check. The predicted maximum velocity of 195 ft/s sets the flight condition used to estimate maximum dynamic pressure.</figcaption>
+                <figcaption class="image-caption">The baseline OpenRocket simulation predicts a maximum velocity of 195 ft/s. That is the velocity I used for the dynamic-pressure estimate.</figcaption>
             </figure>
 
-            <p>
-                OpenRocket predicts a maximum velocity of 195 ft/s, or about 59.4 m/s, for the current F67-6 baseline. That is the velocity I used for this check. For the atmosphere, I used 311 K to match the hot launch conditions already used in the vehicle simulation and 1 atm for pressure. Using 1 atm instead of reducing the pressure for launch-site elevation gives a higher density, which pushes the dynamic pressure, aerodynamic force, and predicted servo torque upward. With <em>R</em> = 287 J/(kg·K), the ideal gas relation gives a density of about 1.135 kg/m³.
-            </p>
-
-            <div class="equation-block" aria-label="Atmospheric and dynamic-pressure equations">
-                <p><code>ρ = P / (R T)</code> &nbsp;→&nbsp; <code>ρ ≈ 1.135 kg/m³</code></p>
-                <p><code>q = ½ ρ V²</code> &nbsp;→&nbsp; <code>q<sub>max</sub> ≈ 2.0 kPa</code></p>
+            <div class="project-callout assumptions-callout">
+                <h3>Assumptions for the first-pass check</h3>
+                <ul class="compact-assumption-list">
+                    <li><strong>Pressure:</strong> 1 atm</li>
+                    <li><strong>Temperature:</strong> 311 K</li>
+                    <li><strong>Maximum velocity:</strong> 195 ft/s</li>
+                    <li><strong>Maximum canard deflection:</strong> 15°</li>
+                    <li><strong>Force coefficient:</strong> C<sub>N</sub> ≈ C<sub>L</sub></li>
+                    <li><strong>Lift slope:</strong> ideal 2D thin-airfoil value</li>
+                    <li><strong>Load location:</strong> quarter-MAC</li>
+                    <li><strong>Aerodynamic load factor:</strong> 3×</li>
+                </ul>
+                <p>
+                    I used 1 atm to push density and aerodynamic load higher than they should be at the elevated launch site. I used the ideal 2D lift slope for the same reason: the real low-aspect-ratio canard should produce less force. Quarter-MAC is only an estimate of where that force acts, and the 3× multiplier is a conservative preliminary choice, not a formal requirement.
+                </p>
             </div>
 
             <p>
-                To turn the aerodynamic force into torque around the servo shaft, I needed an approximate location for that force. I used the quarter-chord of the mean aerodynamic chord as a reasonable first-order estimate rather than pretending I knew the exact center of pressure. With the current canard geometry, that puts the load about 1.064 inches aft of the root leading edge. The servo axis is about 1.400 inches aft of the same reference, leaving a 0.336-inch moment arm.
+                Because the canard is tapered and swept, I used the mean aerodynamic chord instead of just using the root chord. The root chord is 2.50 inches, the tip chord is 1.00 inch, and the span is 1.50 inches, so the taper ratio is 0.40.
+            </p>
+
+            <div class="equation-block" aria-label="Mean aerodynamic chord equations">
+                <p><code>MAC = (2/3)c<sub>r</sub> [(1 + λ + λ²) / (1 + λ)] ≈ 1.86 in</code></p>
+                <p><code>y<sub>MAC</sub> = (b/3) [(1 + 2λ) / (1 + λ)] ≈ 0.643 in</code></p>
+            </div>
+
+            <p>
+                The swept leading edge puts the MAC leading edge about 0.600 inches aft of the root leading edge. Taking quarter-MAC gives a simple load location about 1.06 inches aft of the root leading edge. The servo axis is at about 1.40 inches, so the torque arm is 0.336 inches, or 0.00853 m.
             </p>
 
             <figure class="single-image analysis-sketch-image">
                 <img class="project-image" src="images/actuating_fins/Image%20(2).jpg" alt="Hand-drawn canard geometry sketch marking the mean aerodynamic chord, approximate aerodynamic load location, servo axis, and torque arm">
-                <figcaption class="image-caption">Working sketch used to locate the mean aerodynamic chord, approximate quarter-chord load location, servo rotation axis, and 0.336-inch torque arm.</figcaption>
+                <figcaption class="image-caption">Scratch sketch I used to work through the MAC, approximate load location, servo axis, and torque arm.</figcaption>
             </figure>
 
             <p>
-                The canard has a very low aspect ratio, about 0.86. I initially looked at applying a finite-wing correction to the ideal thin-airfoil lift slope of 2π rad<sup>−1</sup>, because the real canard is obviously not an infinite two-dimensional airfoil. Its actual lift-curve slope should be lower. For this servo check, though, adding a correction meant adding span-efficiency and low-aspect-ratio assumptions that I did not need. I used the higher ideal 2D value instead, which pushes the estimated aerodynamic load in the conservative direction.
-            </p>
-            <p>
-                For the current preliminary design check, the maximum canard deflection is 15 degrees. At that angle, ideal thin-airfoil theory gives a lift coefficient of about 1.645. I rounded that to 1.6 and treated the normal-force coefficient as approximately equal to it for this calculation. That does not mean the real canard has a <em>C<sub>L</sub></em> of 1.6; it is the intentionally high first-order coefficient used to screen the actuator.
+                At 15 degrees, the ideal thin-airfoil value gives C<sub>L</sub> ≈ 1.645. I used C<sub>L</sub> = 1.6 and C<sub>N</sub> ≈ C<sub>L</sub> for the actual check. The real canard has an aspect ratio around 0.86 and should produce less force than this ideal 2D model. I used the ideal value on purpose because it pushes the servo load higher without adding an uncertain finite-wing correction.
             </p>
 
             <div class="equation-block" aria-label="Aerodynamic force and servo torque equations">
-                <p><code>C<sub>L</sub> = 2π α</code> &nbsp;→&nbsp; <code>C<sub>L</sub> ≈ 1.645</code>, rounded to <code>C<sub>N</sub> = 1.6</code></p>
-                <p><code>F = q S C<sub>N</sub></code> &nbsp;→&nbsp; <code>F ≈ 5.4 N per canard</code></p>
-                <p><code>T = F d</code> &nbsp;→&nbsp; <code>T<sub>aero</sub> ≈ 0.047 N·m</code></p>
+                <p><code>ρ = P / (R T) ≈ 1.14 kg/m³</code></p>
+                <p><code>q = ½ ρ V² ≈ 2.00 kPa</code></p>
+                <p><code>C<sub>L</sub> = 2π α ≈ 1.645</code> &nbsp;→&nbsp; <code>C<sub>N</sub> = 1.6</code></p>
+                <p><code>F = q S C<sub>N</sub> ≈ 5.50 N per canard</code></p>
+                <p><code>T = F d ≈ 0.0470 N·m</code></p>
             </div>
 
             <p>
-                I applied a 3× aerodynamic load factor because I wanted meaningful margin on top of a simple model before comparing it with the servo. That factor is a preliminary design choice, not a certification requirement or a value taken from a standard. With that factor included and the calculation rounded conservatively, the maximum design torque is 0.141 N·m per servo.
+                With the 3× load multiplier, the design torque comes out to 0.141 N·m per servo.
             </p>
 
-            <div class="analysis-table-wrap" role="region" aria-label="Actuator torque analysis inputs and results" tabindex="0">
-                <table class="analysis-table">
-                    <tbody>
-                        <tr class="table-group"><th colspan="2">Flight and atmosphere</th></tr>
-                        <tr><th scope="row">Motor</th><td>F67-6</td></tr>
-                        <tr><th scope="row">Vehicle length</th><td>28.85 in</td></tr>
-                        <tr><th scope="row">Maximum diameter</th><td>3.1 in</td></tr>
-                        <tr><th scope="row">Loaded mass</th><td>36.3 oz</td></tr>
-                        <tr><th scope="row">Static stability</th><td>1.38 cal</td></tr>
-                        <tr><th scope="row">Predicted apogee</th><td>567 ft</td></tr>
-                        <tr><th scope="row">Rail exit velocity</th><td>49.6 ft/s</td></tr>
-                        <tr><th scope="row">Maximum velocity</th><td>195 ft/s</td></tr>
-                        <tr><th scope="row">Pressure assumption</th><td>1 atm / 101325 Pa</td></tr>
-                        <tr><th scope="row">Temperature assumption</th><td>311 K</td></tr>
-                        <tr><th scope="row">Calculated air density</th><td>~1.135 kg/m³</td></tr>
-                        <tr><th scope="row">Maximum dynamic pressure</th><td>~2.0 kPa</td></tr>
+            <div class="analysis-summary-grid">
+                <div class="analysis-table-wrap" role="region" aria-label="Current design and assumptions" tabindex="0">
+                    <table class="analysis-table">
+                        <tbody>
+                            <tr class="table-group"><th colspan="2">Current design and assumptions</th></tr>
+                            <tr><th scope="row">Motor</th><td>F67-6</td></tr>
+                            <tr><th scope="row">Maximum velocity</th><td>195 ft/s</td></tr>
+                            <tr><th scope="row">Canard area</th><td>2.625 in²</td></tr>
+                            <tr><th scope="row">Max deflection</th><td>15°</td></tr>
+                            <tr><th scope="row">Pressure assumption</th><td>1 atm</td></tr>
+                            <tr><th scope="row">Temperature assumption</th><td>311 K</td></tr>
+                            <tr><th scope="row">Moment arm</th><td>0.336 in</td></tr>
+                            <tr><th scope="row">Load factor</th><td>3×</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                        <tr class="table-group"><th colspan="2">Canard geometry</th></tr>
-                        <tr><th scope="row">Root chord</th><td>2.50 in</td></tr>
-                        <tr><th scope="row">Tip chord</th><td>1.00 in</td></tr>
-                        <tr><th scope="row">Span</th><td>1.50 in</td></tr>
-                        <tr><th scope="row">Thickness</th><td>0.15 in</td></tr>
-                        <tr><th scope="row">Canard area</th><td>2.625 in²</td></tr>
-                        <tr><th scope="row">Aspect ratio</th><td>~0.86</td></tr>
-                        <tr><th scope="row">Maximum canard deflection</th><td>15°</td></tr>
-
-                        <tr class="table-group"><th colspan="2">Load location</th></tr>
-                        <tr><th scope="row">Mean aerodynamic chord</th><td>~1.857 in</td></tr>
-                        <tr><th scope="row">Spanwise MAC location</th><td>~0.643 in from root</td></tr>
-                        <tr><th scope="row">MAC leading-edge location</th><td>~0.600 in aft of root leading edge</td></tr>
-                        <tr><th scope="row">Approximate aerodynamic load location</th><td>~1.064 in aft of root leading edge</td></tr>
-                        <tr><th scope="row">Servo rotation axis</th><td>~1.400 in aft of root leading edge</td></tr>
-                        <tr><th scope="row">Moment arm</th><td>~0.336 in / 0.00853 m</td></tr>
-
-                        <tr class="table-group"><th colspan="2">Aerodynamic model and results</th></tr>
-                        <tr><th scope="row">Ideal thin-airfoil lift slope</th><td>2π rad⁻¹</td></tr>
-                        <tr><th scope="row">Calculated ideal C<sub>L</sub> at 15°</th><td>~1.645</td></tr>
-                        <tr><th scope="row">C<sub>L</sub> used in calculation</th><td>1.6</td></tr>
-                        <tr><th scope="row">C<sub>N</sub> used in calculation</th><td>1.6</td></tr>
-                        <tr><th scope="row">Estimated aerodynamic force</th><td>~5.4–5.5 N per canard</td></tr>
-                        <tr><th scope="row">Estimated aerodynamic torque</th><td>~0.047 N·m</td></tr>
-                        <tr><th scope="row">Load factor</th><td>3×</td></tr>
-                        <tr><th scope="row">Final design torque</th><td>0.141 N·m</td></tr>
-
-                        <tr class="table-group"><th colspan="2">Servo comparison</th></tr>
-                        <tr><th scope="row">Servo</th><td>Corona DS-239MG</td></tr>
-                        <tr><th scope="row">Stall torque at 4.8 V</th><td>4.0 kgf·cm / ~0.392 N·m</td></tr>
-                        <tr><th scope="row">Stall torque at 6.0 V</th><td>4.6 kgf·cm / ~0.451 N·m</td></tr>
-                        <tr><th scope="row">Torque margin at 4.8 V</th><td>~2.8×</td></tr>
-                        <tr><th scope="row">Torque margin at 6.0 V</th><td>~3.2×</td></tr>
-                    </tbody>
-                </table>
+                <div class="analysis-table-wrap" role="region" aria-label="Actuator check results" tabindex="0">
+                    <table class="analysis-table">
+                        <tbody>
+                            <tr class="table-group"><th colspan="2">Results</th></tr>
+                            <tr><th scope="row">Maximum dynamic pressure</th><td>~2.00 kPa</td></tr>
+                            <tr><th scope="row">C<sub>N</sub> used</th><td>1.6</td></tr>
+                            <tr><th scope="row">Aerodynamic force / canard</th><td>~5.50 N</td></tr>
+                            <tr><th scope="row">Aerodynamic torque</th><td>~0.0470 N·m</td></tr>
+                            <tr><th scope="row">Design torque</th><td>0.141 N·m</td></tr>
+                            <tr><th scope="row">Servo stall torque at 4.8 V</th><td>~0.392 N·m</td></tr>
+                            <tr><th scope="row">Servo stall torque at 6.0 V</th><td>~0.451 N·m</td></tr>
+                            <tr><th scope="row">Torque margin at 4.8 V</th><td>~2.8×</td></tr>
+                            <tr><th scope="row">Torque margin at 6.0 V</th><td>~3.2×</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="project-callout">
                 <h3>What this tells me</h3>
                 <p>
-                    The 0.141 N·m design torque leaves about 2.8× margin against the published stall torque at 4.8 V and 3.2× at 6.0 V. Those are torque margins, not structural factors of safety, and stall torque is not continuous operating torque. This does not fully validate the servo. It tells me the DS-239MG is not obviously undersized in this first-order check and is reasonable to carry into bench testing.
+                    The Corona DS-239MG is rated for about 0.392 N·m of stall torque at 4.8 V and 0.451 N·m at 6.0 V. Compared with the 0.141 N·m design torque, that leaves about 2.8× and 3.2× torque margin. These are margins against published stall torque, not factors of safety or continuous-torque ratings. The servo looks reasonable for now, so I'm keeping it and moving forward with bench testing.
                 </p>
             </div>
 
             <p>
-                The calculation also sets up the next question. The real low-aspect-ratio canard should generate less aerodynamic force than the ideal 2D model, which helps the servo. But that same force is what creates roll moment. Now that the servo looks viable, I need to quantify whether the canards are actually large enough to produce the roll authority the vehicle needs.
+                The idealized lift coefficient also points to the next problem. The real low-aspect-ratio canard should produce less force, which helps the servo but may hurt control authority. The next question is: do these canards actually generate enough roll moment to control the vehicle?
             </p>
         </section>
 
         <section class="project-copy">
             <h2>What happens next</h2>
             <p>
-                The immediate mechanical work is still to finish the canard attachment, internal bay, and overall layout so the hardware can be manufactured. The next aerodynamic and controls work is the control-authority calculation: estimating the roll moment from the canards and comparing it with what the vehicle needs.
+                The immediate mechanical work is to finish the canard attachment, internal bay, and overall layout so I can manufacture the hardware. Then I can prove the canard actuation on the bench and integrate the sensing and control electronics.
             </p>
             <p>
-                After that, I plan to prove the canard actuation on the bench, integrate the sensing and control electronics, validate the IMU roll-rate measurement, and work toward closed-loop testing. Once the mechanical and controls work can operate together, the project can move into system-level testing and eventually a subscale flight. It is still an active project, and I'll keep updating this page as the design becomes hardware and the testing starts producing real results.
+                After that comes IMU roll-rate measurement, closed-loop testing, system-level testing, and eventually a subscale flight. It is still an active project, and I'll keep updating the page as the design turns into hardware and real test results.
             </p>
 
             <div class="tag-list project-tools">
