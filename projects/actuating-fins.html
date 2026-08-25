@@ -18,14 +18,14 @@
         <section class="project-copy">
             <h2>What the project is</h2>
             <p>
-                I'm building a subscale rocket that can actively control its roll using four servo-actuated canards. For now, the project is intentionally limited to roll instead of trying to solve roll, pitch, and yaw at the same time. The vehicle is still in development, and I'm currently working through the first full-vehicle CAD iteration.
+                I'm leading the mechanical development of a subscale active roll-control rocket with my team in Longhorn Rocketry. The vehicle uses four servo-actuated canards and is intentionally focused on roll instead of trying to solve roll, pitch, and yaw at the same time. We're still developing the vehicle, and I'm currently working through the first full-vehicle CAD iteration.
             </p>
         </section>
 
         <section class="project-copy">
             <h2>Where it started</h2>
             <p>
-                The project started with servo-actuated tabs built into the main fins. I worked through the OpenRocket model, servo sizing and loading estimates, CAD, 3D printing, and a few physical prototypes. That was enough to expose a practical problem: the servo was buried inside the fin, and we still needed a good way to remove and reuse it. We discussed an access or casing idea, but never developed it into a finished design.
+                The project started with servo-actuated tabs built into the main fins. I worked on early vehicle modeling, CAD, actuator packaging, and physical prototypes. That work exposed a practical problem: the servo was buried inside the fin, and the team still needed a good way to remove and reuse it. We discussed an access or casing idea, but never developed it into a finished design.
             </p>
             <p>
                 One prototype had a printed internal lattice that I filled with epoxy just to see how the part would turn out. It was extremely rigid and basically a brick. The mass would have shifted the vehicle CG downward, and the part was never load tested, aerodynamically tested, or flown.
@@ -40,7 +40,7 @@
         <section class="project-copy">
             <h2>How the architecture changed</h2>
             <p>
-                After working through the old fin-based direction, I pushed the project toward a dedicated canard-based roll-control vehicle. Moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability, and it gave me a separate vehicle for working through the mechanical and controls problems.
+                After working through the old fin-based direction, I pushed the project toward a dedicated canard-based roll-control vehicle. The team moved forward with that direction, and moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability. It also gave me a separate vehicle for working through the mechanical and controls problems.
             </p>
             <p>
                 I wanted the first version to stay small and focus only on roll. The goal is to prove the active-roll-control setup on a subscale rocket before trying to scale it to a larger vehicle. That gives me a faster and cheaper way to iterate without carrying as much system complexity into every change.
@@ -53,7 +53,7 @@
         <section class="project-copy">
             <h2>Current design</h2>
             <p>
-                The current vehicle has four forward servo-actuated canards, four stationary aft fins, and active control in roll only. The baseline uses an F67-6 motor. The rocket is 3.1 inches in diameter, 28.85 inches long, about 36.3 ounces loaded, and sits at about 1.38 calibers of static stability. OpenRocket predicts a maximum velocity of about 195 ft/s.
+                I designed the current subscale vehicle in OpenRocket for the team, working through the overall vehicle sizing, motor selection, mass and stability, and baseline flight configuration. It has four forward servo-actuated canards, four stationary aft fins, and active control in roll only. The baseline uses an F67-6 motor. The rocket is 3.1 inches in diameter, 28.85 inches long, about 36.3 ounces loaded, and sits at about 1.38 calibers of static stability. The model I built predicts a maximum velocity of about 195 ft/s, which I later used in my servo torque calculation.
             </p>
             <p>
                 Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
@@ -81,7 +81,7 @@
         <section class="project-copy">
             <h2>Checking the servo</h2>
             <p>
-                We already had the Corona DS-239MG servos. At first, the advertised torque looked like plenty for a vehicle this size. Once I had the OpenRocket maximum velocity and the actual canard geometry, I finally had enough numbers to check whether that assumption was reasonable.
+                We already had the Corona DS-239MG servos. At first, the advertised torque looked like plenty for a vehicle this size. Once I had the current vehicle modeled in OpenRocket and knew its predicted maximum velocity, I could use that flight condition and the actual canard geometry to check whether that assumption was reasonable.
             </p>
             <p>
                 This did not select the servo, and it is not a final aerodynamic model. I was checking one thing: whether the servo looked obviously undersized at the highest loading from the current vehicle simulation.
