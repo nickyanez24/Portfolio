@@ -28,7 +28,7 @@
                 The project started with servo-actuated tabs built into the main fins. I worked on early vehicle modeling, CAD, actuator packaging, and physical prototypes. That work exposed a practical problem: the servo was buried inside the fin, and the team still needed a good way to remove and reuse it. We discussed an access or casing idea, but never developed it into a finished design.
             </p>
             <p>
-                One prototype had a printed internal lattice that I filled with epoxy just to see how the part would turn out. It was extremely rigid and basically a brick. The mass would have shifted the vehicle CG downward, and the part was never load tested, aerodynamically tested, or flown.
+                One prototype had, taken inspiration from an Instagram video I came accross where a printed internal lattice was filled with epoxy. We tried recreating this to see how the part would turn out. It was extremely rigid and extremely heavy. The mass would have shifted the vehicle CG downward which would have decreased stability, but the part was never load tested, aerodynamically tested, or flown.
             </p>
 
             <figure class="single-image">
@@ -40,7 +40,7 @@
         <section class="project-copy">
             <h2>How the architecture changed</h2>
             <p>
-                After working through the old fin-based direction, I pushed the project toward a dedicated canard-based roll-control vehicle. The team moved forward with that direction, and moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability. It also gave me a separate vehicle for working through the mechanical and controls problems.
+                After working through the old fin-tab direction, I decided to push the project toward a dedicated canard-based roll-control vehicle. The team moved forward with that direction, and moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability. It also gave me a separate vehicle for working through the mechanical and controls problems.
             </p>
             <p>
                 I wanted the first version to stay small and focus only on roll. The goal is to prove the active-roll-control setup on a subscale rocket before trying to scale it to a larger vehicle. That gives me a faster and cheaper way to iterate without carrying as much system complexity into every change.
@@ -59,7 +59,7 @@
                 Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
             </p>
             <p>
-                That is one reason I'm modeling the full vehicle this early. The CAD is not just a drawing of a finished idea; it is where conflicts among the canard mechanism, airframe, avionics, and recovery layout start becoming visible.
+                By creating and working through the CAD model earlier I have been able to already make better informed desgin decisions to ensure a successful rocket and canard design is in place.
             </p>
         </section>
 
@@ -69,7 +69,7 @@
                 The first complete external vehicle model is now built. The nose, airframe, four forward canards, and four aft fins are all in the assembly, so the overall architecture is finally starting to look like a real vehicle instead of a collection of separate mechanisms.
             </p>
             <p>
-                The detailed mechanical integration is still underway. The canard attachment hardware and internal canard bay are not finished, and I'm waiting on some dimensions before I can finalize those pieces. That interface and the internal packaging are the main CAD work right now.
+                The mechanical integration is still underway. The canard attachment hardware and internal canard bay are not finished, and I'm waiting on some dimensions before I can finalize those pieces. That interface and the internal packaging are the main CAD work right now.
             </p>
 
             <figure class="single-image">
@@ -81,10 +81,10 @@
         <section class="project-copy">
             <h2>Checking the servo</h2>
             <p>
-                We already had the Corona DS-239MG servos. At first, the advertised torque looked like plenty for a vehicle this size. Once I had the current vehicle modeled in OpenRocket and knew its predicted maximum velocity, I could use that flight condition and the actual canard geometry to check whether that assumption was reasonable.
+                We already had the Corona DS-239MG servos. The servo torque specs looked like plenty for a vehicle this size, and once I had the current vehicle modeled in OpenRocket and knew its predicted maximum velocity, I could use that flight condition and the actual canard geometry to check whether that assumption was reasonable.
             </p>
             <p>
-                This did not select the servo, and it is not a final aerodynamic model. I was checking one thing: whether the servo looked obviously undersized at the highest loading from the current vehicle simulation.
+                This did not select the servo, and is simply a first order verification of our servo choice. I was checking one thing, whether the servo looked obviously undersized at the highest loading from the current vehicle simulation.
             </p>
 
             <figure class="single-image analysis-wide-image">
@@ -110,7 +110,7 @@
             </div>
 
             <p>
-                Because the canard is tapered and swept, I used the mean aerodynamic chord instead of just using the root chord. The root chord is 2.50 inches, the tip chord is 1.00 inch, and the span is 1.50 inches, so the taper ratio is 0.40.
+                Because the canard is tapered and swept, I used the mean aerodynamic chord. The root chord is 2.50 inches, the tip chord is 1.00 inch, and the span is 1.50 inches, so the taper ratio is 0.40.
             </p>
 
             <div class="equation-block" aria-label="Mean aerodynamic chord equations">
@@ -124,11 +124,11 @@
 
             <figure class="single-image analysis-sketch-image">
                 <img class="project-image" src="images/actuating_fins/Image%20(2).jpg" alt="Hand-drawn canard geometry sketch marking the mean aerodynamic chord, approximate aerodynamic load location, servo axis, and torque arm">
-                <figcaption class="image-caption">Scratch sketch I used to work through the MAC, approximate load location, servo axis, and torque arm.</figcaption>
+                <figcaption class="image-caption">Scratch sketch I used to visualize the fin geometry.</figcaption>
             </figure>
 
             <p>
-                At 15 degrees, the ideal thin-airfoil value gives C<sub>L</sub> ≈ 1.645. I used C<sub>L</sub> = 1.6 and C<sub>N</sub> ≈ C<sub>L</sub> for the actual check. The real canard has an aspect ratio around 0.86 and should produce less force than this ideal 2D model. I used the ideal value on purpose because it pushes the servo load higher without adding an uncertain finite-wing correction.
+                At 15 degrees, the ideal thin-airfoil value gives C<sub>L</sub> ≈ 1.6 and C<sub>N</sub> ≈ C<sub>L</sub> for the actual check. The real canard has an aspect ratio around 0.86 and should produce less force than this ideal 2D model. I used the ideal value on purpose because it pushes the servo load higher without adding an uncertain finite-wing correction.
             </p>
 
             <div class="equation-block" aria-label="Aerodynamic force and servo torque equations">
@@ -140,7 +140,7 @@
             </div>
 
             <p>
-                With the 3× load multiplier, the design torque comes out to 0.141 N·m per servo.
+                With the 3× load multiplier, which is simply a safety factor, the design torque comes out to 0.141 N·m per servo.
             </p>
 
             <div class="analysis-summary-grid">
@@ -186,7 +186,7 @@
             </div>
 
             <p>
-                The idealized lift coefficient also points to the next problem. The real low-aspect-ratio canard should produce less force, which helps the servo but may hurt control authority. The next question is: do these canards actually generate enough roll moment to control the vehicle?
+                The idealized lift coefficient also points to the next problem. The real canard should produce less lift force, which helps the servo but may hurt control authority.
             </p>
         </section>
 
