@@ -278,6 +278,29 @@ ul {
     max-width: 900px;
 }
 
+.cad-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cad-gallery .project-image {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+}
+
+.limitations-callout {
+    border-left-color: var(--orange-light);
+}
+
+.limitations-callout h2 {
+    margin-top: 0;
+    color: var(--burnt-orange);
+}
+
+.limitations-callout li,
+.project-roadmap li {
+    margin-bottom: 0.55rem;
+}
+
 .single-image.analysis-sketch-image {
     max-width: 620px;
 }

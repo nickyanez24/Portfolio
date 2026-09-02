@@ -6,207 +6,143 @@
     <title>Active Rocket Roll Control | Nickolas Yañez</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
     <main>
         <section class="project-hero">
             <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
             <h1>Active Rocket Roll Control</h1>
-            <p class="project-status-simple"><strong>Ongoing Project</strong><br>Current stage: First full-vehicle CAD iteration</p>
+            <p class="project-status-simple"><strong>Ongoing Project</strong><br>Current stage: First-order simulation and first-iteration mechanical design</p>
         </section>
 
         <section class="project-copy">
-            <h2>What the project is</h2>
-            <p>
-                I'm leading the mechanical development of a subscale active roll-control rocket with my team in Longhorn Rocketry. The vehicle uses four servo-actuated canards and is intentionally focused on roll instead of trying to solve roll, pitch, and yaw at the same time. We're still developing the vehicle, and I'm currently working through the first full-vehicle CAD iteration.
-            </p>
+            <h2>Project overview</h2>
+            <p>I'm leading the development of a subscale active roll-control rocket for Longhorn Rocketry using four independently actuated forward canards and four stationary aft fins. My work spans the vehicle architecture, mechanical integration, preliminary aerodynamic and actuator analysis, and development of the roll-control simulation used to evaluate the design before flight testing.</p>
+            <p>The current goal is to actively damp vehicle roll rate while keeping the system simple enough to manufacture, test, and iterate on a subscale vehicle.</p>
         </section>
 
         <section class="project-copy">
-            <h2>Where it started</h2>
-            <p>
-                The project started with servo-actuated tabs built into the main fins. I worked on early vehicle modeling, CAD, actuator packaging, and physical prototypes. That work exposed a practical problem: the servo was buried inside the fin, and the team still needed a good way to remove and reuse it. We discussed an access or casing idea, but never developed it into a finished design.
-            </p>
-            <p>
-                One prototype had, taken inspiration from an Instagram video I came accross where a printed internal lattice was filled with epoxy. We tried recreating this to see how the part would turn out. It was extremely rigid and extremely heavy. The mass would have shifted the vehicle CG downward which would have decreased stability, but the part was never load tested, aerodynamically tested, or flown.
-            </p>
-
+            <h2>Design evolution</h2>
+            <p>The project started with servo-actuated tabs built into the main fins. I worked on early vehicle modeling, CAD, actuator packaging, and physical prototypes. That work exposed a practical problem: the servo was buried inside the fin structure, and the team still needed a good way to access, remove, and reuse it. We discussed an access or casing idea, but never developed it into a finished design.</p>
+            <p>One prototype took inspiration from a printed internal lattice filled with epoxy. We recreated the idea to see how the part would turn out. It was extremely rigid and extremely heavy. The added mass would have shifted the vehicle CG downward and reduced stability, but the part was never load tested, aerodynamically tested, or flown.</p>
             <figure class="single-image">
                 <img class="project-image actuating-fin-image" src="images/actuating_fins/dc7bf9f2-47ab-4d42-890c-b1537ceff6c3.jpg" alt="Early 3D-printed fin prototype with a visible internal lattice and epoxy reinforcement">
                 <figcaption class="image-caption">Early 3D-printed actuated-fin prototype showing the internal lattice and epoxy reinforcement experiment. This iteration was manufactured to evaluate the concept physically but was never load tested or flown.</figcaption>
             </figure>
+            <p>Working through the original fin-tab design exposed the main problem I wanted to solve in the next iteration: actuator packaging and serviceability. With the servos buried inside the fin structure, accessing or replacing the hardware became difficult. I moved the project toward a dedicated canard-based roll-control vehicle, separating the actuated control surfaces from the stationary aft fins and giving the actuator system its own packaging architecture.</p>
         </section>
 
         <section class="project-copy">
-            <h2>How the architecture changed</h2>
-            <p>
-                After working through the old fin-tab direction, I decided to push the project toward a dedicated canard-based roll-control vehicle. The team moved forward with that direction, and moving the actuators away from the main fins gave us a cleaner way to deal with packaging and serviceability. It also gave me a separate vehicle for working through the mechanical and controls problems.
-            </p>
-            <p>
-                I wanted the first version to stay small and focus only on roll. The goal is to prove the active-roll-control setup on a subscale rocket before trying to scale it to a larger vehicle. That gives me a faster and cheaper way to iterate without carrying as much system complexity into every change.
-            </p>
-            <p>
-                I first considered two canards because fewer servos meant simpler hardware. I moved to four because the symmetric layout gives the controller more options when the rocket is not perfectly aligned with the flow. I still need to calculate how much roll authority the canards actually provide.
-            </p>
-        </section>
-
-        <section class="project-copy">
-            <h2>Current design</h2>
-            <p>
-                I designed the current subscale vehicle in OpenRocket for the team, working through the overall vehicle sizing, motor selection, mass and stability, and baseline flight configuration. It has four forward servo-actuated canards, four stationary aft fins, and active control in roll only. The baseline uses an F67-6 motor. The rocket is 3.1 inches in diameter, 28.85 inches long, about 36.3 ounces loaded, and sits at about 1.38 calibers of static stability. The model I built predicts a maximum velocity of about 195 ft/s, which I later used in my servo torque calculation.
-            </p>
-            <p>
-                Packaging has already changed the size of the rocket. An earlier concept used an airframe around 2.6 inches in diameter and looked workable before the actual servos were brought into CAD. Once I placed the real hardware inside the vehicle, the available space became impractical. I had to resize and rework the layout around the components the rocket will actually carry.
-            </p>
-            <p>
-                Getting the real hardware into CAD early has already caught packaging problems that weren't obvious from the OpenRocket model alone. That's what forced the jump from the original 2.6-inch airframe to the current 3.1-inch design.
-            </p>
-        </section>
-
-        <section class="project-copy">
-            <h2>Current CAD and where the project stands</h2>
-            <p>
-                The first complete external vehicle model is now built. The nose, airframe, four forward canards, and four aft fins are all in the assembly, so the overall architecture is finally starting to look like a real vehicle instead of a collection of separate mechanisms.
-            </p>
-            <p>
-                The mechanical integration is still underway. The canard attachment hardware and internal canard bay are not finished, and I'm waiting on some dimensions before I can finalize those pieces. That interface and the internal packaging are the main CAD work right now.
-            </p>
-
-            <figure class="single-image">
-                <img class="project-image actuating-fin-image" src="images/actuating_fins/Screenshot%202026-08-19%20172545.png" alt="Current CAD model of the subscale rocket with four forward canards and four aft fins">
-                <figcaption class="image-caption">First full-vehicle CAD iteration. The external vehicle architecture is modeled; canard attachment hardware and internal packaging are still in development.</figcaption>
-            </figure>
-        </section>
-
-        <section class="project-copy">
-            <h2>Checking the servo</h2>
-            <p>
-                We already had the Corona DS-239MG servos. The servo torque specs looked like plenty for a vehicle this size, and once I had the current vehicle modeled in OpenRocket and knew its predicted maximum velocity, I could use that flight condition and the actual canard geometry to check whether that assumption was reasonable.
-            </p>
-            <p>
-                This did not select the servo, and is simply a first order verification of our servo choice. I was checking one thing, whether the servo looked obviously undersized at the highest loading from the current vehicle simulation.
-            </p>
-
+            <h2>Current vehicle</h2>
+            <p>I designed the current vehicle baseline in OpenRocket, working through overall sizing, motor selection, mass, stability, and the nominal flight configuration. The vehicle is 3.1 inches in diameter, 28.85 inches long, and approximately 36.3 ounces loaded. With the F67-6 baseline motor, the model has 1.38 calibers of static stability and predicts a maximum velocity of approximately 195 ft/s, an apogee of approximately 567 ft, and about 6.29 seconds to apogee.</p>
+            <p>An earlier vehicle concept used an airframe around 2.6 inches in diameter. Once I brought the actual servo geometry into SolidWorks, the smaller packaging envelope was no longer practical. I increased the airframe to 3.1 inches and carried the real actuator geometry into the rest of the vehicle design rather than treating packaging as a later integration problem.</p>
             <figure class="single-image analysis-wide-image">
-                <img class="project-image" src="images/actuating_fins/Screenshot%202026-08-22%20162919.png" alt="OpenRocket baseline for the active roll control vehicle showing geometry, stability, apogee, and maximum velocity">
-                <figcaption class="image-caption">The baseline OpenRocket simulation predicts a maximum velocity of 195 ft/s. That is the velocity I used for the dynamic-pressure estimate.</figcaption>
+                <img class="project-image" src="images/actuating_fins/Screenshot%202026-08-22%20162919.png" alt="OpenRocket baseline for the active roll-control vehicle showing geometry and predicted flight performance">
+                <figcaption class="image-caption">Current OpenRocket baseline. Its nominal ascent trajectory is also the velocity input to the MATLAB roll model.</figcaption>
             </figure>
-
-            <div class="project-callout assumptions-callout">
-                <h3>Assumptions for the first-pass check</h3>
-                <ul class="compact-assumption-list">
-                    <li><strong>Pressure:</strong> 1 atm</li>
-                    <li><strong>Temperature:</strong> 311 K</li>
-                    <li><strong>Maximum velocity:</strong> 195 ft/s</li>
-                    <li><strong>Maximum canard deflection:</strong> 15°</li>
-                    <li><strong>Force coefficient:</strong> C<sub>N</sub> ≈ C<sub>L</sub></li>
-                    <li><strong>Lift slope:</strong> ideal 2D thin-airfoil value</li>
-                    <li><strong>Load location:</strong> quarter-MAC</li>
-                    <li><strong>Aerodynamic load factor:</strong> 3×</li>
-                </ul>
-                <p>
-                    I used 1 atm to push density and aerodynamic load higher than they should be at the elevated launch site. I used the ideal 2D lift slope for the same reason: the real low-aspect-ratio canard should produce less force. Quarter-MAC is only an estimate of where that force acts, and the 3× multiplier is a conservative preliminary choice, not a formal requirement.
-                </p>
-            </div>
-
-            <p>
-                Because the canard is tapered and swept, I used the mean aerodynamic chord. The root chord is 2.50 inches, the tip chord is 1.00 inch, and the span is 1.50 inches, so the taper ratio is 0.40.
-            </p>
-
-            <div class="equation-block" aria-label="Mean aerodynamic chord equations">
-                <p><code>MAC = (2/3)[C<sub>r</sub> + C<sub>t</sub> - (C<sub>r</sub> * C<sub>t</sub>) / (C<sub>r</sub> + C<sub>t</sub>)] ≈ 1.86 in</code></p>
-                <p><code>y<sub>MAC</sub> = (h/3) [(1 + 2(C<sub>t</sub> / C<sub>r</sub>) / (1 + (C<sub>t</sub> / C<sub>r</sub>)] ≈ 0.643 in</code></p>
-            </div>
-
-            <p>
-                The swept leading edge puts the MAC leading edge about 0.600 inches aft of the root leading edge. Taking quarter-MAC gives a simple load location about 1.06 inches aft of the root leading edge. The servo axis is at about 1.40 inches, so the torque arm is 0.336 inches, or 0.00853 m.
-            </p>
-
-            <figure class="single-image analysis-sketch-image">
-                <img class="project-image" src="images/actuating_fins/Image%20(2).jpg" alt="Hand-drawn canard geometry sketch marking the mean aerodynamic chord, approximate aerodynamic load location, servo axis, and torque arm">
-                <figcaption class="image-caption">Scratch sketch I used to work through the MAC location, approximate aerodynamic load location, servo axis, and torque arm.</figcaption>
-            </figure>
-
-            <p>
-                At 15 degrees, the ideal thin-airfoil value gives C<sub>L</sub> ≈ 1.6 and C<sub>N</sub> ≈ C<sub>L</sub> for the actual check. The real canard has an aspect ratio around 0.86 and should produce less force than this ideal 2D model. I used the ideal value on purpose because it pushes the servo load higher without adding an uncertain finite-wing correction.
-            </p>
-
-            <div class="equation-block" aria-label="Aerodynamic force and servo torque equations">
-                <p><code>ρ = P / (R T) ≈ 1.14 kg/m³</code></p>
-                <p><code>q = ½ ρ V² ≈ 2.00 kPa</code></p>
-                <p><code>C<sub>L</sub> = 2π α ≈ 1.645</code> &nbsp;→&nbsp; <code>C<sub>N</sub> = 1.6</code></p>
-                <p><code>F = q S C<sub>N</sub> ≈ 5.50 N per canard</code></p>
-                <p><code>T = F d ≈ 0.0470 N·m</code></p>
-            </div>
-
-            <p>
-                With the 3× conservative load multiplier, the design torque comes out to 0.141 N·m per servo.
-            </p>
-
-            <div class="analysis-summary-grid">
-                <div class="analysis-table-wrap" role="region" aria-label="Current design and assumptions" tabindex="0">
-                    <table class="analysis-table">
-                        <tbody>
-                            <tr class="table-group"><th colspan="2">Current design and assumptions</th></tr>
-                            <tr><th scope="row">Motor</th><td>F67-6</td></tr>
-                            <tr><th scope="row">Maximum velocity</th><td>195 ft/s</td></tr>
-                            <tr><th scope="row">Canard area</th><td>2.625 in²</td></tr>
-                            <tr><th scope="row">Max deflection</th><td>15°</td></tr>
-                            <tr><th scope="row">Pressure assumption</th><td>1 atm</td></tr>
-                            <tr><th scope="row">Temperature assumption</th><td>311 K</td></tr>
-                            <tr><th scope="row">Moment arm</th><td>0.336 in</td></tr>
-                            <tr><th scope="row">Load factor</th><td>3×</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="analysis-table-wrap" role="region" aria-label="Actuator check results" tabindex="0">
-                    <table class="analysis-table">
-                        <tbody>
-                            <tr class="table-group"><th colspan="2">Results</th></tr>
-                            <tr><th scope="row">Maximum dynamic pressure</th><td>~2.00 kPa</td></tr>
-                            <tr><th scope="row">C<sub>N</sub> used</th><td>1.6</td></tr>
-                            <tr><th scope="row">Aerodynamic force / canard</th><td>~5.50 N</td></tr>
-                            <tr><th scope="row">Aerodynamic torque</th><td>~0.0470 N·m</td></tr>
-                            <tr><th scope="row">Design torque</th><td>0.141 N·m</td></tr>
-                            <tr><th scope="row">Servo stall torque at 4.8 V</th><td>~0.392 N·m</td></tr>
-                            <tr><th scope="row">Servo stall torque at 6.0 V</th><td>~0.451 N·m</td></tr>
-                            <tr><th scope="row">Torque margin at 4.8 V</th><td>~2.8×</td></tr>
-                            <tr><th scope="row">Torque margin at 6.0 V</th><td>~3.2×</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="project-callout">
-                <h3>What this tells me</h3>
-                <p>
-                    The Corona DS-239MG is rated for about 0.392 N·m of stall torque at 4.8 V and 0.451 N·m at 6.0 V. Compared with the 0.141 N·m design torque, that leaves about 2.8× and 3.2× torque margin. These are margins against published stall torque. The servo has been initially verified through actual calculations, and we can continue progressing.
-                </p>
-            </div>
-
-            <p>
-                The idealized lift coefficient also points to the next problem. The real canard should produce less lift force, which helps the servo but may hurt control authority.
-            </p>
         </section>
 
         <section class="project-copy">
-            <h2>What happens next</h2>
-            <p>
-                The immediate mechanical work is to finish the canard attachment, internal bay, and overall layout so I can manufacture the hardware. Then I can prove the canard actuation on the bench and integrate the sensing and control electronics.
-            </p>
-            <p>
-                After that comes IMU roll-rate measurement, closed-loop testing, system-level testing, and eventually a subscale flight. It is still an active project, and I'll keep updating the page as the design turns into hardware and real test results.
-            </p>
-
-            <div class="tag-list project-tools">
-                <span>SolidWorks</span>
-                <span>OpenRocket</span>
-                <span>MATLAB</span>
-                <span>3D Printing</span>
-                <span>Actuator Sizing</span>
-                <span>Aerodynamic Analysis</span>
+            <h2>Canard bay and mechanical integration</h2>
+            <p>I designed the first canard-bay iteration around four servos arranged radially inside the 3.1-inch airframe, with each actuator aligned to a corresponding canard. The canard root incorporates the servo-horn interface directly, allowing the actuator and control surface to be packaged as one integrated mechanism.</p>
+            <p>The layout addresses one of the main problems with the earlier fin-tab architecture: actuator access and integration. I'm currently refining fit, canard alignment, assembly access, interference through the commanded deflection range, and integration with the airframe before manufacturing the first hardware.</p>
+            <div class="image-row cad-gallery">
+                <figure class="image-card">
+                    <img class="project-image" src="images/actuating_fins/servobay.png" alt="CAD view of the radial four-servo canard bay">
+                    <figcaption class="image-caption">Four-servo canard bay arranged around the vehicle centerline.</figcaption>
+                </figure>
+                <figure class="image-card">
+                    <img class="project-image" src="images/actuating_fins/canard.png" alt="CAD view of an individual canard and its integrated servo-horn interface">
+                    <figcaption class="image-caption">Canard with the servo-horn interface integrated into the root.</figcaption>
+                </figure>
+                <figure class="image-card">
+                    <img class="project-image" src="images/actuating_fins/upper%20body%20tube.png" alt="CAD view of the upper body tube with four installed canards">
+                    <figcaption class="image-caption">Canard and actuator interfaces packaged around the 3.1-inch airframe.</figcaption>
+                </figure>
+                <figure class="image-card">
+                    <img class="project-image" src="images/actuating_fins/servo%20assembly.png" alt="Integrated CAD assembly of four servos and canards inside the airframe">
+                    <figcaption class="image-caption">Integrated canard-bay assembly with four independently actuated control surfaces.</figcaption>
+                </figure>
             </div>
+        </section>
+
+        <section class="project-copy">
+            <h2>Actuator load check</h2>
+            <p>Because the Corona DS-239MG servos were already available for the project, I performed a preliminary aerodynamic load check to determine whether they provided reasonable torque margin at the highest velocity in the current OpenRocket trajectory.</p>
+            <div class="project-callout assumptions-callout">
+                <h3>Assumptions for the preliminary check</h3>
+                <ul class="compact-assumption-list">
+                    <li><strong>Pressure:</strong> 1 atm</li><li><strong>Temperature:</strong> 311 K</li>
+                    <li><strong>Maximum velocity:</strong> approximately 195 ft/s</li><li><strong>Canard deflection:</strong> 15°</li>
+                    <li><strong>Lift slope:</strong> ideal thin-airfoil C<sub>Lα</sub> = 2π rad<sup>−1</sup></li><li><strong>C<sub>L</sub> used:</strong> approximately 1.6</li>
+                    <li><strong>Canard area:</strong> 2.625 in²</li><li><strong>Load location:</strong> quarter-MAC</li>
+                    <li><strong>Aerodynamic load multiplier:</strong> 3×</li>
+                </ul>
+                <p>The ideal two-dimensional lift slope is a conservative load-screening reference here, not a prediction of the real low-aspect-ratio canard. Quarter-MAC is a first-order estimate of the aerodynamic load location, and the 3× multiplier is a preliminary choice rather than a formal design requirement.</p>
+            </div>
+            <p>Because the canard is tapered and swept, I used the mean aerodynamic chord. The root chord is 2.50 inches, the tip chord is 1.00 inch, and the span is 1.50 inches, giving a taper ratio of 0.40 and a mean aerodynamic chord of approximately 1.86 inches. The estimated aerodynamic load location and the servo pivot axis produce a chordwise torque arm of 0.336 inches, or 0.00853 m.</p>
+            <figure class="single-image analysis-sketch-image">
+                <img class="project-image" src="images/actuating_fins/Image%20(2).jpg" alt="Hand-drawn canard geometry sketch marking the mean aerodynamic chord, aerodynamic load location, servo axis, and torque arm">
+                <figcaption class="image-caption">Scratch sketch used to estimate the mean aerodynamic chord, quarter-MAC load location, servo axis, and hinge-torque arm.</figcaption>
+            </figure>
+            <div class="equation-block" aria-label="Preliminary aerodynamic force and servo hinge torque equations">
+                <p><code>ρ = P / (R T) ≈ 1.14 kg/m³</code></p><p><code>q = ½ ρ V² ≈ 2.00 kPa</code></p>
+                <p><code>F = q S C<sub>L</sub> ≈ 5.50 N per canard</code></p><p><code>T<sub>hinge</sub> = F d ≈ 0.0470 N·m</code></p>
+                <p><code>T<sub>preliminary</sub> = 3 T<sub>hinge</sub> ≈ 0.141 N·m per servo</code></p>
+            </div>
+            <div class="analysis-summary-grid">
+                <div class="analysis-table-wrap" role="region" aria-label="Actuator load check results" tabindex="0"><table class="analysis-table"><tbody>
+                    <tr class="table-group"><th colspan="2">Preliminary load result</th></tr>
+                    <tr><th scope="row">Aerodynamic force / canard</th><td>~5.50 N</td></tr><tr><th scope="row">Aerodynamic hinge torque</th><td>~0.0470 N·m</td></tr><tr><th scope="row">Preliminary design hinge torque</th><td>~0.141 N·m</td></tr>
+                </tbody></table></div>
+                <div class="analysis-table-wrap" role="region" aria-label="Published servo stall torque comparison" tabindex="0"><table class="analysis-table"><tbody>
+                    <tr class="table-group"><th colspan="2">Published stall-torque comparison</th></tr>
+                    <tr><th scope="row">Stall torque at 4.8 V</th><td>~0.392 N·m</td></tr><tr><th scope="row">Stall torque at 6.0 V</th><td>~0.451 N·m</td></tr><tr><th scope="row">Stall-torque margin at 4.8 V</th><td>~2.8×</td></tr><tr><th scope="row">Stall-torque margin at 6.0 V</th><td>~3.2×</td></tr>
+                </tbody></table></div>
+            </div>
+            <div class="project-callout">
+                <h3>Two different torque calculations</h3>
+                <p>Servo hinge torque and vehicle roll torque use different moment arms. The actuator check uses the chordwise distance between the aerodynamic load location and canard pivot axis, while the roll-dynamics model uses the radial distance from the vehicle centerline to the canard aerodynamic force.</p>
+            </div>
+        </section>
+
+        <section class="project-copy">
+            <h2>Roll dynamics and controller</h2>
+            <p>To evaluate control authority before building hardware, I developed a 1-DOF MATLAB simulation of the vehicle's closed-loop roll dynamics. The controller targets roll rate <em>p</em> rather than roll angle <em>φ</em> and commands the four canards to oppose vehicle rotation.</p>
+            <div class="equation-block" aria-label="Roll dynamics and controller equations"><p><code>φ̇ = p</code></p><p><code>I<sub>roll</sub> ṗ = τ<sub>roll</sub></code></p><p><code>δ<sub>cmd</sub> = −K<sub>p</sub> p</code></p></div>
+            <p>The model uses a CAD-derived roll inertia of approximately 0.003096 kg·m², a proportional roll-rate controller with K<sub>p</sub> = 0.03, ±15° canard command limits, and a rate-limited model of the selected servo. Roll angle, roll rate, and actual canard deflection are included as simulation states.</p>
+            <p>The Corona DS-239MG is represented with a simplified rate limit based on its published 6 V speed of 0.14 s per 60°, or approximately 428.6 deg/s. Actual canard deflection is included as a simulation state rather than assuming the actuator moves instantaneously.</p>
+
+            <h3>OpenRocket trajectory coupling</h3>
+            <p>Rather than assuming a constant maximum velocity, I exported the nominal ascent trajectory from OpenRocket and interpolate V(t) during MATLAB integration. This makes dynamic pressure—and therefore available canard control torque—change throughout the simulated ascent.</p>
+            <div class="equation-block" aria-label="Trajectory-coupled aerodynamic model equations"><p><code>q(t) = ½ ρ V(t)²</code></p><p><code>F = q S C<sub>L</sub></code></p><p><code>τ<sub>roll</sub> = N F r</code></p></div>
+            <p>Here, N = 4 canards and <em>r</em> is the radial roll moment arm from the vehicle centerline to the approximate canard aerodynamic load location. The simulation currently runs through the predicted apogee at approximately 6.29 seconds.</p>
+
+            <h3>Control-authority sensitivity study</h3>
+            <p>The largest uncertainty in the current control model is the aerodynamic effectiveness of the low-aspect-ratio canards. I did not want the control-authority conclusion to depend entirely on the ideal 2D lift slope, so I reran the model at 100%, 75%, 50%, and 25% of the idealized aerodynamic effectiveness.</p>
+            <figure class="single-image analysis-wide-image">
+                <img class="project-image" src="images/actuating_fins/dampingvseffectiveness.png" alt="MATLAB plot of roll-rate damping for four assumed canard-effectiveness levels">
+                <figcaption class="image-caption">Roll Rate Damping vs. Canard Effectiveness. The four curves vary the assumed lift slope from 100% to 25% of the idealized value.</figcaption>
+            </figure>
+            <p>For a representative 300 deg/s initial roll rate, the controller damps the vehicle toward zero in all four cases, with reduced aerodynamic effectiveness increasing the damping time.</p>
+            <p>I expanded the analysis into a 16-case sensitivity sweep using initial roll rates of 100, 300, 600, and 900 deg/s across the same four aerodynamic-effectiveness levels. I used the time required to reach |p| ≤ 10 deg/s as the comparison metric.</p>
+            <figure class="single-image analysis-wide-image">
+                <img class="project-image" src="images/actuating_fins/damping%20across%20conditions.png" alt="MATLAB plot of roll-damping time across initial roll rates and canard-effectiveness assumptions">
+                <figcaption class="image-caption">Roll Damping Performance Across Initial Conditions. Each cell reports the simulated time to reach |p| ≤ 10 deg/s.</figcaption>
+            </figure>
+            <p>All 16 simulated cases reached the 10 deg/s threshold. The most conservative tested condition—900 deg/s initial roll rate at 25% aerodynamic effectiveness—reached the threshold in approximately 1.26 seconds. These results suggest the current geometry has useful control-authority margin across the tested uncertainty range and give me a baseline to compare against future hardware and flight data.</p>
+        </section>
+
+        <section class="project-copy">
+            <div class="project-callout limitations-callout">
+                <h2>Model scope</h2>
+                <p>The current simulation focuses on the roll axis using 1-DOF rigid-body dynamics, constant atmospheric density, a preliminary canard aerodynamic model, and simplified rate-limited actuator dynamics. Pitch/yaw coupling and aerodynamic interference are not yet included. As hardware testing begins, I plan to use measured actuator and flight data to refine the model.</p>
+            </div>
+        </section>
+
+        <section class="project-copy">
+            <h2>Next steps</h2>
+            <p>The next phase is to move from the current CAD and simulation work into hardware testing. I'm refining the canard bay for manufacturing, then will bench-test the actuator system and use the onboard IMU to measure roll response during closed-loop testing. The first subscale flights will provide the data needed to compare the physical vehicle against the MATLAB model and guide the next design iteration.</p>
+            <div class="tag-list project-tools"><span>SolidWorks</span><span>OpenRocket</span><span>MATLAB</span><span>Controls</span><span>Actuator Sizing</span><span>Aerodynamic Analysis</span></div>
         </section>
     </main>
 </body>
