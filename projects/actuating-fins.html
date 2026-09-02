@@ -104,7 +104,7 @@
         <section class="project-copy">
             <h2>Roll dynamics and controller</h2>
             <p>To evaluate control authority before building hardware, I developed a 1-DOF MATLAB simulation of the vehicle's closed-loop roll dynamics. The controller targets roll rate <em>p</em> and commands the four canards to oppose vehicle rotation.</p>
-            <div class="equation-block" aria-label="Roll dynamics and controller equations"><p><code>φ̇ = p</code></p><p><code>I<sub>roll</sub> ṗ = τ<sub>roll</sub></code></p><p><code>δ<sub>cmd</sub> = −K<sub>p</sub> p</code></p></div>
+            <div class="equation-block" aria-label="Roll dynamics and controller equations"><p><code> roll rate = p</code></p><p><code>I<sub>roll</sub> ṗ = τ<sub>roll</sub></code></p><p><code>δ<sub>cmd</sub> = −K<sub>p</sub> p</code></p></div>
             <p>The model uses a CAD-derived roll inertia of approximately 0.003096 kg·m², a proportional roll-rate controller with proportional gain K<sub>p</sub> = 0.03, ±15° canard command limits, and a rate-limited model of the selected servo. Roll angle, roll rate, and actual canard deflection are included as simulation states.</p>
             <p>The Corona DS-239MG is represented with a simplified rate limit based on its published 6 V speed of 0.14 s per 60°, or approximately 428.6 deg/s. Actual canard deflection is included as a simulation state rather than assuming the actuator moves instantaneously.</p>
 
