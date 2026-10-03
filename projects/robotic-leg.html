@@ -9,39 +9,84 @@
 
 <body>
     <main>
-    <section class="project-hero">
-    <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
-    <p class="eyebrow">ROBOTICS</p>
-    <h1>Robotic Leg</h1>
-    <p class="project-subtitle">Mechanical design, actuator integration, kinematics, and robotic control.</p>
-</section>
-        <p>
-            This project focused on the design, manufacturing, assembly, modeling, and control of a three-degree-of-freedom robotic leg. The project combined mechanical design, actuator integration, kinematic modeling, simulation, and control system development.
-        </p>
+        <section class="project-hero">
+            <p class="back-link"><a href="../index.html">← Back to Portfolio</a></p>
+            <p class="eyebrow">ROBOTICS</p>
+            <h1>3-DOF Robotic Leg</h1>
+            <p class="project-subtitle">Building, wiring, and controlling a three-joint robotic leg, then making the math match the hardware.</p>
+        </section>
 
-        <h2>What I Worked On</h2>
-        <ul>
-            <li>Performed structural and load analysis of robotic leg components.</li>
-            <li>Manufactured and assembled components using 3D printing and laser cutting.</li>
-            <li>Integrated and configured Dynamixel servo actuators.</li>
-            <li>Experimentally tuned PD controller gains.</li>
-            <li>Implemented forward kinematics models in Python.</li>
-            <li>Validated kinematic solutions using simulation and hardware.</li>
-            <li>Worked with PyBullet to visualize robotic motion.</li>
-        </ul>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This was the hands-on project for Gateway to Robotics (Fall 2025), worked on with my lab group. Over the semester we built a three-degree-of-freedom leg (hip, shoulder, elbow) driven by Dynamixel XL-320 servos, then wrote the kinematics to command it and connected it to a PyBullet simulation.
+            </p>
+            <p>
+                What I liked about it is that every step had a physical check. If the forward kinematics were wrong, the simulated foot and the real foot ended up in different places, and you could see it right away.
+            </p>
+            <div class="project-callout">
+                <h3>Engineering Goal</h3>
+                <p>
+                    Command a real three-joint leg to a desired foot position, using kinematics we derived and checked against both the simulation and the hardware.
+                </p>
+            </div>
+        </section>
 
-        <h2>Technical Highlights</h2>
-        <ul>
-            <li>Connected physical hardware development with mathematical robot modeling.</li>
-            <li>Applied kinematics concepts to predict end-effector position.</li>
-            <li>Investigated actuator performance through control gain tuning.</li>
-            <li>Compared simulation results against physical robot behavior.</li>
-        </ul>
+        <section>
+            <h2>Building the Leg</h2>
+            <p>
+                The links and robot base were 3D printed, and the motor mount was laser cut. Before assembly we worked through a static force and torque balance on each link (Newton's first and third laws across every contact) to see what the joints and fasteners would carry.
+            </p>
+            <p>
+                The three XL-320 servos were each given their own ID in Dynamixel Wizard 2.0 and daisy-chained through a U2D2 interface board, so one script could talk to the whole leg.
+            </p>
+        </section>
 
-        <h2>Tools Used</h2>
-        <p>
-            Python, PyBullet, robotics, forward kinematics, servo integration, PD control, 3D printing, laser cutting
-        </p>
+        <section>
+            <h2>Kinematics</h2>
+            <p>
+                <strong>Forward kinematics:</strong> I built the leg's position chain from rotation matrices and homogeneous transformation matrices, one per joint, to get the hip, shoulder, elbow, and foot positions from the three joint angles.
+            </p>
+            <p>
+                <strong>Inverse kinematics:</strong> going the other way has no tidy closed form for this leg, so we solved it numerically with Newton-Raphson. Each iteration builds the Jacobian by finite differences (nudging each joint angle by 10<sup>-4</sup> rad), takes a Newton step toward the target foot position, and stops once the error is under 0.01.
+            </p>
+            <p>
+                The same functions drove both the PyBullet model and the real servos, so the simulation acted as a check on the hardware and vice versa.
+            </p>
+        </section>
+
+        <section>
+            <h2>Control</h2>
+            <p>
+                Each joint ran PD position control on the servo. We tuned the gains experimentally on the hardware and compared the leg's response against the simulation.
+            </p>
+        </section>
+
+        <section>
+            <h2>What I Worked On</h2>
+            <ul>
+                <li>Fabricated and assembled the leg from 3D-printed links, a laser-cut motor mount, and Dynamixel XL-320 servos.</li>
+                <li>Worked through static force and torque analysis of the leg links.</li>
+                <li>Implemented forward kinematics with homogeneous transformations in Python.</li>
+                <li>Implemented inverse kinematics with Newton-Raphson and a finite-difference Jacobian.</li>
+                <li>Integrated the hardware with PyBullet for two-way simulation control.</li>
+                <li>Tuned PD gains experimentally and compared the response against the simulation.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tools Used</h2>
+            <p>
+                Python, NumPy, PyBullet, Dynamixel Wizard 2.0, U2D2, 3D printing, laser cutting, PD control, forward and inverse kinematics
+            </p>
+        </section>
+
+        <section>
+            <h2>Engineering Takeaways</h2>
+            <p>
+                The biggest lesson was how quickly modeling errors show up on real hardware: a mistake in a transform looks fine on paper, but the foot ends up somewhere else. Checking the math against both the simulation and the physical leg made problems easier to find than trusting either one alone.
+            </p>
+        </section>
     </main>
 </body>
 </html>
