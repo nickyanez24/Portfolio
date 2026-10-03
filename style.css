@@ -620,3 +620,82 @@ section,
         padding: 9px 11px;
     }
 }
+
+/* ===== Roll control page (actuating-fins.html) ===== */
+.rc-hero .eyebrow { margin-bottom: 4px; }
+.rc-status {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: 18px 0 0; padding: 8px 14px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08); color: #eee; font-size: 0.92rem;
+}
+.rc-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange-light); box-shadow: 0 0 0 4px rgba(255, 179, 122, 0.2); flex: none; }
+.rc-specs {
+    display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1px;
+    margin: 30px 0 0; background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px; overflow: hidden;
+}
+.rc-specs div { background: rgba(17, 24, 39, 0.85); padding: 14px 16px; }
+.rc-specs dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.2px; color: #aaa; }
+.rc-specs dd { margin: 4px 0 0; font-size: 1.25rem; font-weight: bold; color: white; }
+
+.rc-overview { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; align-items: start; }
+.rc-overview h2 { margin-top: 0; }
+.rc-role { background: var(--card-bg); border-left: 4px solid var(--burnt-orange); border-radius: 12px; padding: 4px 22px 10px; }
+.rc-role h3 { color: var(--burnt-orange); margin: 16px 0 6px; }
+.rc-role ul { padding-left: 18px; margin: 0 0 8px; }
+.rc-role li { margin-bottom: 6px; }
+
+.rc-feature { display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: start; margin-top: 26px; }
+.rc-feature-images { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.rc-feature-images figure, .rc-two-col figure, .rc-thumbs figure { margin: 0; }
+.rc-feature-images .project-image { background: white; aspect-ratio: 3 / 4; object-fit: contain; padding: 8px; }
+.rc-feature-text p:first-child { margin-top: 0; }
+.rc-points { padding-left: 18px; }
+.rc-points li { margin-bottom: 8px; }
+
+.rc-timeline { list-style: none; padding: 0; margin: 26px 0 0; border-left: 2px solid var(--border); }
+.rc-timeline > li { position: relative; padding: 0 0 30px 28px; }
+.rc-timeline > li::before {
+    content: ""; position: absolute; left: -8px; top: 4px; width: 14px; height: 14px;
+    border-radius: 50%; background: var(--light-bg); border: 3px solid var(--burnt-orange);
+}
+.rc-timeline > li:last-child { padding-bottom: 0; }
+.rc-timeline > li:last-child::before { background: var(--burnt-orange); }
+.rc-step-label { font-weight: bold; color: var(--burnt-orange); margin-bottom: 10px; }
+.rc-step { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: start; }
+.rc-step > .project-image { max-height: 240px; object-fit: cover; background: white; }
+.rc-step p { margin-top: 0; }
+.rc-step-text-only { display: block; }
+.rc-thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0 0 224px; }
+.rc-thumbs .project-image { aspect-ratio: 4 / 3; object-fit: contain; background: white; box-shadow: none; }
+.rc-thumbs figcaption { font-size: 0.82rem; color: var(--muted); text-align: center; margin-top: 6px; }
+
+.rc-note { background: #f3f4f6; border-radius: 10px; padding: 10px 14px; font-size: 0.92rem; color: var(--muted); }
+.rc-h3 { font-size: 1.25rem; margin: 36px 0 8px; }
+.rc-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; margin: 22px 0; }
+.rc-two-col .equation-block { margin: 0; }
+.rc-sim { align-items: start; }
+.rc-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 10px 0 16px; }
+.rc-results div { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+.rc-big { display: block; font-size: 1.45rem; font-weight: bold; color: var(--burnt-orange); }
+.rc-results span:not(.rc-big) { font-size: 0.88rem; color: var(--muted); }
+.rc-details { border: 1px solid var(--border); border-radius: 12px; padding: 10px 18px; background: white; }
+.rc-details summary { cursor: pointer; font-weight: bold; color: var(--burnt-orange); }
+.rc-details[open] summary { margin-bottom: 8px; }
+.rc-details p { font-size: 0.92rem; color: var(--muted); }
+.rc-scope { font-size: 0.92rem; color: var(--muted); }
+.rc-next { padding-left: 22px; }
+.rc-next li { margin-bottom: 12px; padding-left: 4px; }
+
+@media (max-width: 860px) {
+    .rc-specs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .rc-overview, .rc-feature, .rc-two-col { grid-template-columns: 1fr; }
+    .rc-step { grid-template-columns: 1fr; }
+    .rc-step > .project-image { max-width: 260px; }
+    .rc-thumbs { margin-left: 0; }
+    .rc-results { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .rc-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .rc-feature-images { gap: 10px; }
+}
