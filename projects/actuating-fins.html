@@ -17,9 +17,9 @@
             <dl class="rc-specs">
                 <div><dt>Team</dt><dd>6 members</dd></div>
                 <div><dt>Diameter</dt><dd>3.1 in</dd></div>
-                <div><dt>Length</dt><dd>30.25 in</dd></div>
-                <div><dt>Stability</dt><dd>1.22 cal</dd></div>
-                <div><dt>Apogee (F67)</dt><dd>~610 ft</dd></div>
+                <div><dt>Length</dt><dd>31.25 in</dd></div>
+                <div><dt>Stability</dt><dd>1.16 cal</dd></div>
+                <div><dt>Apogee (F67)</dt><dd>~776 ft</dd></div>
                 <div><dt>Control</dt><dd>4 canards</dd></div>
             </dl>
         </section>
@@ -69,8 +69,8 @@
             </div>
 
             <figure class="single-image analysis-wide-image">
-                <img class="project-image" src="images/actuating_fins/v11_openrocket_canard102.png" alt="OpenRocket model of the Version 11 vehicle showing 1.22 caliber stability, 610 ft apogee and 203 ft/s max velocity">
-                <figcaption class="image-caption">OpenRocket baseline (canard102): 3.1 in × 30.25 in, about 35.2 oz loaded, 1.22 cal stability, ~203 ft/s max velocity and ~610 ft apogee on an F67-6.</figcaption>
+                <img class="project-image" src="images/actuating_fins/v11_openrocket_canard102.png" alt="OpenRocket model of the Version 11 vehicle showing 1.16 caliber stability, CG 16.50 in and CP 20.10 in">
+                <figcaption class="image-caption">OpenRocket baseline (canard102), matched to the Fusion model: 3.1 in × 31.25 in, 26.8 oz loaded, 1.16 cal stability. On an F67-6 from an Austin-area site it reaches about 266 ft/s and 776 ft.</figcaption>
             </figure>
         </section>
 
@@ -197,7 +197,7 @@
             <h2>Next steps</h2>
             <ol class="rc-next">
                 <li><strong>Ground tests on printed V11 hardware</strong> (no flight electronics needed): full ±15° actuation sweep with a servo tester, a 3× static load and backlash check on a canard, and a pendulum test to measure the real roll inertia.</li>
-                <li><strong>Re-check the servo pivot</strong> location on the canard root relative to the aerodynamic center before locking canard size, since it sets how much hinge torque the servo has to fight.</li>
+                <li><strong>Move the servo pivot.</strong> The servo shaft sits 1.30 in behind the canard root leading edge, but the canard&rsquo;s aerodynamic center is about 0.77 in back, so the air load pushes the canard away from neutral. Moving the shaft to about 0.70 in cuts the design hinge torque roughly 7&times; (servo margin goes from about 1.9&times; to 14&times;).</li>
                 <li><strong>Work with the controls team</strong> on the flight computer and run closed-loop bench tests with the IMU.</li>
                 <li><strong>Fly the first subscale flights</strong> and compare the real vehicle against the MATLAB model.</li>
             </ol>
